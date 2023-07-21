@@ -1,0 +1,68 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap");
+
+*
+{
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: "Inter", sans-serif;
+}
+
+:root
+{
+    --primary: #131086;
+    --scondary: #B621F3;
+    --textcolor: #F72585;
+}
+
+code
+{
+    color: var(--textcolor);
+}
+
+/* Responsive */
+@media (max-width: 1350px) {
+    .login-left {
+        padding: 50px !important;
+    }
+
+    .login-form {
+        width: 100%;
+    }
+
+    .social-links
+    {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+}
+@media (max-width: 768px) {
+    body {
+        padding: 0;
+    }
+
+    .container{
+        grid-template-columns: auto;
+    }
+
+    .login-left
+    {
+        border-radius: 10px 10px 10px 10px;
+    }
+
+    .login-right{
+        display: none;
+    }
+}
+
+
+
+
+
+
+

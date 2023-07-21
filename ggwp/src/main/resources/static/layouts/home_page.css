@@ -1,0 +1,319 @@
+.home_content .image-scroll-view{
+    /*border: 1px solid red;*/
+    /*background: url("https://assets.nintendo.com/image/upload/v1681238674/Microsites/zelda-tears-of-the-kingdom/videos/posters/totk_microsite_officialtrailer3_1304xj47am");*/
+    background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_TloZTearsOfTheKingdom_Gamepage.jpg");
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    left: 50px;
+    width: 1300px;
+    height: 400px;
+}
+
+.home_content .post-field{
+    width: 900px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    border-radius: 30px;
+    left: 50px;
+    margin-top: 430px;
+    background: white;
+}
+
+.home_content .post-field img{
+    margin-left: 5px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background: #5c636a;
+}
+
+.home_content .post-field .emoji-field{
+    margin-left: 5px;
+    margin-bottom: 13px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    justify-content: center;
+    font-size: 50px;
+    display: flex;
+    transition: all 0.1s ease-in;
+}
+
+#emoji-picker{
+    position: absolute;
+    background: white;
+    margin-top: 530px;
+    border-radius: 12px;
+    left: 30px;
+    width: 400px;
+    height: 450px;
+    box-shadow: 0 6px 20px 0 rgba(0,0,0,0.37);
+
+    z-index: 999;
+}
+
+.hidden{
+    display: none;
+}
+
+.home_content .post-field .emoji-field:hover{
+    cursor: pointer;
+    transform: scale(1.1);
+}
+
+.home_content .post-field .emoji-field:active{
+    transform: scale(0.9);
+}
+
+.home_content .post-field input{
+    width: 100%;
+    height: 100%;
+    padding: 0 20px 0 10px;
+    font-size: 20px;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+}
+
+.home_content .post-field button{
+    width: 75px;
+    height: 60px;
+    border-radius: 30px;
+    background: #87c1fa;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
+    transition: all 0.5s ease;
+}
+
+.home_content .post-field button:hover{
+    background: #0d6efd;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.37);
+    width: 150px;
+    cursor: pointer;
+}
+
+.home_content .users-post{
+    border-radius: 15px;
+    background: white;
+    position: absolute;
+    left: 50px;
+    width: 900px;
+    height: fit-content;
+    margin-top: 520px;
+    padding: 20px;
+}
+
+.home_content .users-post ul li{
+    list-style: none;
+}
+
+.home_content .users-post ul li a{
+    text-decoration: none;
+    color: #87c1fa;
+    animation: all 0.5s ease;
+}
+
+/*.home_content .users-post ul li a:hover{*/
+/*    color: #0d6efd;*/
+/*    text-decoration: underline;*/
+/*}*/
+
+.home_content .users-post ul li a:active{
+    color: #87c1fa;
+}
+
+.users-post ul li .divider{
+    margin: 20px 0 20px 0;
+    border: 1px solid lightsteelblue;
+    opacity: 0.3;
+    border-radius: 5px;
+}
+
+.home_content .trend-games{
+    /*border: 1px solid red;*/
+    background-color: white;
+    position: absolute;
+    border-radius: 15px;
+    padding: 15px;
+    width: 370px;
+    height: 260px;
+    left: 980px;
+    margin-top: 430px;
+}
+
+.home_content .top-tutors{
+    background: white;
+    position: absolute;
+    border-radius: 15px;
+    width: 370px;
+    height: fit-content;
+    left: 980px;
+    margin-top: 725px;
+}
+
+.users-post .game-field{
+    width: fit-content;
+    padding: 3px 10px;
+    border-radius: 15px;
+    /*background: rgba(211,211,211,0.8);*/
+    /*background: linear-gradient(45deg, #ee7752, #e73c7e);*/
+    background: linear-gradient(45deg, #ff6b6b, #6b6bff);
+    color: white;
+}
+
+.users-post .post-timestamp{
+    color: #babbbc;
+}
+
+.users-post .user-avatar-field .profile-pic{
+    /*border: 1px solid red;*/
+    margin-top: 10px;
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 60px;
+    background: lightgray 50% / cover no-repeat;
+    animation: all 0.5s ease;
+}
+
+.users-post .user-avatar-field{
+    /*border: 1px solid red;*/
+    width: fit-content;
+}
+
+/* underline animation */
+
+.users-post .user-avatar-field .profile-pic:hover{
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.37);
+}
+
+/*.users-post .user-avatar-field .username a::after{*/
+/*    content: '';*/
+/*    position: absolute;*/
+/*    left: 0;*/
+/*    bottom: 0;*/
+/*    width: 0;*/
+/*    height: 3px;*/
+/*    border-radius: 5px;*/
+/*    background-color: #0d6efd;*/
+/*    transition: width 0.3s ease; !* 设置过渡效果 *!*/
+/*}*/
+
+/*.users-post .user-avatar-field .username a:hover::after{*/
+/*    width: calc(100% - 27px);*/
+/*}*/
+
+.users-post .user-avatar-field .username a:hover{
+    background: linear-gradient(45deg, #ff6b6b, #6b6bff);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.users-post .user-avatar-field .username{
+    position: relative;
+    float: right;
+    margin-top: 23px;
+    margin-left: 10px;
+    font-size: 21px;
+}
+
+.users-post .user-avatar-field .username span{
+    color: #babbbc;
+}
+
+#vip-logo {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    position: absolute;
+}
+
+.users-post .post-content{
+    margin-left: 70px;
+    margin-right: 20px;
+    margin-bottom: 30px;
+}
+
+.users-post .post-content p{
+    white-space: normal;
+}
+
+
+.home_content .trend-games ul li {
+    list-style: none;
+    margin: 18px 0;
+    color: #0d6efd;
+    font-weight: bold;
+}
+
+.home_content .trend-games ul li a{
+    margin: 0 30px;
+    text-decoration: none;
+    color: black;
+    font-weight: normal;
+}
+
+
+.home_content .trend-games ul li span{
+    position: relative;
+    float: right;
+    font-weight: normal;
+    color: #babbbc;
+}
+
+.home_content .top-tutors {
+    padding: 15px;
+}
+
+.home_content .top-tutors ul li{
+    list-style: none;
+    margin: 7px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    float: left;
+}
+
+.home_content .top-tutors ul li img{
+    width: 45px;
+    height: 45px;
+    border-radius: 45px;
+}
+
+.home_content .top-tutors ul li a{
+    text-decoration: none;
+    color: black;
+    margin-left: 10px;
+}
+
+.home_content .top-tutors ul li span{
+    width: 200px;
+    color: #babbbc;
+}
+
+.home_content .card-title{
+    font-size: 25px;
+    margin-bottom: 15px;
+}
+
+.home_content .card-title span{
+    width: 10px;
+    height: 25px;
+    margin-right: 15px;
+    border-radius: 5px;
+    color: #0d6efd;
+    background: #0d6efd;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="layouts/defaultLayout"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GG.WP - Home</title>
+</head>
+<body>
+    <div class="home_content content" layout:fragment="content">
+        <div class="image-scroll-view">
+
+        </div>
+        
+        <div class="post-field">
+            <div class="emoji-field" onmouseover="changeEmoji(this)" onclick="openSelector(this)">
+                &#x1F642;
+            </div>
+
+            <div id="emoji-picker" class="emoji-container hidden"></div>
+
+            <input id="emoji-input" type="text" placeholder="What's in your mind?">
+            <button type="submit">GG!</button>
+        </div>
+
+        <div class="users-post">
+            <ul>
+                <li>
+                    <div class="game-field">/leagueoflegends</div>
+                    <div class="user-avatar-field">
+                        <img class="profile-pic" src="https://pbs.twimg.com/media/EzgbTeFWEAQemmR.jpg" alt="">
+                        <div class="username">
+                            <a href="#">@hideonbush</a><span>/gg</span>
+                            <img id="vip-logo" src="/img/vip.png" alt="">
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            Looking for a player who can play top or jungle lane. Our average rank is platinum!!! Add me as soon as possible!!! 😎
+                        </p>
+                    </div>
+                    <div class="post-bottom">
+                        <div class="post-timestamp">posted on <span>20 June, 2023</span></div>
+                    </div>
+                    <div class="divider">
+
+                    </div>
+                </li>
+
+                <li>
+                    <div class="game-field">/apex</div>
+                    <div class="user-avatar-field">
+                        <img class="profile-pic" src="https://i.pinimg.com/originals/9d/8a/be/9d8abe0cf01d469d3b546f7b2f2cf17e.jpg" alt="">
+                        <div class="username"><a href="#">@aceu</a><span>/wp</span></div>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            My stream on twitch started!!! Please go follow me!
+                        </p>
+                    </div>
+                    <div class="post-bottom">
+                        <div class="post-timestamp">posted on <span>19 June, 2023</span></div>
+                    </div>
+                </li>
+            </ul>
+
+        </div>
+
+        <div class="trend-games">
+            <div class="card-title"><span>.</span>Trend</div>
+            <div class="list game-list">
+                <ul>
+                    <li>1<a href="#">Diablo 4</a><span>150k</span></li>
+                    <li>2<a href="#">League of Legends</a><span>130k</span></li>
+                    <li>3<a href="#">Valorant</a><span>100k</span></li>
+                    <li>4<a href="#">Starfield</a><span>90k</span></li>
+                    <li>5<a href="#">Super Mario</a><span>70k</span></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="top-tutors">
+            <div class="card-title"><span>.</span>Top Tutors</div>
+            <div class="list tutor-list">
+                <ul>
+                    <li><img src="https://i.pinimg.com/originals/57/3f/22/573f22a1aa17b366f5489745dc4704e1.jpg" alt=""><a href="">@hideonbush</a><span>/leagueoflegends</span></li>
+                </ul>
+                <ul>
+                    <li><img src="https://moodoffdp.com/wp-content/uploads/2023/04/Sad-Anime-Boy-DP-for-Whatsapp-1024x1024.jpg" alt=""><a href="">@sasukekkkkk</a><span>/apex</span></li>
+                </ul>
+                <ul>
+                    <li><img src="https://qph.cf2.quoracdn.net/main-qimg-89380dcfb5e239d42d8ee3475bedcd36-lq" alt=""><a href="">@aceu</a><span>/apex</span></li>
+                </ul>
+                <ul>
+                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbHqWUGUHHvKEHyzwWc7lY1Lf_-ruzCoErPA&usqp=CAU" alt=""><a href="">@uzi</a><span>/leagueoflegends</span></li>
+                </ul>
+                <ul>
+                    <li><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSahZ-4AZj4OSBpo_8Lwd5NaO7f8-2HgSJaHg&usqp=CAU" alt=""><a href="">@shr0nd</a><span>/pubg</span></li>
+                </ul>
+                <ul>
+                    <li><img src="https://static-cdn.jtvnw.net/jtv_user_pictures/ebe5b794-5b70-4134-bddd-c738d96943cd-profile_image-300x300.jpg" alt=""><a href="">@johndoe</a><span>/cs:go</span></li>
+                </ul>
+                <ul>
+                    <li><img src="https://play-lh.googleusercontent.com/7Ac5TgaL15Ra4bvFVHJKCdJp4qvnL4djZj5bKc6RN-MZjzrvkeHbJytek0NPTSdZcp8" alt=""><a href="">@s1mple</a><span>/cs:go</span></li>
+                </ul>
+                <ul>
+                    <li><img src="https://www.gamepur.com/wp-content/uploads/wp-content/uploads/2022/06/01082417/Saitama-5.jpg" alt=""><a href="">@naruto</a><span>/dota2</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

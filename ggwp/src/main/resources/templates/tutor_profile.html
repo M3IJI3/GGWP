@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en" layout:decorate="layouts/defaultLayout"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>tutorProfile</title>
+   
+  </head>
+  <body>
+  <div class="home_content content" layout:fragment="content" >
+    <div class="container-profile" >
+      <div class="profile-card">
+        <div class="row-1">
+          <img src="/img/background.jpg" class="cover-pic" alt="">
+        </div>
+        <div class="row-2">
+          <div class="col-1">
+            <img src="/img/logo.png" class="profile-pic">
+            <div class="green_dot"></div>
+            <div class="user">Hideonbush</div>
+          </div>
+          <div class="col-2">
+            <div class="col-2-1">Steam: <span><a href="#">Hideonbush</a></span></div>
+            <div class="col-2-1">Xbox: <span><a href="#">Hideonbush</a></span></div>
+            <div class="col-2-1">Playstation: <span><a href="#">Hideonbush</a></span></div>
+            <div class="col-2-1">Discord: <span><a href="#">Hideonbush</a></span></div>
+          </div>
+          <div class="col-3">
+            <img src="/img//heart.png" class="heart">
+          </div>
+        </div>
+        <div class="tab_box">
+          <button class="tab_btn active">Likes</button>
+          <button class="tab_btn">Comments</button>
+          <button class="tab_btn">Repo</button>
+          <button class="tab_btn">User Comments</button>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="container-content">
+      <div class="content-box">
+        <div class="tab_content active">
+          <div class="likes">
+            <div class="post_date">posted on 20 June, 2023</div>
+            <div class="gameTitle">/leagueoflegends</div>
+            <div class="user_comment_imgBox">
+              <img src="/img/player1.jpg" class="user_comment_img">
+              <div class="user_comment_acc">@uchiha_sasuki</div>
+              <div class="gg_wp">/gg</div>
+            </div>
+            <div class="user_comment_comment">Looking for a player who can play top or jungle lane. Our average rank is platinum!!! Add me as soon as possible!!! 😎</div>
+            <div class="showpassword">
+              <img src="/img/showpassword.png" class="password_icon" >
+              <div class="password_num">3k</div>
+            </div>
+            <div class="bottom_right">
+              <img src="/img/heart2.png" class="like_icon" >
+              <div class="like_num">341</div>
+              <img src="/img/message.png" class="message_icon" >
+              <div class="message_num">52</div>
+              <img src="/img/share.png" class="share_icon" >
+              <div class="share_num">14</div>
+            </div>
+          </div>
+          <div class="likes">
+            <div class="post_date">posted on 19 June, 2023</div>
+            <div class="gameTitle">/apex</div>
+            <div class="user_comment_imgBox">
+              <img src="/img/player2.jpg" class="user_comment_img">
+              <div class="user_comment_acc">@aceu</div>
+              <div class="gg_wp">/wp</div>
+            </div>
+            <div class="user_comment_comment">My stream on Twitch started! Please go follow me!! (●'◡'●)</div>
+            <div class="showpassword">
+              <img src="/img/showpassword.png" class="password_icon" >
+              <div class="password_num">101k</div>
+            </div>
+            <div class="bottom_right">
+              <img src="/img/heart2.png" class="like_icon" >
+              <div class="like_num">912</div>
+              <img src="/img/message.png" class="message_icon" >
+              <div class="message_num">89</div>
+              <img src="/img/share.png" class="share_icon" >
+              <div class="share_num">56</div>
+            </div>
+          </div>
+        </div>
+        <!--tab-content-->
+        <div class="tab_content">
+          <h2>Comments</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit assumenda similique praesentium neque, porro officiis quisquam id. Est quisquam quasi maxime exercitationem velit enim nisi, odio eveniet blanditiis necessitatibus quaerat.
+          </p>
+        </div>
+        <div class="tab_content">
+          <h2>Repo</h2>
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit assumenda similique praesentium neque, porro officiis quisquam id. Est quisquam quasi maxime exercitationem velit enim nisi, odio eveniet blanditiis necessitatibus quaerat.
+          </p>
+        </div>
+        <div class="tab_content">
+          <div class="user_comment">
+            <div class="post_date">posted on 20 June, 2023</div>
+            <div class="user_comment_imgBox">
+              <img src="/img/player1.jpg" class="user_comment_img">
+              <div class="user_comment_acc">@ZERO</div>
+            </div>
+            <div class="user_comment_comment">He is really a patient tutor I have ever met.</div>
+          </div>
+          <div class="user_comment">
+            <div class="post_date">posted on 19 June, 2023</div>
+            <div class="user_comment_imgBox">
+              <img src="/img/player2.jpg" class="user_comment_img">
+              <div class="user_comment_acc">@pikachu_</div>
+            </div>
+            <div class="user_comment_comment">HE IS A PRO!!! (●'◡'●)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!--    <script>-->
+<!--      const tabs = document.querySelectorAll('.tab_btn');-->
+<!--      const all_content = document.querySelectorAll('.content');-->
+
+<!--      tabs.forEach((tab, index) => {-->
+<!--        tab.addEventListener('click', (e) => {-->
+<!--          tabs.forEach(tab => tab.classList.remove('active'));-->
+<!--          tab.classList.add('active');-->
+
+<!--          var line = document.querySelector('.line');-->
+<!--          line.style.width = e.target.offsetWidth + "px";-->
+<!--          line.style.left = e.target.offsetLeft + "px";-->
+
+<!--          all_content.forEach(content => content.classList.remove('active'))-->
+<!--          all_content[index].classList.add('active');-->
+<!--        })-->
+<!--      })-->
+<!--    </script>-->
+  </body>
+</html>

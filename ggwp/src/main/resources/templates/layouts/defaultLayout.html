@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html decorate="layout/defaultLayout" lang="en"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+<!--    <link rel="icon" type="image/png" href="/img/ggwp-logo.png" sizes="64x64">-->
+    <link rel="icon" type="image/png" href="/img/ggwp-logo.png">
+
+    <!-- box icon library -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
+
+    <!-- emoji picker library -->
+    <script src="https://cdn.jsdelivr.net/npm/picmo@latest/dist/umd/index.js"></script>
+
+    <!-- local css files -->
+    <link rel="stylesheet" href="/layouts/common_style.css">
+    <link rel="stylesheet" href="/layouts/home_page.css">
+    <link rel="stylesheet" href="/layouts/personal_profile.css">
+    <link rel="stylesheet" href="/layouts/tutor_profile.css">
+    <link rel="stylesheet" href="/layouts/library.css">
+</head>
+<body>
+    <div class="header" th:replace="layouts/commonHeader :: header">
+        My header will go here.
+    </div>
+
+    <div class="sidebar" th:replace="layouts/commonSide :: side">
+        My sidebar will go here.
+    </div>
+
+    <div layout:fragment="content">
+        <p>Replace this with a page that has layout:fragment="content"</p>
+    </div>
+
+    <script>
+        let btn = document.querySelector("#btn");
+        let sidebar = document.querySelector(".sidebar");
+        let searchBtn = document.querySelector(".bx-search");
+
+        btn.onclick = function(){
+            sidebar.classList.toggle("active");
+        }
+
+        searchBtn.onclick = function(){
+            sidebar.classList.toggle("active");
+        }
+    </script>
+
+    <script>
+        const tabs = document.querySelectorAll('.tab_btn');
+        const all_content = document.querySelectorAll('.tab_content');
+
+        tabs.forEach((tab, index) => {
+            tab.addEventListener('click', (e) => {
+                tabs.forEach(tab => tab.classList.remove('active'));
+                tab.classList.add('active');
+
+                var line = document.querySelector('.line');
+                line.style.width = e.target.offsetWidth + "px";
+                line.style.left = e.target.offsetLeft + "px";
+
+                all_content.forEach(content => content.classList.remove('active'))
+                all_content[index].classList.add('active');
+            })
+        })
+    </script>
+    <script src="/home_page.js"></script>
+    <script src="/home_emoji_picker.js"></script>
+</body>
+</html>

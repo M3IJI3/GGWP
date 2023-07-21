@@ -1,0 +1,82 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  /*background: linear-gradient(*/
+  /*    189deg,*/
+  /*    rgba(35, 213, 171, 0.2) 0%,*/
+  /*    rgba(35, 213, 171, 0) 100%*/
+  /*  ),*/
+  /*  linear-gradient(*/
+  /*    123deg,*/
+  /*    rgba(255, 0, 79, 0.2) 0%,*/
+  /*    rgba(231, 60, 113, 0) 100%*/
+  /*  ),*/
+  /*  linear-gradient(*/
+  /*    28deg,*/
+  /*    rgba(238, 119, 82, 0.2) 0%,*/
+  /*    rgba(238, 119, 82, 0) 100%*/
+  /*  ),*/
+  /*  linear-gradient(180deg, #00bcff 0%, rgba(35, 166, 213, 0) 100%);*/
+  /*backdrop-filter: blur(2px);*/
+}
+
+.container {
+  /*margin: 100px 0 0 50px;*/
+  padding: 0 50px 0 50px;
+  display: grid;
+  gap: 30px;
+  position: absolute;
+
+}
+
+.game-card {
+  border-radius: 10px;
+  max-height: 500px; /* Adjust the height as needed */
+  /* margin: 30px; */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease-out;
+}
+
+.game-card:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.game-cover {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Small screens */
+@media screen and (max-width: 767px) {
+  /* CSS styles for small screens */
+  .container {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+
+  .game-card {
+    max-height: 420px;
+  }
+}
+
+/* Medium screens */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* CSS styles for medium screens */
+  .container {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+
+/* Large screens */
+@media screen and (min-width: 992px) {
+  /* CSS styles for large screens */
+  .container {
+    grid-template-columns: repeat(4, minmax(200px, 1fr));
+  }
+}

@@ -1,0 +1,294 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;600&display=swap");
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", sans-serif;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-image: url("../img/bj2.png");
+    background-repeat: repeat;
+    background-position: center;
+    font-family: "Inter", sans-serif;
+}
+
+.sidebar{
+    position: fixed;
+    height: 100%;
+    width: 78px;
+    top: 0;
+    left: 0;
+    background: white;
+    /*background: linear-gradient(135deg, rgb(255,255,255,0.1), rgba(255,255,255,0));*/
+    /*backdrop-filter: blur(10px);*/
+    /*-webkit-backdrop-filter: blur(10px);*/
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.37);
+    padding: 6px 14px;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active{
+    width: 240px;
+}
+
+.sidebar .logo_content .logo{
+    color: #000;
+    margin-top: 60px;
+    display: flex;
+    height: 50px;
+    width: 100%;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.sidebar .logo_content .bx-menu{
+    margin-top: 60px;
+}
+
+.sidebar.active .logo_content .logo{
+    opacity: 1;
+}
+
+.logo_content .logo i{
+    font-size: 28px;
+    margin-right: 5px;
+}
+.logo_content .logo .logo_name{
+    font-size: 20px;
+    font-weight: 400;
+}
+.sidebar #btn{
+    position: absolute;
+    color: #000000;
+    top: 6px;
+    left: 50%;
+    font-size: 20px;
+    height: 50px;
+    width: 50px;
+    text-align: center;
+    line-height: 50px;
+    transform: translate(-50%);
+}
+
+.sidebar.active #btn{
+    left: 90%;
+}
+
+.sidebar ul{
+    margin-top: 20px;
+}
+
+.sidebar ul li{
+    position: relative;
+    height: 50px;
+    width: 100%;
+    margin: 0 5px 0 0;
+    list-style: none;
+    line-height: 30px;
+}
+
+.sidebar ul li a{
+    color: #000000;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border-radius: 35px;
+    white-space: nowrap;
+
+}
+
+.sidebar ul li a:hover{
+    background: #eeeeee;
+    background-size: 200% 200%;
+}
+
+.sidebar ul li i{
+    height: 50px;
+    min-width: 50px;
+    border-radius: 12px;
+    line-height: 50px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.sidebar .links_name{
+    opacity: 0;
+    font-size: 20px;
+    pointer-events: none;
+}
+
+.sidebar.active .links_name{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar .profile_content{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.sidebar .profile_content .profile{
+    position: relative;
+    padding: 10px 6px;
+    height: 60px;
+}
+.profile{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.profile_content .profile .profile_details{
+    display: flex;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    white-space: nowrap;
+}
+
+.sidebar.active .profile .profile_details{
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.profile .profile_details img{
+    height: 45px;
+    width: 45px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.profile .profile_details .name_job{
+    margin-left: 10px;
+}
+
+.profile .profile_details .name{
+    font-size: 17px;
+    font-weight: 400;
+    margin-bottom: 5px;
+
+}
+
+.profile .profile_details .job{
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.profile #log_out{
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    transform: translateX(-50%);
+    min-width: 50px;
+    line-height: 50px;
+    font-size: 20px;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.sidebar.active .profile #log_out{
+    left: 88%;
+}
+
+/*.home_content{*/
+/*    border: 1px solid rebeccapurple;*/
+/*    position: absolute;*/
+/*    height: 100%;*/
+/*    margin-left: 20px;*/
+/*    width: calc(100% - 78px);*/
+/*    left: 78px;*/
+/*    transition: all 0.5s ease;*/
+/*}*/
+
+.content{
+    position: absolute;
+    margin-top: 110px;
+    left: 100px;
+    width: calc(100% - 100px);
+    height: 100%;
+    max-height: 100%;
+    white-space: nowrap;
+    transition: all 0.5s ease;
+}
+
+.sidebar.active ~ .home_content{
+    width: calc(100% - 260px);
+    /*width: 80%;*/
+    /*margin-left: 20px;*/
+    left: 260px;
+}
+
+.home_content .text{
+    font-size: 25px;
+    font-weight: 500;
+    color: #1d1b31;
+    margin-top: 12px;
+}
+
+/* header */
+.header{
+    width: 100%;
+    height: 60px;
+    /*background: linear-gradient(-60deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);*/
+    /*background: linear-gradient(135deg, rgb(255,255,255,0.1), rgba(255,255,255,0));*/
+    background: linear-gradient(135deg, rgba(0, 94, 255, 0.2), rgba(255, 165, 0, 0.1));
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(15px);
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.37);
+
+    background-size: 400% 400%;
+    position: fixed;
+    z-index: 999;
+    animation: gradient 30s ease infinite;
+}
+
+.header img{
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    float: left;
+    left: 13px;
+    top: 5px;
+}
+
+.header .search-bar{
+    position: relative;
+}
+
+.header .search-bar input{
+    margin-top: 9px;
+    margin-left: 50%;
+
+    padding: 10px 10px 10px 40px;
+    /*padding-right: 40px;*/
+    border-radius: 25px;
+    font-size: 20px;
+
+    border: none;
+    outline: none;
+    background: #eeeeee;
+
+    transition: all 0.5s ease;
+}
+
+.header .search-bar input:focus{
+    background: white;
+    padding-right: 100px;
+}
+
+.header .search-bar i{
+    position: absolute;
+    margin-left: 50%;
+    left: 10px;
+    font-size: 27px;
+    color: #6c757d;
+    top: 31px;
+    transform: translateY(-50%);
+}
