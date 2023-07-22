@@ -116,10 +116,10 @@
   position: relative;
 }
 
-.line{
+.line2{
   position: absolute;
   top: 30px;
-  left: 28px;
+  left: 62px;
   width: 36px;
   height: 5px;
   background-color: #0f4c81;
@@ -157,7 +157,7 @@
   border-radius: 15px;
 }
 
-.content-box .content{
+.content-box .tab_content{
   display: none;
   animation: moving .5s ease;
 }

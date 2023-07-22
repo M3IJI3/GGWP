@@ -27,9 +27,6 @@ public class UserController {
         return "register";
     }
 
-    @GetMapping(path = "/home")
-    public String HomePage(Model model) { return "/home"; }
-
     @GetMapping(path = "/user")
     public String PersonalPage(Model model) {return "/personal_profile" ;}
 
@@ -39,5 +36,13 @@ public class UserController {
     @RequestMapping("/library")
     public String LibraryPage(){
         return "library";
+    }
+
+//    @GetMapping(path = "/home")
+//    public String HomePage(Model model) { return "/home"; }
+
+    @RequestMapping("/home")
+    public String HomePage(){
+        return "home";
     }
 }
