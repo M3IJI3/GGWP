@@ -159,11 +159,15 @@
 
 .users-post .game-field{
     width: fit-content;
-    padding: 3px 10px;
-    border-radius: 15px;
+    height: auto;
+    padding: 4px 14px;
+    border-radius: 20px;
     /*background: rgba(211,211,211,0.8);*/
     /*background: linear-gradient(45deg, #ee7752, #e73c7e);*/
-    background: linear-gradient(45deg, #ff6b6b, #6b6bff);
+    /*background: linear-gradient(45deg, #ff6b6b, #6b6bff);*/
+    /*background-color: #87c1fa;*/
+    background-color: lightsteelblue;
+    font-size: 15px;
     color: white;
 }
 

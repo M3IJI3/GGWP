@@ -15,7 +15,7 @@
   justify-content: center;
 }
 
-.profile-card{
+.user-profile-card{
   width: 90%;
   max-width: 800px;
   height: 350px;
@@ -59,7 +59,7 @@
 .add_bio a{
   text-decoration: none;
 }
-.profile-pic{
+.user-profile-pic{
   width: 140px;
   height: 140px;
   border: 5px solid white;
