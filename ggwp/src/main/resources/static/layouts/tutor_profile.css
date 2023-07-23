@@ -10,10 +10,11 @@
 .container-profile{
   width: 100%;
   /*height: 100%;*/
-  min-height: 40vh;
+  min-height: inherit;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
+  margin-bottom: 1rem;
 }
 
 .profile-card{
@@ -112,7 +113,7 @@
 .line{
   position: absolute;
   top: 30px;
-  left: 28px;
+  left: 20px;
   width: 36px;
   height: 5px;
   background-color: #0f4c81;
@@ -135,9 +136,10 @@
 
 .container-content{
   width: 100%;
-  min-height: 60vh;
+  /*min-height: 60vh;*/
   display: flex;
   justify-content: center;
+  align-items: flex-start;
 }
 
 .content-box{
@@ -183,7 +185,7 @@
   position: absolute;
   top: 10px;
   left: 30px;
-  color: rgba(89, 89, 89, 1);
+  color: rgba(185, 185, 185, 1);
   font-size: 14px;
 }
 
@@ -225,7 +227,7 @@
   font-size: 12px;
   padding-top: 3px;
   padding-left: 1px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .message_icon{
@@ -236,7 +238,7 @@
   font-size: 12px;
   padding-top: 3px;
   padding-left: 1px;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .share_icon{
@@ -267,7 +269,7 @@
   position: absolute;
   top: 10px;
   right: 30px;
-  color: rgba(89, 89, 89, 1);
+  color: rgba(185, 185, 185, 1);
   font-size: 14px;
 }
 
@@ -285,4 +287,79 @@
   font-size: 14px;
   padding-right: 80px;
   white-space: normal;
+}
+
+.left-wrapper-container{
+  width: 800px;
+}
+
+
+.tutor-trend-games, .personal-trend-games{
+  /*border: 1px solid red;*/
+  background-color: white;
+  /*position: absolute;*/
+  border-radius: 15px;
+  padding: 15px;
+  width: 370px;
+  height: 260px;
+  margin-bottom: 1rem;
+  /*left: 980px;*/
+  /*margin-top: 430px;*/
+}
+
+.tutor-trend-games ul li, .personal-trend-games ul li{
+  list-style: none;
+  margin: 18px 0;
+  color: #0d6efd;
+  font-weight: bold;
+}
+
+.tutor-trend-games ul li a, .personal-trend-games ul li a{
+  margin: 0 30px;
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
+}
+
+
+.tutor-trend-games ul li span, .personal-trend-games ul li span{
+  position: relative;
+  float: right;
+  font-weight: normal;
+  color: #babbbc;
+}
+
+.tutor-top-tutors, .personal-top-tutors{
+  background: white;
+  border-radius: 15px;
+  width: 370px;
+  height: fit-content;
+  /*left: 980px;*/
+  padding: 15px;
+  /*margin-top: 725px;*/
+}
+
+.tutor-top-tutors ul li, .personal-top-tutors ul li{
+  list-style: none;
+  margin: 7px 0;
+  display: flex;
+  align-items: center;
+  background: white;
+}
+
+.tutor-top-tutors ul li img, .personal-top-tutors ul li img{
+  width: 45px;
+  height: 45px;
+  border-radius: 45px;
+}
+
+.tutor-top-tutors ul li a, .personal-top-tutors ul li a{
+  text-decoration: none;
+  color: black;
+  margin-left: 10px;
+}
+
+.tutor-top-tutors ul li span, .personal-top-tutors ul li span{
+  width: 200px;
+  color: #babbbc;
 }
