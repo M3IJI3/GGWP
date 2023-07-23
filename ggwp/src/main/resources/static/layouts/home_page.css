@@ -129,7 +129,7 @@
 }
 
 .users-post ul li .divider{
-    margin: 20px 0 20px 0;
+    margin: 10px 0 15px 0;
     border: 1px solid lightsteelblue;
     opacity: 0.3;
     border-radius: 5px;
@@ -247,6 +247,139 @@
 .users-post .post-content p{
     white-space: normal;
 }
+
+.users-post .post-bottom{
+    display: flex;
+    justify-content: space-between;
+}
+
+.users-post .post-bottom .comment-likes{
+    /*float: right;*/
+    width: 200px;
+    justify-content: space-between;
+}
+
+
+.users-post .post-bottom .comment-likes ul li{
+    display: inline;
+    position: relative;
+
+}
+
+.users-post .post-bottom .comment-likes ul li i{
+    font-size: 27px;
+    cursor: pointer;
+    animation: all 5s ease-out;
+}
+
+.users-post .post-bottom .comment-likes ul li i:active{
+    transform: scale(0.9);
+}
+
+.users-post .post-bottom .comment-likes ul li span{
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    color: #babbbc;
+    bottom: 6px;
+    font-size: 13px;
+}
+
+/* comment dropdown */
+.users-post .comment-dropdown{
+    display: none;
+}
+
+.users-post .comment-dropdown ul{
+    border: 1px solid rgba(224,224,224,1);
+    border-radius: 15px;
+    margin: 0 10px 20px 10px;
+    padding: 20px;
+}
+
+.users-post .comment-dropdown .comment-input{
+    height: 50px;
+    margin: 20px 10px 10px 10px;
+}
+
+.comment-dropdown .comment-input button{
+    width: 100px;
+    height: 50px;
+    position: absolute;
+    right: 30px;
+    border-radius: 40px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: #87c1fa;
+
+}
+
+.comment-dropdown .comment-input button:active{
+    background-color: #0d6efd;
+}
+
+.comment-input input{
+    width: 100%;
+    height: 100%;
+    padding: 0 40px 0 55px;
+    font-size: 20px;
+    outline: none;
+    border-radius: 40px;
+    border: 1px solid rgba(224,224,224,1);
+}
+
+.comment-input input:focus{
+    border: 1px solid #87c1fa;
+}
+
+.comment-dropdown .comment-input img{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    position: absolute;
+    left: 30px;
+    margin-top: 5px;
+    margin-left: 5px;
+}
+
+.users-post .comment-dropdown.show{
+    display: block;
+}
+
+.users-post .comment-dropdown ul li{
+    height: fit-content;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+}
+
+.users-post .comment-dropdown ul li p{
+    color: #6c757d;
+    white-space: normal;
+    padding: 20px 10px 15px 0;
+    border-bottom: 1px solid rgba(224,224,224,0.7);
+    margin-left: 55px;
+    line-height: 1.5;
+}
+
+.users-post .comment-dropdown ul li a{
+    position: relative;
+    left: 10px;
+    bottom: 13px;
+}
+
+.users-post .comment-dropdown ul li a:hover{
+    color: #0d6efd;
+}
+
+.users-post .comment-dropdown img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
 
 
 .home_content .trend-games ul li {

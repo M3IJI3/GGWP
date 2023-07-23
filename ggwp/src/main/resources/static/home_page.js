@@ -15,4 +15,52 @@ function openSelector() {
     emojiPicker.classList.toggle('hidden');
 }
 
+// change like button color
+const homePostHeart = document.getElementsByClassName('home-post-like');
 
+for (const element of homePostHeart) {
+    element.addEventListener('click', () => {
+
+        const numOfLikes = element.nextElementSibling;
+        let curCount = parseInt(numOfLikes.innerHTML);
+
+        if(element.classList.contains('bx-heart'))
+        {
+            element.classList.replace('bx-heart', 'bxs-heart');
+            curCount++;
+            numOfLikes.innerHTML = curCount.toString();
+        }
+        else
+        {
+            element.classList.replace('bxs-heart', 'bx-heart');
+            curCount--;
+            numOfLikes.innerHTML = curCount.toString();
+        }
+    });
+}
+
+// comment dropdown list
+// const commentButton = document.querySelector('.home-post-comment');
+// const commentDropdown = document.querySelector('.comment-dropdown');
+//
+// commentButton.addEventListener('click', () => {
+//     commentDropdown.classList.toggle('show'); // 切换下拉菜单的显示与隐藏
+// });
+
+// const commentButton = document.getElementsByClassName('home-post-comment');
+// for (const element of commentButton) {
+//     element.addEventListener('click', () => {
+//         const commentDropDown = element.nextElementSibling;
+//         commentDropDown.classList.toggle('show');
+//     });
+// }
+
+const commentButtons = document.querySelectorAll('.home-post-comment');
+const commentDropDowns = document.querySelectorAll('.comment-dropdown')
+
+commentButtons.forEach((element, index) => {
+    element.addEventListener('click', () => {
+        console.log(index);
+        commentDropDowns[index].classList.toggle('show');
+    });
+});
