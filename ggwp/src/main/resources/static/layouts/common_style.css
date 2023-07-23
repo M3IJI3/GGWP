@@ -268,8 +268,7 @@ body{
     margin-top: 9px;
     margin-left: 50%;
 
-    padding: 10px 10px 10px 40px;
-    /*padding-right: 40px;*/
+    padding: 10px 100px 10px 40px;
     border-radius: 25px;
     font-size: 20px;
 
@@ -282,7 +281,7 @@ body{
 
 .header .search-bar input:focus{
     background: white;
-    padding-right: 100px;
+    padding-right: 150px;
 }
 
 .header .search-bar i{

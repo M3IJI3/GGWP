@@ -1,14 +1,44 @@
-.home_content .image-scroll-view{
-    /*border: 1px solid red;*/
-    /*background: url("https://assets.nintendo.com/image/upload/v1681238674/Microsites/zelda-tears-of-the-kingdom/videos/posters/totk_microsite_officialtrailer3_1304xj47am");*/
-    background-image: url("https://fs-prod-cdn.nintendo-europe.com/media/images/10_share_images/games_15/nintendo_switch_4/2x1_NSwitch_TloZTearsOfTheKingdom_Gamepage.jpg");
-    background-size: cover;
-    background-position: center;
+.home_content .image-container{
     position: absolute;
     left: 50px;
     width: 1300px;
     height: 400px;
+    border-radius: 15px;
+    background-color: #babbbc;
+
+    overflow: hidden;
 }
+
+.scroll-wrapper{
+    display: flex; /* 使用 Flexbox 布局 */
+    width: fit-content; /* 让子元素在一行内自动排列 */
+    transition: transform 0.5s ease-in-out; /* 添加过渡效果 */
+}
+
+.slide {
+    /*flex-shrink: 0; !* 禁止图片缩小以保持它们的原始大小 *!*/
+}
+
+.slider-nav {
+    display: flex; /* 使用 Flexbox 布局 */
+    justify-content: center; /* 将导航指示器居中 */
+    margin-top: 10px; /* 添加一些间距 */
+}
+
+.slider-nav span {
+    display: block;
+    width: 10px;
+    height: 10px;
+    background-color: #888;
+    border-radius: 50%; /* 圆形指示器 */
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slider-nav span.active {
+    background-color: #333; /* 活动指示器颜色 */
+}
+
 
 .home_content .post-field{
     width: 900px;
@@ -16,10 +46,11 @@
     display: flex;
     align-items: center;
     position: absolute;
-    border-radius: 30px;
+    border-radius: 50px;
     left: 50px;
     margin-top: 430px;
     background: white;
+    padding: 20px;
 }
 
 .home_content .post-field img{
@@ -31,7 +62,8 @@
 }
 
 .home_content .post-field .emoji-field{
-    margin-left: 5px;
+    position: relative;
+    right: 12px;
     margin-bottom: 13px;
     width: 50px;
     height: 50px;
@@ -39,14 +71,14 @@
     justify-content: center;
     font-size: 50px;
     display: flex;
-    transition: all 0.1s ease-in;
+    animation: all 1s ease;
 }
 
 #emoji-picker{
     position: absolute;
     background: white;
     margin-top: 530px;
-    border-radius: 12px;
+    border-radius: 15px;
     left: 30px;
     width: 400px;
     height: 450px;
@@ -71,7 +103,7 @@
 .home_content .post-field input{
     width: 100%;
     height: 100%;
-    padding: 0 20px 0 10px;
+    padding: 0 10px 0 5px;
     font-size: 20px;
     border-radius: 30px;
     border: none;
@@ -81,6 +113,8 @@
 .home_content .post-field button{
     width: 75px;
     height: 60px;
+    position: relative;
+    left: 20px;
     border-radius: 30px;
     background: #87c1fa;
     border: none;
