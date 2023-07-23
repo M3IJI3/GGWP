@@ -1,3 +1,69 @@
+// image scroll view
+const slidesContainer = document.querySelector('.scroll-wrapper');
+const slides = document.querySelectorAll('.slide');
+const sliderNav = document.querySelector('.slider-nav');
+const sliderNavItems = document.querySelectorAll('.slider-nav span');
+
+let slideWidth = slides[0].clientWidth;
+let currentSlide = 0;
+let interval;
+
+function updateSlidePosition() {
+    slidesContainer.style.transform = `translateX(-${slideWidth * currentSlide}px)`;
+}
+
+function setActiveNav() {
+    sliderNavItems.forEach((item, index) => {
+        item.classList.toggle('active', index === currentSlide);
+    });
+}
+
+function nextSlide() {
+    currentSlide++;
+    if (currentSlide >= slides.length) {
+        currentSlide = 0;
+    }
+    updateSlidePosition();
+    setActiveNav();
+}
+
+function prevSlide() {
+    currentSlide--;
+    if (currentSlide < 0) {
+        currentSlide = slides.length - 1;
+    }
+    updateSlidePosition();
+    setActiveNav();
+}
+
+function setSlideWidth() {
+    slideWidth = slides[0].clientWidth;
+    updateSlidePosition();
+}
+
+function startAutoPlay() {
+    interval = setInterval(nextSlide, 3000); // 3000毫秒（3秒）切换一次
+}
+
+function stopAutoPlay() {
+    clearInterval(interval);
+}
+
+sliderNavItems.forEach((item, index) => {
+    item.addEventListener('click', () => {
+        currentSlide = index;
+        updateSlidePosition();
+        setActiveNav();
+    });
+});
+
+slidesContainer.addEventListener('mouseenter', stopAutoPlay);
+slidesContainer.addEventListener('mouseleave', startAutoPlay);
+window.addEventListener('resize', setSlideWidth);
+
+startAutoPlay();
+
+
 function changeEmoji(element) {
     const emojis = ['&#x1F600;', '&#x1F603;', '&#x1F604;', '&#x1F601;', '&#x1F606;', '&#x1F605;',
                             '&#x1F923;', '&#x1F602;', '&#x1F642;', '&#x1F643;', '&#x1F609;', '&#x1F60A;',
@@ -76,6 +142,8 @@ commentInput.addEventListener('input', () => {
 });
 
 // text editor
+
+
 
 
 
