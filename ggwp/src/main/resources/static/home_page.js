@@ -75,3 +75,7 @@ commentInput.addEventListener('input', () => {
     charCountElement.textContent = `${charCount} / ${maxWordCount}`;
 });
 
+// text editor
+
+
+
