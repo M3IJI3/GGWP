@@ -39,28 +39,39 @@ for (const element of homePostHeart) {
     });
 }
 
-// comment dropdown list
-// const commentButton = document.querySelector('.home-post-comment');
-// const commentDropdown = document.querySelector('.comment-dropdown');
-//
-// commentButton.addEventListener('click', () => {
-//     commentDropdown.classList.toggle('show'); // 切换下拉菜单的显示与隐藏
-// });
-
-// const commentButton = document.getElementsByClassName('home-post-comment');
-// for (const element of commentButton) {
-//     element.addEventListener('click', () => {
-//         const commentDropDown = element.nextElementSibling;
-//         commentDropDown.classList.toggle('show');
-//     });
-// }
-
+// click comment button and display dropdown list
 const commentButtons = document.querySelectorAll('.home-post-comment');
 const commentDropDowns = document.querySelectorAll('.comment-dropdown')
-
 commentButtons.forEach((element, index) => {
     element.addEventListener('click', () => {
-        console.log(index);
         commentDropDowns[index].classList.toggle('show');
+        commentDropDowns[index].style.animationName = 'expandAnimation';
+
     });
 });
+
+// display counter when input is clicked
+// function displayCounter(){
+//     const charCountElement = document.getElementById('cmt-char-count');
+//     charCountElement.classList.remove('hidden');
+// }
+
+// listen the number of characters
+const commentInput = document.getElementById('commentInput')
+const charCountElement = document.getElementById('cmt-char-count');
+const maxWordCount = 150;
+
+const commentSendBtn = document.getElementById('cmt-send-btn');
+commentInput.addEventListener('input', () => {
+    const text = commentInput.value.trim();
+    const words = text.split(/\s+/).filter(word => /^[A-Za-z]+$/.test(word)); // 过滤包含英文字符的单词
+    const charCount = words.length;
+
+    if (charCount > maxWordCount)
+    {
+        commentSendBtn.classList.add('limit-exceeded');
+    }
+
+    charCountElement.textContent = `${charCount} / ${maxWordCount}`;
+});
+

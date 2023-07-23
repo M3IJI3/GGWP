@@ -256,14 +256,11 @@
 .users-post .post-bottom .comment-likes{
     /*float: right;*/
     width: 200px;
-    justify-content: space-between;
 }
 
 
 .users-post .post-bottom .comment-likes ul li{
     display: inline;
-    position: relative;
-
 }
 
 .users-post .post-bottom .comment-likes ul li i{
@@ -278,6 +275,7 @@
 
 .users-post .post-bottom .comment-likes ul li span{
     position: relative;
+    right: 0;
     display: inline-block;
     width: 60px;
     color: #babbbc;
@@ -288,6 +286,11 @@
 /* comment dropdown */
 .users-post .comment-dropdown{
     display: none;
+
+}
+
+.users-post .comment-dropdown.show{
+    display: block;
 }
 
 .users-post .comment-dropdown ul{
@@ -309,12 +312,25 @@
     right: 30px;
     border-radius: 40px;
     color: white;
-    font-size: 17px;
-    font-weight: bold;
     border: none;
     outline: none;
     background-color: #87c1fa;
+}
 
+.comment-dropdown .comment-input .charCount{
+    position: relative;
+    width: fit-content;
+    height: fit-content;
+    float: right;
+    bottom: 36px;
+    right: 110px;
+    font-size: 20px;
+    color: #babbbc;
+}
+
+.comment-dropdown .comment-input button i{
+    font-size: 25px;
+    rotate: 45deg;
 }
 
 .comment-dropdown .comment-input button:active{
@@ -324,15 +340,20 @@
 .comment-input input{
     width: 100%;
     height: 100%;
-    padding: 0 40px 0 55px;
+    padding: 0 200px 0 55px;
     font-size: 20px;
     outline: none;
     border-radius: 40px;
+    letter-spacing: 1px;
     border: 1px solid rgba(224,224,224,1);
 }
 
 .comment-input input:focus{
     border: 1px solid #87c1fa;
+}
+
+.limit-exceeded{
+    background-color: #e73c7e;
 }
 
 .comment-dropdown .comment-input img{
@@ -343,10 +364,6 @@
     left: 30px;
     margin-top: 5px;
     margin-left: 5px;
-}
-
-.users-post .comment-dropdown.show{
-    display: block;
 }
 
 .users-post .comment-dropdown ul li{
