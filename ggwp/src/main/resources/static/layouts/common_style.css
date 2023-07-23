@@ -216,6 +216,8 @@ body{
     max-height: 100%;
     white-space: nowrap;
     transition: all 0.5s ease;
+    display: flex;
+    justify-content: center;
 }
 
 .sidebar.active ~ .home_content{
