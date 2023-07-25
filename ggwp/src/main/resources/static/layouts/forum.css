@@ -279,13 +279,13 @@
 
 .top-contributions .title span{
     position: relative;
-    font-size: 30px;
+    font-size: 25px;
     bottom: 10px;
 }
 
 .top-contributions .title img{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
 }
 
 
@@ -316,16 +316,9 @@
 
 .top-contributions ul li a{
     text-decoration: none;
+    font-size: 17px;
     color: black;
     margin-left: 12px;
-}
-
-.top-contributions ul li .rank{
-    color: #0d6efd;
-    font-weight: bold;
-    font-size: 25px;
-    margin-left: 10px;
-    margin-right: 20px;
 }
 
 .top-contributions ul li a span{
