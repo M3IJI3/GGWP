@@ -168,6 +168,15 @@
   display: block;
 }
 
+.tab_content.active h2{
+  padding: 10px;
+}
+
+.tab_content.active p{
+  padding: 0px 10px 10px 10px;
+}
+
+
 .likes{
   height: 200px;
   position: relative;
