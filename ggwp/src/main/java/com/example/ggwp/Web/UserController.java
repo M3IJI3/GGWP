@@ -39,6 +39,9 @@ public class UserController {
         return "home";
     }
 
+    @RequestMapping("/tutors")
+    public String TutorsPage() { return "/tutors_page"; }
+
     @GetMapping(path = "/forum")
     public String ForumPage(){ return "forum"; }
 }

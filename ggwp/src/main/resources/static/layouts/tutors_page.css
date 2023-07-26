@@ -1,0 +1,162 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.tutor-page-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+/* Additional styling for the card */
+.tutor-card {
+  display: flex;
+  border: 1px solid #ccc;
+  max-width: 500px; /* Optional: Limit the maximum width of the card */
+  border-radius: 20px;
+  margin: 10px;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  background-color: #FFFFFF;
+}
+
+.tutor-image {
+  width: 30%;
+  min-height: 300px;
+  margin-right: 16px;
+  object-fit: cover;
+  object-position: 85%;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.tutor-card-content {
+  width: 100%;
+  white-space: normal;
+}
+
+.tutor-card h2 {
+  font-weight: 200;
+  font-size: 32px;
+  margin-left: 10px;
+}
+
+.tutor-card p {
+  font-weight: 100;
+  font-size: 18px;
+  margin-top: 20px;
+}
+
+.tutor-description {
+  margin-left: 50px;
+}
+
+.community-text {
+  font-weight: 200;
+  margin-left: 10px;
+}
+
+.action-container {
+  display: flex;
+  justify-content: right;
+}
+
+.contact-button {
+  padding: 12px 24px;
+  background-color: white;
+  color: #ff004f;
+  border: 2px solid #ff004f;
+  border-radius: 50px;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 20px;
+}
+
+.contact-button:hover {
+  background-color: #ff004f;
+  color: white;
+}
+
+.avatar {
+  width: 100px; /* Set the width and height as needed */
+  height: 100px;
+  border-radius: 50%; /* Make the avatar circular */
+  overflow: hidden; /* Hide any content that overflows the circular shape */
+  position: absolute;
+  bottom: 100px;
+  left: 95px;
+  border: 4px solid #fff;
+}
+
+.avatar img {
+  width: 100%; /* Make the image cover the entire circular area */
+  height: 100%;
+  object-fit: cover; /* Maintain the aspect ratio of the image */
+}
+
+.heart-icon {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 26px;
+  color: #ff6b6b;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.heart-icon-scale {
+  transform: scale(1.2);
+}
+
+/* Big screens */
+@media screen and (min-width: 1500px) {
+  .tutor-page-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .avatar {
+    left: 80px;
+    bottom: 90px;
+  }
+}
+
+/* Medium screens */
+@media screen and (max-width: 1440px) {
+  .tutor-page-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .avatar {
+    left: 90px;
+    bottom: 100px;
+  }
+}
+
+/* Small screens */
+@media screen and (max-width: 767px) {
+  /* CSS styles for small screens */
+  .tutor-page-container {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+
+  .avatar {
+    left: 65px;
+    bottom: 90px;
+  }
+}
+
+/* Tablet screens */
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  /* CSS styles for medium screens */
+  .tutor-page-container {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
