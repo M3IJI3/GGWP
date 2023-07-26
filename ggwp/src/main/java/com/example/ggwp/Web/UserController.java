@@ -45,4 +45,7 @@ public class UserController {
     public String HomePage(){
         return "home";
     }
+
+    @RequestMapping("/tutors")
+    public String TutorsPage() { return "/tutors_page"; }
 }
