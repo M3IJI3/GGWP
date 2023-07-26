@@ -58,6 +58,10 @@ public class UsersDataServiceForRepository implements UsersDataAccessInterface<U
     @Override
     public long addOne(UserModel newUser) {
         UserEntity entity = modelMapper.map(newUser, UserEntity.class);
+        if (entity.getImageUrl() == null || entity.getImageUrl().isEmpty()) {
+            // Set the default image URL
+            entity.setImageUrl("https://cdn-icons-png.flaticon.com/512/3177/3177440.png");
+        }
         // Set the dateCreated field with the current timestamp
         entity.setDateCreated(LocalDate.now());
         UserEntity result = usersRepository.save(entity);
@@ -70,8 +74,13 @@ public class UsersDataServiceForRepository implements UsersDataAccessInterface<U
 
     @Override
     public boolean deleteOne(long id) {
-        usersRepository.deleteById(id);
-        return true;
+        UserEntity entity = usersRepository.findById(id).orElse(null);
+        if (entity != null) {
+            usersRepository.deleteById(id);
+            return true;
+        } else {
+            return false;
+        }
     }
 
     @Override
@@ -85,6 +94,9 @@ public class UsersDataServiceForRepository implements UsersDataAccessInterface<U
         }
 
         // Apply updates from the updateUser to the existingEntity
+        if(updateUser.getImageUrl() != null){
+            existingEntity.setImageUrl(updateUser.getImageUrl());
+        }
         if(updateUser.getUserName() != null){
             existingEntity.setUserName(updateUser.getUserName());
         }

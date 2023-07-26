@@ -12,6 +12,9 @@ public class UserEntity {
     @jakarta.persistence.Column(name = "USER_ID")
     private long userId;
 
+    @jakarta.persistence.Column(name = "IMAGE_URL")
+    private String imageUrl;
+
     @jakarta.persistence.Column(name = "USER_NAME")
     private String userName;
 
@@ -36,8 +39,9 @@ public class UserEntity {
     public UserEntity() {
     }
 
-    public UserEntity(long userId, String userName, String password, String email, LocalDate dateCreated, String subscription, String role, String paymentType) {
+    public UserEntity(long userId, String imageUrl, String userName, String password, String email, LocalDate dateCreated, String subscription, String role, String paymentType) {
         this.userId = userId;
+        this.imageUrl = imageUrl;
         this.userName = userName;
         this.password = password;
         this.email = email;
@@ -53,6 +57,14 @@ public class UserEntity {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getUserName() {
@@ -115,6 +127,7 @@ public class UserEntity {
     public String toString() {
         return "UserEntity{" +
                 "userId=" + userId +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

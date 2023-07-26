@@ -1,6 +1,7 @@
-package com.example.ggwp.Web;
+package com.example.ggwp.controllers.user;
 
 import lombok.AllArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;

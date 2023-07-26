@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>GGWP Admin</title>
+  <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<!--<div class="header-section">-->
+<!--  <nav class="navbar navbar-expand-lg navbar-light bg-light" >-->
+<!--    <a class="navbar-brand" href="#">Awesome Application</a>-->
+<!--    <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--      <ul class="navbar-nav">-->
+<!--        <li class="nav-item active">-->
+<!--          <a class="nav-link" href="/orders/">All <span class="sr-only">(current)</span> </a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="/orders/showSearchForm">Search</a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="/orders/showNewOrderForm">Add </a>-->
+<!--        </li>-->
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="/orders/admin">Admin </a>-->
+<!--        </li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </nav>-->
+<!--</div>-->
+
+<div>
+<!--  <h2 th:text="${title}"></h2>-->
+  <table class="table table-dark table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">ImageUrl</th>
+      <th scope="col">Name</th>
+      <th scope="col">Password</th>
+      <th scope="col">Email</th>
+      <th scope="col">DateCreated</th>
+      <th scope="col">Subscription</th>
+      <th scope="col">Role</th>
+      <th scope="col">PaymentType</th>
+      <th scope="col">Delete</th>
+      <th scope="col">Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+      <td th:text="${user.userId}"></td>
+      <td th:text="${user.imageUrl}"></td>
+      <td th:text="${user.userName}"></td>
+      <td th:text="${user.password}"></td>
+      <td th:text="${user.email}"></td>
+      <td th:text="${user.dateCreated}"></td>
+      <td th:text="${user.subscription}"></td>
+      <td th:text="${user.role}"></td>
+      <td th:text="${user.paymentType}"></td>
+      <td>
+        <form action="#" method="post" th:action="@{/users/delete}" th:object="${user}">
+          <input name="userId" type="hidden" th:value="${user.userId}">
+          <input name="imageUrl" type="hidden" th:value="${user.imageUrl}">
+          <input name="userName" type="hidden" th:value="${user.userName}">
+          <input name="password" type="hidden" th:value="${user.password}">
+          <input name="email" type="hidden" th:value="${user.email}">
+          <input name="dateCreated" type="hidden" th:value="${user.dateCreated}">
+          <input name="subscription" type="hidden" th:value="${user.subscription}">
+          <input name="role" type="hidden" th:value="${user.role}">
+          <input name="paymentType" type="hidden" th:value="${user.paymentType}">
+          <button type="submit" class="btn btn-danger" name="deleteItem">Delete</button>
+        </form>
+      </td>
+      <td>
+        <form action="#" method="post" th:action="@{/users/editForm}" th:object="${user}">
+          <input name="userId" type="hidden" th:value="${user.userId}">
+          <input name="imageUrl" type="hidden" th:value="${user.imageUrl}">
+          <input name="userName" type="hidden" th:value="${user.userName}">
+          <input name="password" type="hidden" th:value="${user.password}">
+          <input name="email" type="hidden" th:value="${user.email}">
+          <input name="dateCreated" type="hidden" th:value="${user.dateCreated}">
+          <input name="subscription" type="hidden" th:value="${user.subscription}">
+          <input name="role" type="hidden" th:value="${user.role}">
+          <input name="paymentType" type="hidden" th:value="${user.paymentType}">
+          <button type="submit" class="btn btn-secondary" name="editItem">Edit</button>
+        </form>
+      </td>
+
+    </tr>
+    </tbody>
+  </table>
+</div>
+<div>
+  <p class="alert alert-primary">Contact us at 236-777-5228. Copyright 2023</p>
+</div>
+</body>
+</html>

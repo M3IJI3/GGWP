@@ -5,6 +5,7 @@ import java.time.LocalDate;
 public class UserModel {
 
     private long userId;
+    private String imageUrl;
     private String userName;
     private String password;
     private String email;
@@ -16,8 +17,9 @@ public class UserModel {
     public UserModel() {
     }
 
-    public UserModel(long userId, String userName, String password, String email, LocalDate dateCreated, String subscription, String role, String paymentType) {
+    public UserModel(long userId, String imageUrl, String userName, String password, String email, LocalDate dateCreated, String subscription, String role, String paymentType) {
         this.userId = userId;
+        this.imageUrl = imageUrl;
         this.userName = userName;
         this.password = password;
         this.email = email;
@@ -33,6 +35,14 @@ public class UserModel {
 
     public void setUserId(long userId) {
         this.userId = userId;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public String getUserName() {
@@ -95,6 +105,7 @@ public class UserModel {
     public String toString() {
         return "UserModel{" +
                 "userId=" + userId +
+                ", imageUrl='" + imageUrl + '\'' +
                 ", userName='" + userName + '\'' +
                 ", password='" + password + '\'' +
                 ", email='" + email + '\'' +

@@ -1,4 +1,4 @@
-package com.example.ggwp.Web;
+package com.example.ggwp.controllers.error;
 
 import jakarta.servlet.RequestDispatcher;
 import jakarta.servlet.http.HttpServletRequest;
