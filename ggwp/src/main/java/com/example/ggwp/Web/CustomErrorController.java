@@ -21,6 +21,6 @@ public class CustomErrorController implements ErrorController {
                 return "error-404";
             }
         }
-        return "error-404";
+        return "error";
     }
 }
