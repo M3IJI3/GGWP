@@ -21,6 +21,6 @@ public class CustomErrorController implements ErrorController {
                 return "error-404";
             }
         }
-        return "error";
+        return "error"; // General error page, we need to create this eventually, basically a 500 page
     }
 }
