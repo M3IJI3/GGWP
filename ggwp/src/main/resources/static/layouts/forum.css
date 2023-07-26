@@ -1,0 +1,344 @@
+.home_content .forum-banner{
+    position: absolute;
+    width: 1300px;
+    height: 300px;
+    border-radius: 15px;
+    left: 50px;
+    background-color: white;
+}
+
+.forum-banner .forum-left-banner{
+    height: 300px;
+    width: 25%;
+    border-radius: 15px 0 0 15px;
+    float: left;
+}
+
+.forum-banner .forum-left-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px 0 0 15px;
+}
+
+.forum-banner .forum-right-banner{
+    height: 100%;
+    width: 75%;
+    padding: 20px;
+    float: right;
+}
+
+.forum-right-banner .forum-right-top-banner{
+    height: fit-content;
+}
+
+.forum-right-top-banner .title{
+    font-size: 40px;
+    float: left;
+}
+
+.forum-right-top-banner button{
+    position: absolute;
+    margin-left: 30px;
+    top: 30px;
+    float: left;
+    border-radius: 20px;
+    outline: none;
+    font-size: 15px;
+
+    width: 110px;
+    height: 35px;
+
+    border: 2px solid #e73c7e;
+    color: #e73c7e;
+    background: white;
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+}
+
+.forum-right-top-banner button:hover{
+    background: #e73c7e;
+    color: white;
+}
+
+#game-type{
+    width: 300px;
+    font-size: 25px;
+    padding-bottom: 5px;
+    margin-top: 15px;
+    border-bottom: 3px solid rgba(241,241,241,0.9);
+    color: #6c757d;
+    /*border: 1px solid red ;*/
+}
+
+.forum-right-top-banner .forum-data-span{
+    width: 300px;
+    height: fit-content;
+    float: right;
+    margin-right: 30px;
+}
+
+.forum-data-span .span{
+    width: 50%;
+    height: 100%;
+    float: left;
+    padding: 0 10px 10px 0;
+}
+
+.forum-data-span .amount{
+    text-align: center;
+    font-size: 35px;
+}
+
+.forum-data-span .subtitle{
+    font-size: 25px;
+    color: #6c757d;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.forum-data-span .span-right{
+    border-right: 3px solid rgba(241,241,241,0.9);
+}
+
+#game-intro{
+    margin-top: 20px;
+    float: left;
+    padding-right: 20px;
+
+}
+
+#game-intro p{
+    white-space: normal;
+    font-size: 17px;
+    overflow: scroll;
+    line-height: 1.4;
+}
+
+#game-intro i{
+    font-size: 30px;
+    color: #adb5bd;
+}
+
+/* forum game article */
+.forum-game-articles{
+    position: absolute;
+    top: 110%;
+    border-radius: 15px;
+    width: 900px;
+    height: fit-content;
+    background: white;
+}
+
+.forum-game-articles ul{
+    padding: 0;
+    list-style: none;
+}
+
+.forum-game-articles ul li{
+    display: flex;
+    width: 100%;
+    height: 200px;
+    padding: 15px;
+}
+
+.forum-game-articles ul li .divider{
+    position: absolute;
+    width: calc(100% - 80px);
+    height: 3px;
+    top: 200px;
+    left: 80px;
+    background: rgba(241,241,241,0.7);
+    border-radius: 20px;
+}
+
+.forum-game-articles ul li .article-left-panel{
+    width: 70%;
+    height: 100%;
+}
+
+.article-left-panel img{
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    float: left;
+}
+
+.article-left-panel .article-title{
+    display: flex;
+    float: left;
+    width: calc(100% - 60px);
+    height: 60px;
+    padding: 0 10px;
+    font-size: 30px;
+    align-items: center;
+}
+
+.article-title a{
+    text-decoration: none;
+    color: #333;
+    transition: all 0.5s ease;
+}
+
+.article-title a:hover{
+    text-decoration: underline;
+}
+
+.article-left-panel .summary{
+    position: relative;
+    display: flex;
+    width: 600px;
+    height: calc(100% - 60px);
+    padding: 10px 0;
+}
+
+.summary .summary-left{
+    float: left;
+    width: 10%;
+    height: 100%;
+    text-align: right;
+    font-size: 30px;
+    color: #adb5bd;
+}
+
+.summary .summary-right{
+    float: left;
+    width: 90%;
+    height: 100%;
+    padding: 0 10px;
+    white-space: normal;
+    color: #adb5bd;
+    text-overflow: ellipsis;
+}
+
+.forum-game-articles ul li .article-right-panel{
+    width: 30%;
+    height: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+
+
+.article-right-panel img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 15px;
+    transition: all 0.5s ease;
+}
+
+.article-right-panel img:hover{
+    scale: 1.1;
+}
+
+#write-post{
+    position: relative;
+    top: 110%;
+    left: 605px;
+    width: 370px;
+    height: 60px;
+    border-radius: 30px;
+    background: #87c1fa;
+    color: white;
+    font-size: 25px;
+    border: none;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    z-index: 2;
+}
+
+#write-post:hover{
+    background: #0d6efd;
+    box-shadow: 0 0 20px 0 #0d6efd;
+    border-radius: 15px;
+}
+
+#write-post:active{
+    background: #87c1fa;
+    box-shadow: 0 0 20px 0 #87c1fa;
+}
+
+.top-contributions{
+    position: absolute;
+    width: 370px;
+    height: fit-content;
+    border-radius: 15px;
+    background: white;
+    top: 137%;
+    left: 930px;
+    padding: 15px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.top-contributions .title span{
+    position: relative;
+    font-size: 25px;
+    bottom: 10px;
+}
+
+.top-contributions .title img{
+    width: 40px;
+    height: 40px;
+}
+
+
+.top-contributions ul{
+    margin-top: 15px;
+    padding: 0 0 0 15px;
+    list-style: none;
+}
+
+.top-contributions ul li{
+    font-size: 20px;
+    margin-bottom: 8px;
+    border-radius: 20px;
+    padding: 4px;
+}
+
+#rank-1{
+    background: linear-gradient(to right, rgba(255,215,0,0.7), #fff);
+}
+
+#rank-2{
+    background: linear-gradient(to right, rgba(147,112,219,0.7), #fff);
+}
+
+#rank-3{
+    background: linear-gradient(to right, rgba(100,149,237,0.7), #fff);
+}
+
+.top-contributions ul li a{
+    text-decoration: none;
+    font-size: 17px;
+    color: black;
+    margin-left: 12px;
+}
+
+.top-contributions ul li a span{
+    color: #babbbc;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
