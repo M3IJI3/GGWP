@@ -15,12 +15,6 @@ public class UserController {
         return "welcome";
     }
 
-    @GetMapping(path = "/welcome")
-    public String BackToInitialPage(Model model)
-    {
-        return "welcome";
-    }
-
     @GetMapping(path = "/register")
     public String RegisterPage(Model model)
     {
@@ -40,7 +34,6 @@ public class UserController {
 
 //    @GetMapping(path = "/home")
 //    public String HomePage(Model model) { return "/home"; }
-
     @RequestMapping("/home")
     public String HomePage(){
         return "home";
@@ -48,4 +41,7 @@ public class UserController {
 
     @RequestMapping("/tutors")
     public String TutorsPage() { return "/tutors_page"; }
+
+    @GetMapping(path = "/forum")
+    public String ForumPage(){ return "forum"; }
 }
