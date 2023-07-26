@@ -1,0 +1,86 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.not-found-container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+body {
+  background-image: url("../img/bj2.png");
+  background-repeat: repeat;
+  background-position: center;
+  font-family: "Inter", sans-serif;
+}
+
+.not-found-content {
+  text-align: center;
+  width: 50%;
+}
+
+.not-found-content h1 {
+  font-size: 64px;
+  font-weight: 200;
+  margin: 30px;
+}
+
+.not-found-content .hearts {
+  font-size: 64px;
+  margin: 30px;
+}
+
+.shaking {
+  animation: vertical-shaking 0.35s infinite;
+}
+
+.not-found-content i {
+  color: #808080;
+}
+
+.not-found-content h2 {
+  margin: 50px;
+  font-weight: 200;
+}
+
+.not-found-content button {
+  width: 40%;
+  height: 50px;
+  font-size: 18px;
+  padding: 12px 24px;
+  background-color: transparent;
+  color: #ff004f;
+  border: 2px solid #ff004f;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.not-found-content button:hover {
+  background-color: #ff004f;
+  color: white;
+}
+
+@keyframes vertical-shaking {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

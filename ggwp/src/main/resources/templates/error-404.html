@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/layouts/error-404.css">
+    <script
+      src="https://kit.fontawesome.com/770c90d0eb.js"
+      crossorigin="anonymous"
+    ></script>
+    <title>404 - Page not Found</title>
+  </head>
+  <body>
+    <div class="not-found-container">
+      <div class="not-found-content">
+        <h1>404: Out of Lives. Page not found!</h1>
+        <div class="hearts">
+          <i class="fa-regular fa-heart not-found-heart-icon shaking"></i>
+          <i class="fa-regular fa-heart not-found-heart-icon shaking"></i>
+          <i class="fa-regular fa-heart not-found-heart-icon shaking"></i>
+          <i class="fa-regular fa-heart not-found-heart-icon shaking"></i>
+          <i class="fa-regular fa-heart not-found-heart-icon shaking"></i>
+        </div>
+        <h2>
+          Uh-oh! You're out of lives on this page. But fear not, hero! You can
+          start fresh and embark on a new quest. Click the button below to restore your hearts and continue your epic journey.
+          💖🎮🌟
+        </h2>
+        <a th:href="@{home}">
+          <button class="refill-btn">Cure me and take me back home!</button>
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
