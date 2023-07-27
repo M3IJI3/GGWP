@@ -42,7 +42,7 @@ public class UserRestController {
         return userBusinessService.getById(id);
     }
 
-    @DeleteMapping("/delete/{id}")
+    @PostMapping("/delete/{id}")
     public boolean deleteOne(@PathVariable("id") long id){
 
         return userBusinessService.deleteOne(id);

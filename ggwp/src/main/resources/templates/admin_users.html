@@ -1,35 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>GGWP Admin</title>
-  <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<html lang="en" layout:decorate="~{layouts/adminDefaultLayout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
 
 <body>
-<!--<div class="header-section">-->
-<!--  <nav class="navbar navbar-expand-lg navbar-light bg-light" >-->
-<!--    <a class="navbar-brand" href="#">Awesome Application</a>-->
-<!--    <div class="collapse navbar-collapse" id="navbarNav">-->
-<!--      <ul class="navbar-nav">-->
-<!--        <li class="nav-item active">-->
-<!--          <a class="nav-link" href="/orders/">All <span class="sr-only">(current)</span> </a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link" href="/orders/showSearchForm">Search</a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link" href="/orders/showNewOrderForm">Add </a>-->
-<!--        </li>-->
-<!--        <li class="nav-item">-->
-<!--          <a class="nav-link" href="/orders/admin">Admin </a>-->
-<!--        </li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </nav>-->
-<!--</div>-->
-
-<div>
+<div layout:fragment="content">
 <!--  <h2 th:text="${title}"></h2>-->
   <table class="table table-dark table-striped">
     <thead>
@@ -59,7 +33,7 @@
       <td th:text="${user.role}"></td>
       <td th:text="${user.paymentType}"></td>
       <td>
-        <form action="#" method="post" th:action="@{/users/delete}" th:object="${user}">
+        <form action="#" method="post" th:action="@{/admin/delete}" th:object="${user}">
           <input name="userId" type="hidden" th:value="${user.userId}">
           <input name="imageUrl" type="hidden" th:value="${user.imageUrl}">
           <input name="userName" type="hidden" th:value="${user.userName}">
@@ -73,7 +47,7 @@
         </form>
       </td>
       <td>
-        <form action="#" method="post" th:action="@{/users/editForm}" th:object="${user}">
+        <form action="#" method="post" th:action="@{/admin/editForm}" th:object="${user}">
           <input name="userId" type="hidden" th:value="${user.userId}">
           <input name="imageUrl" type="hidden" th:value="${user.imageUrl}">
           <input name="userName" type="hidden" th:value="${user.userName}">
@@ -90,9 +64,6 @@
     </tr>
     </tbody>
   </table>
-</div>
-<div>
-  <p class="alert alert-primary">Contact us at 236-777-5228. Copyright 2023</p>
 </div>
 </body>
 </html>

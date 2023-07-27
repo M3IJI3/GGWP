@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layouts/adminDefaultLayout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <title>GGWP</title>
+</head>
+<body>
+ <div layout:fragment="content">
+     <div class="container mt-3 mb-3">
+         <form action="#" method="post" th:action="@{/admin/addNew}" th:object="${user}">
+             <div class="mb-3">
+                 <label for="userImageUrlInput">Image Url</label>
+                 <input th:field="*{imageUrl}" type="text" class="form-control" id="userImageUrlInput" aria-describedby="imageUrlHelp">
+                 <div id="imageUrlHelp" class="form-text text-muted">Invent an image link for this user.</div>
+             </div>
+
+             <div class="mb-3">
+                 <label for="userNameInput">User Name</label>
+                 <input th:field="*{userName}" type="text" class="form-control" id="userNameInput" aria-describedby="userNameHelp">
+                 <div id="userNameHelp" class="form-text text-muted">Invent a name for this user.</div>
+             </div>
+
+             <div class="mb-3">
+                 <label for="userPasswordInput">Password</label>
+                 <input th:field="*{password}" type="text" class="form-control" id="userPasswordInput" aria-describedby="userPasswordHelp">
+                 <div id="userPasswordHelp" class="form-text text-muted">Invent a password for this user.</div>
+             </div>
+
+             <div class="mb-3">
+                 <label for="userEmailInput">Email Address</label>
+                 <input th:field="*{email}" type="text" class="form-control" id="userEmailInput" aria-describedby="userEmailHelp">
+                 <div id="userEmailHelp" class="form-text text-muted">Invent an email address for this user.</div>
+             </div>
+
+             <div class="mb-3">
+                 <label for="subscriptionInput">Subscription Type</label>
+                 <input th:field="*{subscription}" type="text" class="form-control" id="subscriptionInput" aria-describedby="subscriptionHelp">
+                 <div id="subscriptionHelp" class="form-text text-muted">Invent a subscription type for this user.</div>
+             </div>
+
+             <div class="mb-3">
+                 <label for="userRoleInput">Role</label>
+                 <input th:field="*{role}" type="text" class="form-control" id="userRoleInput" aria-describedby="userRoleHelp">
+                 <div id="userRoleHelp" class="form-text text-muted">Invent a role for this user.</div>
+             </div>
+
+             <div class="mb-3">
+                 <label for="paymentTypeInput">Payment Type</label>
+                 <input th:field="*{paymentType}" type="text" class="form-control" id="paymentTypeInput" aria-describedby="paymentTypeHelp">
+                 <div id="paymentTypeHelp" class="form-text text-muted">Invent a payment type for this user.</div>
+             </div>
+
+             <button type="submit" class="btn btn-primary">Submit</button>
+         </form>
+     </div>
+
+ </div>
+</body>
+</html>

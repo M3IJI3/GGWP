@@ -97,6 +97,7 @@ public class UsersDataServiceForRepository implements UsersDataAccessInterface<U
         if(updateUser.getImageUrl() != null){
             existingEntity.setImageUrl(updateUser.getImageUrl());
         }
+
         if(updateUser.getUserName() != null){
             existingEntity.setUserName(updateUser.getUserName());
         }
@@ -124,6 +125,7 @@ public class UsersDataServiceForRepository implements UsersDataAccessInterface<U
 
         // Map the updated entity back to UserModel and return it
         UserModel updatedUser = modelMapper.map(updatedEntity, UserModel.class);
+
         return updatedUser;
     }
 }
