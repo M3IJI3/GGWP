@@ -9,25 +9,25 @@
     <input name="userId" type="hidden" th:value="*{userId}">
     <div class="mb-3">
       <label for="userImageUrlInput">Image Url</label>
-      <input th:field="*{imageUrl}" type="text" class="form-control" id="userImageUrlInput" aria-describedby="imageUrlHelp">
+      <input th:field="*{imageUrl}" type="url" class="form-control" id="userImageUrlInput" aria-describedby="imageUrlHelp">
       <div id="imageUrlHelp" class="form-text text-muted">Invent an image link for this user.</div>
     </div>
 
     <div class="mb-3">
       <label for="userNameInput">User Name</label>
-      <input th:field="*{userName}" type="text" class="form-control" id="userNameInput" aria-describedby="userNameHelp">
+      <input th:field="*{userName}" type="text" class="form-control" id="userNameInput" aria-describedby="userNameHelp" required>
       <div id="userNameHelp" class="form-text text-muted">Invent a name for this user.</div>
     </div>
 
-    <div class="mb-3">
-      <label for="userPasswordInput">Password</label>
-      <input th:field="*{password}" type="text" class="form-control" id="userPasswordInput" aria-describedby="userPasswordHelp">
-      <div id="userPasswordHelp" class="form-text text-muted">Invent a password for this user.</div>
-    </div>
+<!--    <div class="mb-3">-->
+<!--      <label for="userPasswordInput">Password</label>-->
+<!--      <input th:field="*{password}" type="password" class="form-control" id="userPasswordInput" aria-describedby="userPasswordHelp">-->
+<!--      <div id="userPasswordHelp" class="form-text text-muted">Invent a password for this user.</div>-->
+<!--    </div>-->
 
     <div class="mb-3">
       <label for="userEmailInput">Email Address</label>
-      <input th:field="*{email}" type="text" class="form-control" id="userEmailInput" aria-describedby="userEmailHelp">
+      <input th:field="*{email}" type="email" class="form-control" id="userEmailInput" aria-describedby="userEmailHelp">
       <div id="userEmailHelp" class="form-text text-muted">Invent an email address for this user.</div>
     </div>
 
@@ -39,7 +39,7 @@
 
     <div class="mb-3">
       <label for="userRoleInput">Role</label>
-      <input th:field="*{role}" type="text" class="form-control" id="userRoleInput" aria-describedby="userRoleHelp">
+      <input th:field="*{role}" type="text" class="form-control" id="userRoleInput" aria-describedby="userRoleHelp" required>
       <div id="userRoleHelp" class="form-text text-muted">Invent a role for this user.</div>
     </div>
 

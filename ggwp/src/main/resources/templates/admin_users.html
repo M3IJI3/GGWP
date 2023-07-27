@@ -8,10 +8,10 @@
   <table class="table table-dark table-striped">
     <thead>
     <tr>
-      <th scope="col">Id</th>
+      <th scope="col" style="padding-left: 30px">Id</th>
       <th scope="col">ImageUrl</th>
       <th scope="col">Name</th>
-      <th scope="col">Password</th>
+<!--      <th scope="col">Password</th>-->
       <th scope="col">Email</th>
       <th scope="col">DateCreated</th>
       <th scope="col">Subscription</th>
@@ -23,10 +23,10 @@
     </thead>
     <tbody>
     <tr th:each="user : ${users}">
-      <td th:text="${user.userId}"></td>
-      <td th:text="${user.imageUrl}"></td>
+      <td th:text="${user.userId}" style="padding-left: 30px"></td>
+      <td><img th:src="${user.imageUrl}" style="width: 40px; height: 40px; border-radius: 50%"></td>
       <td th:text="${user.userName}"></td>
-      <td th:text="${user.password}"></td>
+<!--      <td th:text="${user.password}"></td>-->
       <td th:text="${user.email}"></td>
       <td th:text="${user.dateCreated}"></td>
       <td th:text="${user.subscription}"></td>
@@ -37,7 +37,7 @@
           <input name="userId" type="hidden" th:value="${user.userId}">
           <input name="imageUrl" type="hidden" th:value="${user.imageUrl}">
           <input name="userName" type="hidden" th:value="${user.userName}">
-          <input name="password" type="hidden" th:value="${user.password}">
+<!--          <input name="password" type="hidden" th:value="${user.password}">-->
           <input name="email" type="hidden" th:value="${user.email}">
           <input name="dateCreated" type="hidden" th:value="${user.dateCreated}">
           <input name="subscription" type="hidden" th:value="${user.subscription}">
