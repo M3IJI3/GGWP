@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en"
+      decorate="~{layouts/defaultTemplate}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="/img/ggwp-logo.png">
+    <title>Admin</title>
+    <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!--header-->
+<div th:replace="~{layouts/adminCommonHeader :: header}">My header will go here</div>
+<!--content-->
+<section layout:fragment="content"></section>
+<!--footer-->
+<div th:replace="~{layouts/adminCommonFooter :: footer}">My footer will go here</div>
+<script src="/bootstrap/js/bootstrap.bundle.js"></script>
+</body>
+
+</html>

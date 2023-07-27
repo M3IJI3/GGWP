@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layouts/adminDefaultLayout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<body>
+<div layout:fragment="content">
+
+  <div class="container mt-3 mb-3">
+    <form action="#" method="post" th:action="@{/admin/search}" th:object="${searchModel}">
+      <div class="mb-3">
+        <label for="searchTermInput">Search for</label>
+        <input th:field="*{searchTerm}" type="text" class="form-control" id="searchTermInput" aria-describedby="searchHelp">
+        <div id="searchHelp" class="form-text text-muted">Provide a name to search for.</div>
+      </div>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+</div>
+</body>
+</html>
