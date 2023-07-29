@@ -48,4 +48,7 @@ public class UserController {
 
     @GetMapping(path = "/forum_article_editor")
     public String ForumArticlePage(){ return "forum_article_editor"; }
+
+    @GetMapping("/forum/post")
+    public String Post() { return "post_page"; }
 }
