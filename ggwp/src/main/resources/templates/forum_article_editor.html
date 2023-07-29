@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="layouts/defaultLayout"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>GGWP - Write Your Story...</title>
+    <style>
+        textarea{
+            width: 1000px;
+            height: 800px;
+            resize: none;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="content" layout:fragment="content">-->
+    <form class="text-editor home_content content" method="post" layout:fragment="content">
+        <textarea id="mytextarea" placeholder="write something here...">
+
+        </textarea>
+    </form>
+<!--</div>-->
+</body>
+</html>

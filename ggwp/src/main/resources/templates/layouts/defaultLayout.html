@@ -13,6 +13,8 @@
     <!-- box icon library -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel="stylesheet">
 
+    <script src="https://cdn.tiny.cloud/1/zz85dgnmzbbjcliesc73bderj8ahge2enc8w577w6n0u5ouu/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+
     <!-- emoji picker library -->
     <script src="https://cdn.jsdelivr.net/npm/picmo@latest/dist/umd/index.js"></script>
     <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
@@ -90,6 +92,28 @@
             })
         })
     </script>
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <script src="https://cdn.tiny.cloud/1/zz85dgnmzbbjcliesc73bderj8ahge2enc8w577w6n0u5ouu/tinymce/6/tinymce.min.js" referrerpolicy="origin"></script>
+    </head>
+    <body>
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            plugins: 'ai tinycomments mentions anchor autolink charmap codesample emoticons image link lists media searchreplace table visualblocks wordcount checklist mediaembed casechange export formatpainter pageembed permanentpen footnotes advtemplate advtable advcode editimage tableofcontents mergetags powerpaste tinymcespellchecker autocorrect a11ychecker typography inlinecss',
+            toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | align lineheight | tinycomments | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+            tinycomments_mode: 'embedded',
+            tinycomments_author: 'Author name',
+            mergetags_list: [
+                { value: 'First.Name', title: 'First Name' },
+                { value: 'Email', title: 'Email' },
+            ],
+            ai_request: (request, respondWith) => respondWith.string(() => Promise.reject("See docs to implement AI Assistant"))
+        });
+    </script>
+    </body>
+    </html>
     <script src="/home_page.js"></script>
     <script src="/home_emoji_picker.js"></script>
     <script src="/tutors_page_heart.js"></script>

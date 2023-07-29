@@ -6,13 +6,10 @@ import java.util.List;
 
 public interface UsersBusinessServiceInterface {
 
-    public UserModel getById(long id);
-    public List<UserModel> getUsers();
-    public List<UserModel> searchUsers(String searchTerm);
-
-    public long addOne(UserModel newUser);
-
-    public boolean deleteOne(long id);
-
-    public UserModel updateOne(long idToUpdate, UserModel updateUser);
+     UserModel getById(long id);
+     List<UserModel> getUsers();
+     List<UserModel> searchUsers(String searchTerm);
+     long addOne(UserModel newUser);
+     boolean deleteOne(long id);
+     UserModel updateOne(long idToUpdate, UserModel updateUser);
 }
