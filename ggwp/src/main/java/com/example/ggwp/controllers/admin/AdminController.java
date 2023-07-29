@@ -3,6 +3,7 @@ package com.example.ggwp.controllers.admin;
 import com.example.ggwp.models.SearchModel;
 import com.example.ggwp.models.user.UserModel;
 import com.example.ggwp.services.user.UsersBusinessServiceInterface;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,7 +18,8 @@ import java.util.List;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @Autowired
+//    @Autowired
+    @Resource
     UsersBusinessServiceInterface userBusinessService;
 
     @GetMapping("/")
@@ -25,8 +27,8 @@ public class AdminController {
         List<UserModel> users = userBusinessService.getUsers();
         model.addAttribute("title", "User List");
         model.addAttribute("users", users);
-        SearchModel searchModel = new SearchModel(); // Create a new instance of the SearchModel
-        model.addAttribute("searchModel", searchModel); // Add the searchModel to the model
+//        SearchModel searchModel = new SearchModel(); // Create a new instance of the SearchModel
+//        model.addAttribute("searchModel", searchModel); // Add the searchModel to the model
         return "admin_users";
     }
 
