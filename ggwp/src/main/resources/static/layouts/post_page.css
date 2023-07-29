@@ -19,14 +19,14 @@
 /*  white-space: normal;*/
 /*}*/
 
-.post-container {
+.post-page-container {
   display: grid;
   grid-template-columns: 10% 55% 20%;
   gap: 5%;
   white-space: normal;
 }
 
-.action-box {
+.post-page-container .action-box {
   background-color: white;
   height: 250px;
   /*width: 10%;*/
@@ -57,7 +57,7 @@
   padding-top: 10px;
 }
 
-.post-content {
+.post-page-content {
   background-color: white;
   /*width: 55%;*/
   padding: 60px;
@@ -66,14 +66,14 @@
   max-height: initial;
 }
 
-.post-sponsors {
+.post-page-container .post-sponsors {
   background-color: white;
   /*width: 10%;*/
   align-self: flex-start;
   border-radius: 10px;
 }
 
-.sponsor-avatar {
+.post-page-container .sponsor-avatar {
   width: 30px;
   height: 30px;
   object-fit: cover;
@@ -81,14 +81,14 @@
   margin-right: 10px;
 }
 
-.sponsor-box {
+.post-page-container .sponsor-box {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 20px;
 }
 
-.post-sponsors h4 {
+.post-page-container .post-sponsors h4 {
   margin: 15px;
 }
 
@@ -96,44 +96,44 @@
   margin-right: auto;
 }
 
-.post-content h1 {
+.post-page-content h1 {
   margin-bottom: 20px;
   color: #0099cc;
 }
 
-.post-content h3 {
+.post-page-content h3 {
   margin-top: 30px;
   margin-bottom: 10px;
   color: #0099cc;
 }
 
-.post-content ul {
+.post-page-content ul {
   list-style-type: disc;
   margin-left: 20px;
   color: #006600;
 }
 
-.post-content li {
+.post-page-content li {
   margin-bottom: 5px;
 }
 
-.post-content p {
+.post-page-content p {
   margin-bottom: 15px;
 }
 
 /* Adjust styles for the tips and tricks list */
-.post-content h3 + ul li {
+.post-page-content h3 + ul li {
   list-style-type: circle;
   margin-left: 30px;
 }
 
 /* Final thoughts paragraph style */
-.post-content p:last-child {
+.post-page-content p:last-child {
   font-style: italic;
   color: #555;
 }
 
-.post-content img {
+.post-page-content img {
   display: block;
   margin: 0 auto;
   max-width: 100%; /* The image will not exceed its container's width */
