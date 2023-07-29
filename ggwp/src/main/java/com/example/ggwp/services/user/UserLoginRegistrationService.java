@@ -12,7 +12,7 @@ public class UserLoginRegistrationService implements UserLoginRegistrationServic
 
     @Autowired
     UserLoginRegistrationForRepository userLoginRegDAO;
-    
+
     @Override
     public boolean LoginCheck(String email, String password, List<UserModel> users) {
         for(UserModel user : users)
@@ -26,7 +26,26 @@ public class UserLoginRegistrationService implements UserLoginRegistrationServic
     }
 
     @Override
-    public boolean Registration(UserModel userModel) {
+    public boolean DuplicatedEmailCheck(String email, List<UserModel> users) {
+        for(UserModel user : users)
+        {
+            if(email.equals(user.getEmail()))
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public boolean DuplicatedUsernameCheck(String username, List<UserModel> users) {
+        for(UserModel user : users)
+        {
+            if(username.equals(user.getUserName()))
+            {
+                return true;
+            }
+        }
         return false;
     }
 
@@ -39,4 +58,10 @@ public class UserLoginRegistrationService implements UserLoginRegistrationServic
     public List<UserModel> getUsers() {
         return userLoginRegDAO.getUsers();
     }
+
+    @Override
+    public long addOne(UserModel newUser) {
+        return userLoginRegDAO.addOne(newUser);
+    }
+
 }

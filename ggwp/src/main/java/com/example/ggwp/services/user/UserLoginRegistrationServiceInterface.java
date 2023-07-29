@@ -10,9 +10,13 @@ public interface UserLoginRegistrationServiceInterface {
     boolean LoginCheck(String email, String password, List<UserModel> users);
 
     // for registration
-    boolean Registration(UserModel userModel);
+    boolean DuplicatedEmailCheck(String email, List<UserModel> users);
+
+    boolean DuplicatedUsernameCheck(String username, List<UserModel> users);
 
     UserModel getById(long id);
 
     List<UserModel> getUsers();
+
+    long addOne(UserModel newUser);
 }

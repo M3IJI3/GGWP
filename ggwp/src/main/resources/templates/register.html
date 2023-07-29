@@ -21,28 +21,30 @@
                     <h1>Register</h1>
                     <p>Our community needs you!</p>
                 </div>
-                <form class="login-form register-form" method="POST"  action="" style="padding-top: 0">
+                <form class="login-form register-form" method="POST"  th:action="@{process}" th:object="${NewRegUser}" style="padding-top: 0">
                     <div class="login-form-content register-form-content">
 
                     <div class="form-item">
                         <label><sup>*</sup>Username</label>
-                        <input class="invalid-input valid-input" type="text" oninput="handleUsernameInput()" name="text" id="username" placeholder="e.g. john_doe0715" required>
+                        <input th:field="*{userName}" class="invalid-input valid-input" type="text" oninput="handleUsernameInput()" name="text" id="username" placeholder="e.g. john_doe0715" required>
+                        <div th:text="${duplicatedUsername}" style="padding-left: 30px; color: #e73c71"></div>
                     </div>
 
                     <div class="form-item">
                         <label><sup>*</sup>E-mail</label>
-                        <input class="invalid-input valid-input" type="text" oninput="handleEmailInput()" name="email" id="email" placeholder="e.g. johndoe@mail.com" required>
+                        <input th:field="*{email}" class="invalid-input valid-input" type="text" oninput="handleEmailInput()" name="email" id="email" placeholder="e.g. johndoe@mail.com" required>
+                        <div th:text="${duplicatedEmail}" style="padding-left: 30px; color: #e73c71"></div>
                     </div>
 
                     <div class="form-item password-wrapper">
                         <label><sup>*</sup>Password</label>
-                        <input type="password" name="password" oninput="handlePasswordInput()" id="password" class="password invalid-input valid-input" placeholder="(8~20), at least one (!,@,...)" required>
+                        <input th:field="*{password}" type="password" name="password" oninput="handlePasswordInput()" id="password" class="password invalid-input valid-input" placeholder="(8~20), at least one (!,@,...)" required>
                         <i class="fas fa-eye-slash togglePassword"></i>
                     </div>
 
                     <div class="form-item password-wrapper">
                         <label><sup>*</sup>Confirm Password</label>
-                        <input type="password" name="password" oninput="comparePassword()" id="confirm-password" class="password invalid-input valid-input" required>
+                        <input type="password" name="password1" oninput="comparePassword()" id="confirm-password" class="password invalid-input valid-input" required>
                     </div>
 
                     <div class="form-item">
@@ -51,7 +53,7 @@
                     </div>
 
                     <div class="form-item register-button-container">
-                        <a id="btn-register" class="tag-no-decoration" th:href="@{/welcome}">Back</a>
+                        <a id="btn-register" class="tag-no-decoration" th:href="@{/login}">Back</a>
                         <button class="btn-sign-in btn-submit" type="submit">Submit</button>
                     </div>
                     </div>

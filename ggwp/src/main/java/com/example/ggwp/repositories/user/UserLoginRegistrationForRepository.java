@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,5 +36,22 @@ public class UserLoginRegistrationForRepository implements UserLoginRegistration
             models.add(modelMapper.map(item, UserModel.class));
         }
         return models;
+    }
+
+    @Override
+    public long addOne(UserModel newUser) {
+        UserEntity entity = modelMapper.map(newUser, UserEntity.class);
+        if (entity.getImageUrl() == null || entity.getImageUrl().isEmpty()) {
+            // Set the default image URL
+            entity.setImageUrl("https://cdn-icons-png.flaticon.com/512/3177/3177440.png");
+        }
+        // Set the dateCreated field with the current timestamp
+        entity.setDateCreated(LocalDate.now());
+        UserEntity result = crudRepository.save(entity);
+        if(result == null){
+            return 0;
+        }else {
+            return result.getUserId();
+        }
     }
 }

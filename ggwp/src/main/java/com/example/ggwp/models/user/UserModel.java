@@ -1,5 +1,7 @@
 package com.example.ggwp.models.user;
 
+import org.apache.catalina.User;
+
 import java.time.LocalDate;
 
 public class UserModel {
@@ -21,6 +23,13 @@ public class UserModel {
     {
         this.email = email;
         this.password = password;
+    }
+
+    public UserModel(String email, String password, String userName)
+    {
+        this.email = email;
+        this.password = password;
+        this.userName = userName;
     }
 
     public UserModel(long userId, String imageUrl, String userName, String password, String email, LocalDate dateCreated, String subscription, String role, String paymentType) {
