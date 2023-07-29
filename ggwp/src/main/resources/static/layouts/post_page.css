@@ -1,0 +1,142 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/*body {*/
+/*  background-image: url("bj2.png");*/
+/*  background-repeat: repeat;*/
+/*  background-position: center;*/
+/*  font-family: "Inter", sans-serif;*/
+/*}*/
+
+/*.post-container {*/
+/*  display: flex;*/
+/*  justify-content: space-between;*/
+/*  width: 100%;*/
+/*  padding: 50px;*/
+/*  white-space: normal;*/
+/*}*/
+
+.post-container {
+  display: grid;
+  grid-template-columns: 10% 55% 20%;
+  gap: 5%;
+  white-space: normal;
+}
+
+.action-box {
+  background-color: white;
+  height: 250px;
+  /*width: 10%;*/
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  font-size: 32px;
+  padding: 20px;
+  border-radius: 10px;
+  color: #00bcff;
+}
+
+.action:hover {
+  cursor: pointer;
+}
+
+.action i {
+  transition: transform 0.2s ease;
+}
+
+.action i:hover {
+  transform: scale(1.2);
+}
+
+.action-box > div:not(:first-child) {
+  border-top: 1px solid #b9b9b9;
+  padding-top: 10px;
+}
+
+.post-content {
+  background-color: white;
+  /*width: 55%;*/
+  padding: 60px;
+  border-radius: 10px;
+  height: auto;
+  max-height: initial;
+}
+
+.post-sponsors {
+  background-color: white;
+  /*width: 10%;*/
+  align-self: flex-start;
+  border-radius: 10px;
+}
+
+.sponsor-avatar {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 9999px;
+  margin-right: 10px;
+}
+
+.sponsor-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+}
+
+.post-sponsors h4 {
+  margin: 15px;
+}
+
+.sponsor-name {
+  margin-right: auto;
+}
+
+.post-content h1 {
+  margin-bottom: 20px;
+  color: #0099cc;
+}
+
+.post-content h3 {
+  margin-top: 30px;
+  margin-bottom: 10px;
+  color: #0099cc;
+}
+
+.post-content ul {
+  list-style-type: disc;
+  margin-left: 20px;
+  color: #006600;
+}
+
+.post-content li {
+  margin-bottom: 5px;
+}
+
+.post-content p {
+  margin-bottom: 15px;
+}
+
+/* Adjust styles for the tips and tricks list */
+.post-content h3 + ul li {
+  list-style-type: circle;
+  margin-left: 30px;
+}
+
+/* Final thoughts paragraph style */
+.post-content p:last-child {
+  font-style: italic;
+  color: #555;
+}
+
+.post-content img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%; /* The image will not exceed its container's width */
+  height: auto;
+  border-radius: 10px;
+}
