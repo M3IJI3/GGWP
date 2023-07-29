@@ -2,6 +2,7 @@ package com.example.ggwp.controllers.user;
 
 import com.example.ggwp.models.user.UserModel;
 import com.example.ggwp.services.user.UsersBusinessServiceInterface;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +14,8 @@ import java.util.List;
 @RequestMapping("/api/v1/users")
 public class UserRestController {
 
-    @Autowired
+//    @Autowired
+    @Resource
     UsersBusinessServiceInterface userBusinessService;
 
     @GetMapping("/")

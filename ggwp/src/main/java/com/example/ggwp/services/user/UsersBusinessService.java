@@ -2,6 +2,7 @@ package com.example.ggwp.services.user;
 
 import com.example.ggwp.models.user.UserModel;
 import com.example.ggwp.repositories.user.UsersDataAccessInterface;
+import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -9,7 +10,9 @@ import java.util.List;
 
 @Service
 public class UsersBusinessService implements UsersBusinessServiceInterface{
-    @Autowired
+//    @Autowired
+    //if explicitly specify the bean name for injection, use @Resource
+    @Resource
     UsersDataAccessInterface<UserModel> usersDAO;
     @Override
     public UserModel getById(long id) {
