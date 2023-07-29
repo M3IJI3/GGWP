@@ -35,7 +35,6 @@ public class UserLoginRegistrationController {
                 userModel.getPassword(), users);
 
 
-
         if(result)
         {
             return "home";
@@ -50,6 +49,44 @@ public class UserLoginRegistrationController {
     @GetMapping(path = "register")
     public String showRegisterPage(Model model)
     {
+        model.addAttribute("NewRegUser", new UserModel());
         return "register";
+    }
+
+    @PostMapping(path = "process")
+    public String submitRegistration(Model model, UserModel userModel)
+    {
+        List<UserModel> users = loginRegService.getUsers();
+
+        // initialize some attributes in UserModel
+        userModel.setPaymentType("none");
+        userModel.setRole("user");
+        userModel.setSubscription("regular");
+
+        boolean emailCheck = loginRegService.DuplicatedEmailCheck(userModel.getEmail(), users);
+        boolean usernameCheck = loginRegService.DuplicatedUsernameCheck(userModel.getUserName(), users);
+
+        if(!emailCheck && !usernameCheck)
+        {
+            loginRegService.addOne(userModel);
+            model.addAttribute("UserModel", new UserModel());
+            return "welcome";
+        }
+        else {
+
+            model.addAttribute("NewRegUser", new UserModel());
+
+            if(emailCheck)
+            {
+                model.addAttribute("duplicatedEmail", "This e-mail has been registered!");
+            }
+
+            if(usernameCheck)
+            {
+                model.addAttribute("duplicatedUsername", "The username is not available!");
+            }
+
+            return "register";
+        }
     }
 }
