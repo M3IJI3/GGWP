@@ -15,8 +15,6 @@ import javax.sql.DataSource;
 
 @Configuration
 public class SpringConfig {
-
-
     @Bean(name = "userBusinessService")
 //    @RequestScope
     public UsersBusinessServiceInterface getUserBusiness() {

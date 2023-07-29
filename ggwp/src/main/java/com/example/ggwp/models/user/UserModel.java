@@ -17,6 +17,12 @@ public class UserModel {
     public UserModel() {
     }
 
+    public UserModel(String email, String password)
+    {
+        this.email = email;
+        this.password = password;
+    }
+
     public UserModel(long userId, String imageUrl, String userName, String password, String email, LocalDate dateCreated, String subscription, String role, String paymentType) {
         this.userId = userId;
         this.imageUrl = imageUrl;

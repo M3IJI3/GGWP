@@ -20,18 +20,19 @@
                         <h1><span class="multiText"></span></h1>
                         <p>Link to get the latest game news!</p>
                     </div>
-                    <form class="login-form" method="POST" action="">
+                    <form class="login-form" method="POST" th:action="@{/}" th:object="${UserModel}">
                         <div class="login-form-content">
                             <div class="form-item">
                                 <label>Enter E-mail</label>
-                                <input type="text" name="email" id="email">
+                                <input th:field="*{email}" type="text" name="email" id="email" required>
                             </div>
                             <div class="form-item password-wrapper">
                                 <label>Enter Password</label>
-                                <input type="password" name="password" id="password" class="password">
+                                <input th:field="*{password}" type="password" name="password" id="password" class="password" required>
                                 <i class="fas fa-eye-slash togglePassword"></i>
                             </div>
 
+                            <div th:text="${info}" style="color: #e73c71; text-align: center"></div>
                             <button class="btn-sign-in" type="submit">Sign In</button>
                             <a id="btn-register" class="tag-no-decoration" th:href="@{/register}">Register</a>
 
