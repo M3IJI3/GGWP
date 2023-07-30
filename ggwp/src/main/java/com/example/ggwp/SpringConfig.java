@@ -1,5 +1,7 @@
 package com.example.ggwp;
 
+import com.example.ggwp.repositories.comment.CommentDAOInterface;
+import com.example.ggwp.repositories.comment.CommentDataServiceRepository;
 import com.example.ggwp.repositories.user.UsersDataAccessInterface;
 import com.example.ggwp.repositories.user.UsersDataServiceForRepository;
 import com.example.ggwp.services.user.UsersBusinessService;
@@ -27,6 +29,12 @@ public class SpringConfig {
 //    @RequestScope
     public UsersDataAccessInterface getDataService() {
         return new UsersDataServiceForRepository(dataSource);
+    }
+
+    @Bean(name = "commentDAO")
+    public CommentDAOInterface getCommentDataService()
+    {
+        return new CommentDataServiceRepository(dataSource);
     }
 
     @Bean

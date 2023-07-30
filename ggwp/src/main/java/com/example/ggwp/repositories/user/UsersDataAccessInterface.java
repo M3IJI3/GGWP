@@ -3,7 +3,6 @@ package com.example.ggwp.repositories.user;
 import java.util.List;
 
 public interface UsersDataAccessInterface<T> {
-
      T getById(long id);
      List<T> getUsers();
      List<T> searchUsers(String searchTerm);

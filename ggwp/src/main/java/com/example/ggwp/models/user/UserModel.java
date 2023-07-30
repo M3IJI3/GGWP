@@ -5,7 +5,6 @@ import org.apache.catalina.User;
 import java.time.LocalDate;
 
 public class UserModel {
-
     private long userId;
     private String imageUrl;
     private String userName;
