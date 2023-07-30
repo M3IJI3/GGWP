@@ -7,37 +7,37 @@
     <title>Library</title>
   </head>
   <body>
-    <div class="home_content content container" layout:fragment="content">
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-1.png" alt="" />
+    <div class="home_content content container" layout:fragment="content" >
+      <div th:each="game : ${games}" class="game-card">
+        <img  class="game-cover" th:src="${game.getGameCoverImgUrl()}" alt=""/>
       </div>
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-2.png" alt="" />
-      </div>
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-3.jpg" alt="" />
-      </div>
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-4.jpeg" alt="" />
-      </div>
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-5.jpeg" alt="" />
-      </div>
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-6.jpg" alt="" />
-      </div>
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-7.jpeg" alt="" />
-      </div>
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-8.jpg" alt="" />
-      </div>
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-9.jpeg" alt="" />
-      </div>
-      <div class="game-card">
-        <img class="game-cover" src="/img/game-covers/game-cover-10.jpeg" alt="" />
-      </div>
+<!--      <div class="game-card">-->
+<!--        <img class="game-cover" src="/img/game-covers/fnaf_security_breach-cover.png" alt="" />-->
+<!--      </div>-->
+<!--      <div class="game-card">-->
+<!--        <img class="game-cover" src="/img/game-covers/valorant-cover.jpg" alt="" />-->
+<!--      </div>-->
+<!--      <div class="game-card">-->
+<!--        <img class="game-cover" src="/img/game-covers/csgo-cover.jpeg" alt="" />-->
+<!--      </div>-->
+<!--      <div class="game-card">-->
+<!--        <img class="game-cover" src="/img/game-covers/leagueoflegends-cover.jpeg" alt="" />-->
+<!--      </div>-->
+<!--      <div class="game-card">-->
+<!--        <img class="game-cover" src="/img/game-covers/thelastofus-cover.jpg" alt="" />-->
+<!--      </div>-->
+<!--      <div class="game-card">-->
+<!--        <img class="game-cover" src="/img/game-covers/cyberpunk-cover.jpeg" alt="" />-->
+<!--      </div>-->
+<!--      <div class="game-card">-->
+<!--        <img class="game-cover" src="/img/game-covers/deadbydaylight-cover.jpg" alt="" />-->
+<!--      </div>-->
+<!--      <div class="game-card">-->
+<!--        <img class="game-cover" src="/img/game-covers/dota2-cover.jpeg" alt="" />-->
+<!--      </div>-->
+<!--      <div class="game-card">-->
+<!--        <img class="game-cover" src="/img/game-covers/fortnite-cover.jpeg" alt="" />-->
+<!--      </div>-->
     </div>
   </body>
 </html>
