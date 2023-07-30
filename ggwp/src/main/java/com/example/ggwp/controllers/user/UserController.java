@@ -28,10 +28,10 @@ public class UserController {
     @GetMapping(path = "/tutor")
     public String TutorPage(Model model) {return "/tutor_profile" ;}
 
-    @RequestMapping("/library")
-    public String LibraryPage(){
-        return "library";
-    }
+//    @RequestMapping("/library")
+//    public String LibraryPage(){
+//        return "library";
+//    }
 
 //    @GetMapping(path = "/home")
 //    public String HomePage(Model model) { return "/home"; }
