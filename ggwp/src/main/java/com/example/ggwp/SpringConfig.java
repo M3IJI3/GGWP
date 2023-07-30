@@ -1,7 +1,11 @@
 package com.example.ggwp;
 
+import com.example.ggwp.repositories.game.GamesDataAccessInterface;
+import com.example.ggwp.repositories.game.GamesDataServiceForRepository;
 import com.example.ggwp.repositories.user.UsersDataAccessInterface;
 import com.example.ggwp.repositories.user.UsersDataServiceForRepository;
+import com.example.ggwp.services.game.GamesBusinessService;
+import com.example.ggwp.services.game.GamesBusinessServiceInterface;
 import com.example.ggwp.services.user.UsersBusinessService;
 import com.example.ggwp.services.user.UsersBusinessServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +31,15 @@ public class SpringConfig {
 //    @RequestScope
     public UsersDataAccessInterface getDataService() {
         return new UsersDataServiceForRepository(dataSource);
+    }
+
+    @Bean(name = "gameBusinessService")
+    GamesBusinessServiceInterface getGameBusiness() {
+        return new GamesBusinessService();
+    }
+    @Bean(name = "gamesDAO")
+    public GamesDataAccessInterface getGameDataService() {
+        return new GamesDataServiceForRepository(dataSource);
     }
 
     @Bean
