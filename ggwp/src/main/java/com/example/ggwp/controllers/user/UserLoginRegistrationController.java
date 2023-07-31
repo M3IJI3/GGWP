@@ -2,6 +2,7 @@ package com.example.ggwp.controllers.user;
 
 import com.example.ggwp.models.comment.CommentModel;
 import com.example.ggwp.models.comment.PostModel;
+import com.example.ggwp.models.comment.PostSubModel;
 import com.example.ggwp.models.comment.SubCommentModel;
 import com.example.ggwp.models.user.UserModel;
 import com.example.ggwp.services.comment.CommentServiceInterface;
@@ -76,7 +77,16 @@ public class UserLoginRegistrationController {
                 List<SubCommentModel> subCommentModelList =
                         subCommentService.findSubCommentsByParentCommentId(commentModels.get(i).getCommentID());
 
+                List<PostSubModel> postSubModelList = new ArrayList<>();
+                for(int j = 0; j <subCommentModelList.size(); j++){
 
+                    postSubModelList.add(new PostSubModel(subCommentModelList.get(j).getSub_comment_id(),
+                                                    subCommentModelList.get(j).getContent(),
+                                                    subCommentModelList.get(j).getComment_id(),
+                                                    subCommentModelList.get(j).getUser_id(),
+                                                    commentUsersInfo.get(j).getImageUrl(),
+                                                    commentUsersInfo.get(j).getUserName()));
+                }
 
                 postModels.addFirst(new PostModel(commentModels.get(i).getGameField(),
                                 commentUsersInfo.get(i).getImageUrl(),
@@ -87,7 +97,7 @@ public class UserLoginRegistrationController {
                                 commentModels.get(i).getCommentDate(),
                                 commentModels.get(i).getLikesCount(),
                                 commentModels.get(i).getSubCommentCount(),
-                                subCommentModelList));
+                                postSubModelList));
             }
 
 

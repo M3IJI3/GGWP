@@ -78,10 +78,10 @@
                         </div>
 
                         <ul>
-                            <li th:each="subComment : ${postModel.getSubCommentModels()}">
-                                <img src="https://e1.pxfuel.com/desktop-wallpaper/196/276/desktop-wallpaper-anime-icon-posted-by-ryan-peltier-aesthetic-anime-icons.jpg" alt="">
-                                <a>@user0</a>
-                                <p th:text="${subComment.getContent()}">the sub comment will go here.</p>
+                            <li th:each="postSubModel : ${postModel.getPostSubModelList()}">
+                                <img th:src="${postSubModel.getImageUrl()}" alt="">
+                                <a th:text="'@' + ${postSubModel.getUsername()}">@user0</a>
+                                <p th:text="${postSubModel.getContent()}">the sub comment will go here.</p>
                             </li>
                         </ul>
                     </div>
