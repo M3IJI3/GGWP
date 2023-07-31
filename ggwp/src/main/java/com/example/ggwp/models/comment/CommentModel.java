@@ -17,4 +17,13 @@ public class CommentModel {
     private long subCommentCount;
     private LocalDate commentDate;
     private long userId;
+
+    public CommentModel(String gameField, String content, long likesCount, long subCommentCount, LocalDate commentDate, long userId) {
+        this.gameField = gameField;
+        this.content = content;
+        this.likesCount = likesCount;
+        this.subCommentCount = subCommentCount;
+        this.commentDate = commentDate;
+        this.userId = userId;
+    }
 }

@@ -13,15 +13,15 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.http.HttpRequest;
+import java.time.LocalDate;
 import java.util.*;
 
 @Controller
 @RequestMapping(path = "/")
+@SessionAttributes("newComment")
 public class UserLoginRegistrationController {
     @Resource
     UserLoginRegistrationServiceInterface loginRegService;
@@ -101,11 +101,11 @@ public class UserLoginRegistrationController {
             }
 
 
-
+            model.addAttribute("newComment", new CommentModel());
             session.setAttribute("postModels", postModels);
 
 
-            return "redirect:home";
+            return "home";
         }
         else {
             model.addAttribute("info", "Username or password is incorrect!");
@@ -113,6 +113,9 @@ public class UserLoginRegistrationController {
             return "welcome";
         }
     }
+
+
+
 
     @RequestMapping(path = "home")
     public String homePage(HttpSession session)

@@ -32,8 +32,10 @@
 
             <div id="emoji-picker" class="emoji-container hidden"></div>
 
-            <input id="emoji-input" type="text" placeholder="What's in your mind?">
-            <button type="submit">GG!</button>
+            <form action="#" method="post" th:action="@{/addNewComment}" th:object="${newComment}">
+                <input th:field="${newComment.content}" id="emoji-input" type="text" placeholder="What's in your mind?" required>
+                <button type="submit">GG!</button>
+            </form>
         </div>
 
         <div class="users-post">
