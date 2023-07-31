@@ -33,4 +33,9 @@ public class CommentService implements CommentServiceInterface{
     public long postOne(CommentModel comment, UserModel userModel) {
         return commentDataServiceRepository.postOne(comment, userModel);
     }
+
+    @Override
+    public UserModel getUserByCommentUserId(long commentUserId) {
+        return commentDataServiceRepository.getByCommentId(commentUserId);
+    }
 }

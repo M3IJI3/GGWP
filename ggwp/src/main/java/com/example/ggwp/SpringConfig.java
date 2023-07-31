@@ -38,9 +38,9 @@ public class SpringConfig {
     }
 
     @Bean(name = "commentDAO")
-    public CommentDAOInterface getCommentDataService()
-    {
+    public CommentDAOInterface getCommentDataService() {
         return new CommentDataServiceRepository(dataSource);
+    }
 
     @Bean(name = "gameBusinessService")
     GamesBusinessServiceInterface getGameBusiness() {

@@ -2,7 +2,10 @@ package com.example.ggwp.repositories.comment;
 
 import com.example.ggwp.models.comment.CommentEntity;
 import com.example.ggwp.models.comment.CommentModel;
+import com.example.ggwp.models.user.UserEntity;
 import com.example.ggwp.models.user.UserModel;
+import com.example.ggwp.repositories.user.UsersDataAccessInterface;
+import com.example.ggwp.repositories.user.UsersRepositoryInterface;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
 import org.modelmapper.ModelMapper;
@@ -19,6 +22,9 @@ public class CommentDataServiceRepository implements CommentDAOInterface<Comment
     @Resource
     CommentEntityRepositoryInterface commentEntityRepositoryInterface;
 
+    @Resource
+    UsersDataAccessInterface<UserModel> usersDAO;
+
     private JdbcTemplate jdbcTemplate;
 
     ModelMapper mapper = new ModelMapper();
@@ -31,8 +37,7 @@ public class CommentDataServiceRepository implements CommentDAOInterface<Comment
     @Override
     public CommentModel getByID(long id) {
         CommentEntity commentEntity = commentEntityRepositoryInterface.findById(id).orElse(null);
-        CommentModel commentModel = mapper.map(commentEntity, CommentModel.class);
-        return commentModel;
+        return mapper.map(commentEntity, CommentModel.class);
     }
 
     @Override
@@ -69,4 +74,12 @@ public class CommentDataServiceRepository implements CommentDAOInterface<Comment
             return result.getCommentID();
         }
     }
+
+    @Override
+    public UserModel getByCommentId(long commentId)
+    {
+        CommentModel commentModel = getByID(commentId);
+        return usersDAO.getById(commentModel.getUserId());
+    }
+
 }

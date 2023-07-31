@@ -10,4 +10,7 @@ public interface CommentServiceInterface {
     List<CommentModel> getComments();
     List<CommentModel> searchComments(String searchTerm);
     long postOne(CommentModel comment, UserModel userModel);
+
+//    UserModel getUserByCommentUserId(long userid);
+    UserModel getUserByCommentUserId(long commentUserId);
 }

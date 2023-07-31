@@ -32,6 +32,6 @@ public class CommentEntity {
     @Column(name = "COMMENT_DATE")
     private LocalDate commentDate;
     
-    @Column(name = "USER_ID")
+    @JoinColumn(name = "USER_ID")
     private long userId;
 }

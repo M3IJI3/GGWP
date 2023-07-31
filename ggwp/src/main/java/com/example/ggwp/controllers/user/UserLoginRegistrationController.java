@@ -1,8 +1,11 @@
 package com.example.ggwp.controllers.user;
 
 import com.example.ggwp.models.comment.CommentModel;
+import com.example.ggwp.models.comment.PostModel;
+import com.example.ggwp.models.comment.SubCommentModel;
 import com.example.ggwp.models.user.UserModel;
 import com.example.ggwp.services.comment.CommentServiceInterface;
+import com.example.ggwp.services.subcomment.SubCommentServiceInterface;
 import com.example.ggwp.services.user.UserLoginRegistrationServiceInterface;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpServletRequest;
@@ -14,7 +17,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.net.http.HttpRequest;
-import java.util.List;
+import java.util.*;
 
 @Controller
 @RequestMapping(path = "/")
@@ -24,6 +27,9 @@ public class UserLoginRegistrationController {
 
     @Resource
     CommentServiceInterface commentServiceInterface;
+
+    @Resource
+    SubCommentServiceInterface subCommentService;
 
     @GetMapping(path = "login")
     public String showLoginPage(Model model)
@@ -51,6 +57,42 @@ public class UserLoginRegistrationController {
             // enter into home page and get latest comments
             List<CommentModel> commentModels = commentServiceInterface.getComments();
             session.setAttribute("commentModels", commentModels);
+
+            List<UserModel> commentUsersInfo = new ArrayList<>();
+
+            List<SubCommentModel> subCommentModels =
+                    subCommentService.findSubCommentsByParentCommentId(commentModels.get(0).getCommentID());
+
+
+            for(int i = 0 ; i < commentModels.size() ; i++)
+            {
+                commentUsersInfo.add(commentServiceInterface.getUserByCommentUserId(commentModels.get(i).getCommentID()));
+            }
+
+
+            LinkedList<PostModel> postModels = new LinkedList<>();
+            for(int i = 0 ; i < commentModels.size() ; i++)
+            {
+                List<SubCommentModel> subCommentModelList =
+                        subCommentService.findSubCommentsByParentCommentId(commentModels.get(i).getCommentID());
+
+
+
+                postModels.addFirst(new PostModel(commentModels.get(i).getGameField(),
+                                commentUsersInfo.get(i).getImageUrl(),
+                                commentUsersInfo.get(i).getUserName(),
+                                commentUsersInfo.get(i).getRole(),
+                                commentUsersInfo.get(i).getSubscription(),
+                                commentModels.get(i).getContent(),
+                                commentModels.get(i).getCommentDate(),
+                                commentModels.get(i).getLikesCount(),
+                                commentModels.get(i).getSubCommentCount(),
+                                subCommentModelList));
+            }
+
+
+
+            session.setAttribute("postModels", postModels);
 
 
             return "redirect:home";
