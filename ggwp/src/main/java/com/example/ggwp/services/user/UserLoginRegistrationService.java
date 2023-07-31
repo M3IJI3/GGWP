@@ -64,4 +64,9 @@ public class UserLoginRegistrationService implements UserLoginRegistrationServic
         return userLoginRegDAO.addOne(newUser);
     }
 
+    @Override
+    public UserModel getByEmail(String param, List<UserModel> objects) {
+        return userLoginRegDAO.getByEmail(param, objects);
+    }
+
 }

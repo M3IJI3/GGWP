@@ -1,5 +1,5 @@
 <!--<div th:fragment="side">-->
-    <div class="sidebar" th:fragment="side">
+    <div class="sidebar" th:fragment="side" th:object="${session.loggedInUser}">
         <div class="logo_content">
             <div class="logo">
                 <div class="logo_name">GG.WP</div>
@@ -48,10 +48,10 @@
                 <div class="profile" >
                     <a href="/user" style="text-decoration: none;color: inherit">
                         <div class="profile_details">
-                            <img src="/img/profile.jpg" alt="">
+                            <img th:src="*{imageUrl}" alt="">
                             <div class="name_job">
-                                <div class="name">Name</div>
-                                <div class="job">type</div>
+                                <div class="name" th:text="*{userName}">Name</div>
+                                <div class="job" th:text="*{role}">type</div>
                             </div>
                         </div>
                         <i class='bx bx-log-out' id="log_out"></i>
@@ -60,4 +60,3 @@
             </div>
         </div>
     </div>
-<!--</div>-->

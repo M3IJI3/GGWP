@@ -54,4 +54,16 @@ public class UserLoginRegistrationForRepository implements UserLoginRegistration
             return result.getUserId();
         }
     }
+
+    @Override
+    public UserModel getByEmail(String param, List<UserModel> objects) {
+        for(UserModel user : objects)
+        {
+            if(param.equals(user.getEmail()))
+            {
+                return user;
+            }
+        }
+        return null;
+    }
 }

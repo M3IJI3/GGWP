@@ -19,4 +19,6 @@ public interface UserLoginRegistrationServiceInterface {
     List<UserModel> getUsers();
 
     long addOne(UserModel newUser);
+
+    UserModel getByEmail(String param, List<UserModel> objects);
 }

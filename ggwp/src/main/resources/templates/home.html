@@ -7,7 +7,7 @@
     <title>GG.WP - Home</title>
 </head>
 <body>
-    <div class="home_content content" layout:fragment="content">
+    <div class="home_content content" layout:fragment="content" th:object="${session.loggedInUser}">
         <div class="image-container">
             <div class="scroll-wrapper">
                 <div class="slide">
@@ -32,38 +32,38 @@
 
             <div id="emoji-picker" class="emoji-container hidden"></div>
 
-            <input id="emoji-input" type="text" placeholder="What's in your mind?">
-            <button type="submit">GG!</button>
+            <form action="#" method="post" th:action="@{/addNewComment}" th:object="${newComment}">
+                <input th:field="${newComment.content}" id="emoji-input" type="text" placeholder="What's in your mind?" required>
+                <button type="submit">GG!</button>
+            </form>
         </div>
 
         <div class="users-post">
-            <ul>
+            <ul th:each="postModel : ${session.postModels}">
                 <li>
-                    <div class="game-field">/leagueoflegends</div>
+                    <div class="game-field" th:text="${postModel.getGame()}">/game-field</div>
                     <div class="user-avatar-field">
-                        <img class="profile-pic" src="https://pbs.twimg.com/media/EzgbTeFWEAQemmR.jpg" alt="">
+                        <img class="profile-pic" th:src="${postModel.getImageUrl()}" alt="">
                         <div class="username">
-                            <a href="#">@hideonbush</a><span>/gg</span>
+                            <a href="#" th:text="'@' + ${postModel.getUsername()}">@hello</a><span th:text="${postModel.getRole()}">/wp</span>
                             <img id="vip-logo" src="/img/vip.png" alt="">
                         </div>
                     </div>
                     <div class="post-content">
-                        <p>
-                            Looking for a player who can play top or jungle lane. Our average rank is platinum!!! Add me as soon as possible!!! 😎
-                        </p>
+                        <p th:text="${postModel.getContent()}"></p>
                     </div>
                     <div class="post-bottom">
-                        <div class="post-timestamp">posted on <span>20 June, 2023</span></div>
+                        <div class="post-timestamp">posted on <span th:text="${postModel.getDate()}"></span></div>
 
                         <div class="comment-likes">
                             <ul>
                                 <li>
-                                    <i class='bx bx-heart home-post-like' style='color:#ff6b6b'></i>
-                                    <span class="home-post-likes-count">1234</span>
+                                    <i class='bx bx-heart home-post-like' onclick="sendValueToController()" style='color:#ff6b6b'></i>
+                                    <span class="home-post-likes-count" th:text="${postModel.getLikesCount()}"></span>
                                 </li>
                                 <li>
                                     <i class='bx bx-message-square-dots home-post-comment' style='color:lightsteelblue' ></i>
-                                    <span class="home-post-comments-count">234</span>
+                                    <span class="home-post-comments-count" th:text="${postModel.getSubCommentsCount()}"></span>
                                 </li>
                             </ul>
                         </div>
@@ -71,7 +71,7 @@
 
                     <div class="comment-dropdown">
                         <div class="comment-input">
-                            <img src="/img/profile.jpg" alt="">
+                            <img th:src="*{imageUrl}" alt="">
                             <input id="commentInput" type="text" placeholder="say something..." />
                             <div id="cmt-char-count" class="charCount">0 / 150</div>
                             <button class="" id="cmt-send-btn" type="submit">
@@ -80,33 +80,10 @@
                         </div>
 
                         <ul>
-                            <li>
-                                <img src="https://e1.pxfuel.com/desktop-wallpaper/196/276/desktop-wallpaper-anime-icon-posted-by-ryan-peltier-aesthetic-anime-icons.jpg" alt="">
-                                <a href="">@user0 </a>
-                                <p>Patricia's friend who was here hardly had any issues at all,
-                                    but she wasn't telling the truth. Yesterday, before she left to go home, she heard that her
-                                    husband is in the hospital and pretended to be surprised. It later came out that she was the person
-                                    who had put him there.</p>
-                            </li>
-                            <li>
-                                <img src="https://storage.ko-fi.com/cdn/useruploads/display/39d7fa2f-9353-4cb1-91f9-7c5c1c2d4f61_0f217d0189f841ae794500966ab1845a.jpg" alt="">
-                                <a href="">@user1</a>
-                                <p>Add me!!!</p>
-                            </li>
-                            <li>
-                                <img src="https://i.pinimg.com/550x/b4/30/7e/b4307e9bf9287c2ac5bcc978e3ab6844.jpg" alt="">
-                                <a href="">@user2</a>
-                                <p>Add me!</p>
-                            </li>
-                            <li>
-                                <img src="https://wallpaperaccess.com/full/8026108.jpg" alt="">
-                                <a href="">@user3</a>
-                                <p>Add me!❤️</p>
-                            </li>
-                            <li>
-                                <img src="https://64.media.tumblr.com/d4e3891b609ebb1e4f55c6fc7d00cb6b/7ff69a6d9005eeaf-d2/s1280x1920/d8ee3d47737c0ebced49aa74e8ba65f37a2ab7e3.jpg" alt="">
-                                <a href="">@user4</a>
-                                <p>LOL!😊</p>
+                            <li th:each="postSubModel : ${postModel.getPostSubModelList()}">
+                                <img th:src="${postSubModel.getImageUrl()}" alt="">
+                                <a th:text="'@' + ${postSubModel.getUsername()}">@user0</a>
+                                <p th:text="${postSubModel.getContent()}">the sub comment will go here.</p>
                             </li>
                         </ul>
                     </div>
@@ -114,80 +91,80 @@
                     <!-- divider -->
                     <div class="divider"></div>
                 </li>
-
-                <li>
-                    <div class="game-field">/apex</div>
-                    <div class="user-avatar-field">
-                        <img class="profile-pic" src="https://i.pinimg.com/originals/9d/8a/be/9d8abe0cf01d469d3b546f7b2f2cf17e.jpg" alt="">
-                        <div class="username"><a href="#">@aceu</a><span>/wp</span></div>
-                    </div>
-                    <div class="post-content">
-                        <p>
-                            My stream on twitch started!!! Please go follow me!
-                        </p>
-                    </div>
-                    <div class="post-bottom">
-                        <div class="post-timestamp">posted on <span>19 June, 2023</span></div>
-
-                        <div class="comment-likes">
-                            <ul>
-                                <li>
-                                    <i class='bx bx-heart home-post-like' style='color:#ff6b6b' ></i>
-                                    <span class="home-post-likes-count">2</span>
-                                </li>
-                                <li>
-                                    <i class='bx bx-message-square-dots home-post-comment' style='color:lightsteelblue' ></i>
-                                    <span class="home-post-comments-count">4</span>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="comment-dropdown">
-                        <div class="comment-input">
-                            <img src="/img/profile.jpg" alt="">
-                            <input type="text" placeholder="say something..." />
-                            <div  class="charCount">0 / 150</div>
-                            <button type="submit">
-                                <i class='bx bx-send bx-rotate-180' style='color:#ffffff' ></i>
-                            </button>
-                        </div>
-
-                        <ul>
-                            <li>
-                                <img src="https://e1.pxfuel.com/desktop-wallpaper/196/276/desktop-wallpaper-anime-icon-posted-by-ryan-peltier-aesthetic-anime-icons.jpg" alt="">
-                                <a href="">@user0 </a>
-                                <p>Patricia's friend who was here hardly had any issues at all,
-                                    but she wasn't telling the truth. Yesterday, before she left to go home, she heard that her
-                                    husband is in the hospital and pretended to be surprised. It later came out that she was the person
-                                    who had put him there.</p>
-                            </li>
-                            <li>
-                                <img src="https://storage.ko-fi.com/cdn/useruploads/display/39d7fa2f-9353-4cb1-91f9-7c5c1c2d4f61_0f217d0189f841ae794500966ab1845a.jpg" alt="">
-                                <a href="">@user1</a>
-                                <p>Add me!!!</p>
-                            </li>
-                            <li>
-                                <img src="https://i.pinimg.com/550x/b4/30/7e/b4307e9bf9287c2ac5bcc978e3ab6844.jpg" alt="">
-                                <a href="">@user2</a>
-                                <p>Add me!</p>
-                            </li>
-                            <li>
-                                <img src="https://wallpaperaccess.com/full/8026108.jpg" alt="">
-                                <a href="">@user3</a>
-                                <p>Add me!❤️</p>
-                            </li>
-                            <li>
-                                <img src="https://64.media.tumblr.com/d4e3891b609ebb1e4f55c6fc7d00cb6b/7ff69a6d9005eeaf-d2/s1280x1920/d8ee3d47737c0ebced49aa74e8ba65f37a2ab7e3.jpg" alt="">
-                                <a href="">@user4</a>
-                                <p>LOL!😊</p>
-                            </li>
-                        </ul>
-                    </div>
-                </li>
             </ul>
-
         </div>
+
+<!--                <li>-->
+<!--                    <div class="game-field">/apex</div>-->
+<!--                    <div class="user-avatar-field">-->
+<!--                        <img class="profile-pic" src="https://i.pinimg.com/originals/9d/8a/be/9d8abe0cf01d469d3b546f7b2f2cf17e.jpg" alt="">-->
+<!--                        <div class="username"><a href="#">@aceu</a><span>/wp</span></div>-->
+<!--                    </div>-->
+<!--                    <div class="post-content">-->
+<!--                        <p>-->
+<!--                            My stream on twitch started!!! Please go follow me!-->
+<!--                        </p>-->
+<!--                    </div>-->
+<!--                    <div class="post-bottom">-->
+<!--                        <div class="post-timestamp">posted on <span>19 June, 2023</span></div>-->
+
+<!--                        <div class="comment-likes">-->
+<!--                            <ul>-->
+<!--                                <li>-->
+<!--                                    <i class='bx bx-heart home-post-like' style='color:#ff6b6b' ></i>-->
+<!--                                    <span class="home-post-likes-count">2</span>-->
+<!--                                </li>-->
+<!--                                <li>-->
+<!--                                    <i class='bx bx-message-square-dots home-post-comment' style='color:lightsteelblue' ></i>-->
+<!--                                    <span class="home-post-comments-count">4</span>-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+
+<!--                    <div class="comment-dropdown">-->
+<!--                        <div class="comment-input">-->
+<!--                            <img src="/img/profile.jpg" alt="">-->
+<!--                            <input type="text" placeholder="say something..." />-->
+<!--                            <div  class="charCount">0 / 150</div>-->
+<!--                            <button type="submit">-->
+<!--                                <i class='bx bx-send bx-rotate-180' style='color:#ffffff' ></i>-->
+<!--                            </button>-->
+<!--                        </div>-->
+
+<!--                        <ul>-->
+<!--                            <li>-->
+<!--                                <img src="https://e1.pxfuel.com/desktop-wallpaper/196/276/desktop-wallpaper-anime-icon-posted-by-ryan-peltier-aesthetic-anime-icons.jpg" alt="">-->
+<!--                                <a href="">@user0 </a>-->
+<!--                                <p>Patricia's friend who was here hardly had any issues at all,-->
+<!--                                    but she wasn't telling the truth. Yesterday, before she left to go home, she heard that her-->
+<!--                                    husband is in the hospital and pretended to be surprised. It later came out that she was the person-->
+<!--                                    who had put him there.</p>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <img src="https://storage.ko-fi.com/cdn/useruploads/display/39d7fa2f-9353-4cb1-91f9-7c5c1c2d4f61_0f217d0189f841ae794500966ab1845a.jpg" alt="">-->
+<!--                                <a href="">@user1</a>-->
+<!--                                <p>Add me!!!</p>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <img src="https://i.pinimg.com/550x/b4/30/7e/b4307e9bf9287c2ac5bcc978e3ab6844.jpg" alt="">-->
+<!--                                <a href="">@user2</a>-->
+<!--                                <p>Add me!</p>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <img src="https://wallpaperaccess.com/full/8026108.jpg" alt="">-->
+<!--                                <a href="">@user3</a>-->
+<!--                                <p>Add me!❤️</p>-->
+<!--                            </li>-->
+<!--                            <li>-->
+<!--                                <img src="https://64.media.tumblr.com/d4e3891b609ebb1e4f55c6fc7d00cb6b/7ff69a6d9005eeaf-d2/s1280x1920/d8ee3d47737c0ebced49aa74e8ba65f37a2ab7e3.jpg" alt="">-->
+<!--                                <a href="">@user4</a>-->
+<!--                                <p>LOL!😊</p>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </li>-->
+
 
         <div class="trend-games">
             <div class="card-title"><span>.</span>Trend</div>

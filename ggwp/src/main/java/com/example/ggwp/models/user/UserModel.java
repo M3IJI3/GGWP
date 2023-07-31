@@ -1,11 +1,12 @@
 package com.example.ggwp.models.user;
 
+import com.example.ggwp.models.comment.CommentModel;
 import org.apache.catalina.User;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class UserModel {
-
     private long userId;
     private String imageUrl;
     private String userName;
