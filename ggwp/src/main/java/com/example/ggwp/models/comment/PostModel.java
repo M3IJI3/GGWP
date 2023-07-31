@@ -20,11 +20,11 @@ public class PostModel {
     LocalDate date;
     long likesCount;
     long subCommentsCount;
-    List<SubCommentModel> subCommentModels;
+    List<PostSubModel> postSubModelList;
 
-    public PostModel(String imageUrl, String username)
-    {
-        this.imageUrl = imageUrl;
-        this.username = username;
-    }
+//    public PostModel(String imageUrl, String username)
+//    {
+//        this.imageUrl = imageUrl;
+//        this.username = username;
+//    }
 }
