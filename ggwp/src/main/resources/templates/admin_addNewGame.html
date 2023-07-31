@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="~{layouts/adminDefaultLayout}"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+  <meta charset="UTF-8">
+  <title>GGWP</title>
+</head>
+<body>
+<div layout:fragment="content">
+  <div class="container mt-3 mb-3">
+    <form action="#" method="post" th:action="@{/admin/games/add}" th:object="${game}" enctype="multipart/form-data">
+<!--      <div class="mb-3">-->
+<!--        <label for="gameCoverUploadInput">Game Cover</label>-->
+<!--        <input name="gaveCoverImg" type="file" class="form-control" id="gameCoverUploadInput" aria-describedby="gameCoverUploadInput"  required>-->
+<!--      </div>-->
+      <div class="mb-3">
+        <label for="gameCoverUrlInput">Cover image Path</label>
+        <input th:field="*{gameCoverImgUrl}" type="text" class="form-control" id="gameCoverUrlInput" aria-describedby="imageUrlHelp">
+        <div id="imageUrlHelp" class="form-text text-muted">Input the path of the cover image ie: /img/game-covers/celeste-cover.png</div>
+      </div>
+
+      <div class="mb-3">
+        <label for="titleInput">Title</label>
+        <input th:field="*{title}" type="text" class="form-control" id="titleInput" aria-describedby="titleHelp"  required>
+      </div>
+
+      <div class="mb-3">
+        <label for="descriptionInput">Description</label>
+        <input th:field="*{description}" type="text" class="form-control" id="descriptionInput" aria-describedby="descriptionHelp">
+      </div>
+
+      <div class="mb-3">
+        <label for="releaseDateInput">Release Date</label>
+        <input th:field="*{releaseDate}" type="date" class="form-control" id="releaseDateInput" aria-describedby="releaseDateHelp">
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+  </div>
+
+</div>
+</body>
+</html>

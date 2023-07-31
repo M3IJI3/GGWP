@@ -1,11 +1,15 @@
 package com.example.ggwp.models.game;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class GameModel {
     private long gameId;
     private String title;
     private String description;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date releaseDate;
 
     private String gameCoverImgUrl;
