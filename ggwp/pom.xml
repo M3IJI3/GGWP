@@ -29,6 +29,8 @@
             <artifactId>spring-boot-starter-thymeleaf</artifactId>
         </dependency>
 
+
+        <!-- Spring Security OAuth2 Client -->
 <!--        &lt;!&ndash; Spring Security OAuth2 Client &ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>org.springframework.boot</groupId>-->

@@ -1,17 +1,19 @@
 package com.example.ggwp.controllers.admin;
 
 import com.example.ggwp.models.SearchModel;
+import com.example.ggwp.models.game.GameModel;
 import com.example.ggwp.models.user.UserModel;
+import com.example.ggwp.services.game.GamesBusinessServiceInterface;
 import com.example.ggwp.services.user.UsersBusinessServiceInterface;
 import jakarta.annotation.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -21,6 +23,9 @@ public class AdminController {
 //    @Autowired
     @Resource
     UsersBusinessServiceInterface userBusinessService;
+
+    @Resource
+    GamesBusinessServiceInterface gameBusinessService;
 
     @GetMapping("/")
     public String showAdminPage(Model model) {
@@ -110,4 +115,58 @@ public class AdminController {
 
         return "admin_users";
     }
+
+
+    // Games ADMIN methods
+
+    @GetMapping("/games")
+    public String showAllGames(Model model){
+        List<GameModel> games = gameBusinessService.getGames();
+        model.addAttribute("games", games);
+        return "admin_games" ;
+    }
+
+    @GetMapping("/games/addForm")
+    public String showAddForm(Model model) {
+        GameModel newGame = new GameModel();
+//        newGame.setReleaseDate(new Date());
+        model.addAttribute("game", newGame);
+        return "admin_addNewGame" ;
+    }
+
+
+    @PostMapping("/games/add")
+    public String addGame(@ModelAttribute GameModel newGame,  Model model) {
+
+
+        // Convert the string date to a Date object using @DateTimeFormat
+        Date releaseDate = newGame.getReleaseDate();
+        model.addAttribute("releaseDate", releaseDate);
+
+        newGame.setGameCoverImgUrl("/img/game-covers/celeste-cover.png"); // Celeste pic default for now, while we still figure out files uploads.
+
+        // add to the db
+        gameBusinessService.addOne(newGame);
+
+        // get all games from db
+        List<GameModel> games = gameBusinessService.getGames();
+
+        // show all games page
+        model.addAttribute("games", games);
+
+        return "admin_games";
+    }
+
+
+    // Delete a game by ID
+    @PostMapping("games/delete")
+    public String deleteGame(Model model, GameModel game) {
+        gameBusinessService.deleteOne(game.getGameId()  );
+        List<GameModel> games = gameBusinessService.getGames();
+
+        model.addAttribute("games", games);
+
+        return "admin_games";
+    }
+
 }
