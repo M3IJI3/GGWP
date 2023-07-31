@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="layouts/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="container" layout:fragment="content">
+    <form action="#" method="post" th:action="@{finishPayment}" th:object="${paymentModel}">
+        <input name="price" th:value="${price}"/>
+        <div class="row">
+            <div class="col">
+                 <h3 class="title">Pay by Credit/Debit Card</h3>
+                <img src="img/userPayment/creditdebit.png" alt="">
+                <div>
+                <input type="checkbox" id="credit" >
+                <label for="credit"> Credit Card</label>
+                <input type="checkbox" id="debit" >
+                <label for="debit"> Debit Card</label><br>
+                </div>
+                <div class="inputBox">
+                    <span>Full name: </span>
+                    <input  type="text" placeholder="">
+                </div>
+                <div class="inputBox">
+                    <span>Email: </span>
+                    <input  type="email" placeholder="example@gmail.com">
+                </div>
+                <div class="inputBox">
+                    <span>Phone number: </span>
+                    <input type="number" placeholder="xxx-xxx-xxx">
+                </div>
+                <div class="inputBox">
+                    <span><lable for="userID" class="form-label">CustomerID:</lable> </span>
+                    <input class="form-control" type="number" placeholder="xxxx">
+                </div>
+                <div class="inputBox">
+                    <span>Card number: </span>
+                    <input type="number" placeholder="xx xxxx xxx">
+                </div>
+                <div class="inputBox">
+                    <span>Expiration month: </span>
+                    <input type="number" placeholder="mm">
+                </div>
+                <div class="inputBox">
+                    <span>Expiration year: </span>
+                    <input type="number" placeholder="yy">
+                </div>
+                <div class="inputBox">
+                    <span>cvv: </span>
+                    <input  type="number" placeholder="xxx">
+                </div>
+                <input type="submit" value="Check out" class="submit-btn">
+            </div>
+
+            <div class="col">
+                <h3 class="title">Pay with Paypal</h3>
+
+                <img src="img/userPayment/paypal.png" alt="">
+                <p>As a member, your eligible purchase are covered by <a style="color: dodgerblue"> PayPal
+                    Purchase Protection</a>.<a style="font-style: italic;"> By logging into your PayPal account, you have agreed to make this payment.</a></p>
+
+                <div class="inputBox">
+                    <span>Email:  </span>
+                    <input type="email" placeholder="example@gmail.com">
+                </div>
+                <div class="inputBox">
+                    <span>Password:  </span>
+                    <input type="password" placeholder="password">
+                </div>
+                <input type="submit" value="Sign In" class="submit-btn">
+
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
