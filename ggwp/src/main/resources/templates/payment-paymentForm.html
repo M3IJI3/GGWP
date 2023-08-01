@@ -7,7 +7,7 @@
     <link href="layouts/style.css" rel="stylesheet"/>
 </head>
 <body>
-<div class="container" layout:fragment="content">
+<div class="Paymentcontainer" layout:fragment="content">
     <form action="#" method="post" th:action="@{finishPayment}" th:object="${paymentModel}">
         <input type="hidden" name="plan" th:value="${plan}"/>
         <div class="row">
