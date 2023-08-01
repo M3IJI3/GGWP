@@ -6,6 +6,8 @@ import com.example.ggwp.repositories.comment.CommentDataServiceRepository;
 import com.example.ggwp.repositories.game.GamesDataAccessInterface;
 import com.example.ggwp.repositories.game.GamesDataServiceForRepository;
 
+import com.example.ggwp.repositories.tutoring.TutoringDataAccessForRepository;
+import com.example.ggwp.repositories.tutoring.TutoringDataAccessInterface;
 import com.example.ggwp.repositories.user.UsersDataAccessInterface;
 import com.example.ggwp.repositories.user.UsersDataServiceForRepository;
 import com.example.ggwp.services.game.GamesBusinessService;
@@ -50,6 +52,11 @@ public class SpringConfig {
     @Bean(name = "gamesDAO")
     public GamesDataAccessInterface getGameDataService() {
         return new GamesDataServiceForRepository(dataSource);
+    }
+
+    @Bean(name = "tutoringDAO")
+    public TutoringDataAccessInterface getTutoringDataService() {
+        return new TutoringDataAccessForRepository(dataSource);
     }
 
     @Bean
