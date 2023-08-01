@@ -21,7 +21,8 @@ import java.util.*;
 
 @Controller
 @RequestMapping(path = "/")
-@SessionAttributes("newComment")
+@SessionAttributes({"newComment", "subComment"})
+
 public class UserLoginRegistrationController {
     @Resource
     UserLoginRegistrationServiceInterface loginRegService;
@@ -104,6 +105,8 @@ public class UserLoginRegistrationController {
             model.addAttribute("newComment", new CommentModel());
             session.setAttribute("postModels", postModels);
 
+            model.addAttribute("subComment", new SubCommentModel());
+
 
             return "home";
         }
@@ -113,8 +116,6 @@ public class UserLoginRegistrationController {
             return "welcome";
         }
     }
-
-
 
 
     @RequestMapping(path = "home")

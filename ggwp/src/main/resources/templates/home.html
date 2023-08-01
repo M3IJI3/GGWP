@@ -24,7 +24,8 @@
                 <!-- 导航指示器将在此处生成 -->
             </div>
         </div>
-        
+
+        <form action="#" method="post" th:action="@{/addNewComment}" th:object="${newComment}">
         <div class="post-field">
             <div class="emoji-field" onmouseover="changeEmoji(this)" onclick="openSelector(this)">
                 &#x1F642;
@@ -32,11 +33,12 @@
 
             <div id="emoji-picker" class="emoji-container hidden"></div>
 
-            <form action="#" method="post" th:action="@{/addNewComment}" th:object="${newComment}">
+
                 <input th:field="${newComment.content}" id="emoji-input" type="text" placeholder="What's in your mind?" required>
                 <button type="submit">GG!</button>
-            </form>
+
         </div>
+        </form>
 
         <div class="users-post">
             <ul th:each="postModel : ${session.postModels}">
@@ -72,14 +74,22 @@
                     </div>
 
                     <div class="comment-dropdown">
+                        <form method="post" th:action="@{/addNewSubComment}" th:object="${subComment}">
                         <div class="comment-input">
-                            <img th:src="*{imageUrl}" alt="">
-                            <input id="commentInput" type="text" placeholder="say something..." />
-                            <div id="cmt-char-count" class="charCount">0 / 150</div>
-                            <button class="" id="cmt-send-btn" type="submit">
-                                <i class='bx bx-send bx-rotate-180' style='color:#ffffff' ></i>
-                            </button>
+
+                                <img th:src="${postModel.getImageUrl()}" alt="">
+
+<!--                                <input th:field="${subComment.setUser_id(session.loggedInUser.getUserId())}" type="hidden">-->
+
+                                <input id="commentInput" type="text" placeholder="say something..." required/>
+
+                                <div id="cmt-char-count" class="charCount">0 / 150</div>
+
+                                <button class="" id="cmt-send-btn" type="submit">
+                                    <i class='bx bx-send bx-rotate-180' style='color:#ffffff' ></i>
+                                </button>
                         </div>
+                        </form>
 
                         <ul>
                             <li th:each="postSubModel : ${postModel.getPostSubModelList()}">

@@ -41,4 +41,9 @@ public class SubCommentService implements SubCommentServiceInterface{
         
         return 0;
     }
+
+    @Override
+    public void addOneSubComment(SubCommentModel model) {
+        subCommentRepository.addOneSubComment(model);
+    }
 }

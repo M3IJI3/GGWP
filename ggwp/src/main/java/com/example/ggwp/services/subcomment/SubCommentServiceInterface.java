@@ -9,4 +9,6 @@ public interface SubCommentServiceInterface {
 
     List<SubCommentModel> findSubCommentsByParentCommentId(long parentCommentId);
     long findSubCommentUserId(long subCommentId);
+
+    void addOneSubComment(SubCommentModel model);
 }

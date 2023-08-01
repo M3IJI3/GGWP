@@ -12,10 +12,7 @@ import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -28,9 +25,13 @@ public class CommentController {
     CommentServiceInterface commentServiceInterface;
 
     @Resource
+    SubCommentServiceInterface subCommentServiceInterface;
+
+    @Resource
     SubCommentServiceInterface subCommentService;
     @PostMapping("/addNewComment")
     public String addNew(CommentModel commentModel, Model model, HttpSession session) {
+
 
         String inputString = commentModel.getContent();
         String[] parts = inputString.split("/");
@@ -38,9 +39,8 @@ public class CommentController {
 
         UserModel userModel = (UserModel) session.getAttribute("loggedInUser");
         CommentModel newComment = new CommentModel("/"+parts[1], parts[2], 0, 0, LocalDate.now(), userModel.getUserId());
-
-        // add to the db
         commentServiceInterface.postOne(newComment, userModel);
+
 
 
         List<CommentModel> commentModels = commentServiceInterface.getComments();
@@ -91,7 +91,17 @@ public class CommentController {
         model.addAttribute("newComment", new CommentModel());
         session.setAttribute("postModels", postModels);
 
+        model.addAttribute("subComment", new SubCommentModel());
 
         return "redirect:home";
+    }
+
+    @PostMapping("/addNewSubComment")
+    public String addNewSubComment(Model model, SubCommentModel subCommentModel)
+    {
+
+        subCommentServiceInterface.addOneSubComment(subCommentModel);
+
+        return "redirect:/addNewComment";
     }
 }

@@ -7,5 +7,5 @@ import java.util.List;
 public interface SubCommentDAOInterface<T> {
     List<T> getAllSubComments();
 
-    void addOneSubComment(long commentID, long userID, SubCommentModel model);
+    void addOneSubComment(SubCommentModel model);
 }
