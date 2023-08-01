@@ -1,8 +1,8 @@
 package com.example.ggwp.controllers.user;
 
 import com.example.ggwp.models.user.PaymentModel;
-import com.example.ggwp.models.user.SubscriptionModel;
-import com.example.ggwp.models.user.SubscriptionPlans;
+import com.example.ggwp.models.user.PaymentSubscriptionModel;
+import com.example.ggwp.models.user.PaymentSubscriptionPlans;
 import com.example.ggwp.models.user.UserModel;
 import com.example.ggwp.services.user.UsersBusinessServiceInterface;
 import jakarta.annotation.Resource;
@@ -36,16 +36,16 @@ public class UserController {
 
     @GetMapping(path = "/subscription")
     public String displaySubscription(Model model) {
-        SubscriptionModel subModel = new SubscriptionModel(SubscriptionPlans.FREE, SubscriptionPlans.BASIC, SubscriptionPlans.VIP);
+        PaymentSubscriptionModel subModel = new PaymentSubscriptionModel(PaymentSubscriptionPlans.FREE, PaymentSubscriptionPlans.BASIC, PaymentSubscriptionPlans.VIP);
         model.addAttribute("subscriptionModel", subModel);
-        return "subscriptionPage";
+        return "PaymentsubscriptionPage";
     }
 
     @PostMapping(path = "/payment")
     public String displayPaymentForm(Model model, @RequestParam MultiValueMap body) {
         model.addAttribute("paymentModel", new PaymentModel());
         model.addAttribute("plan", body.getFirst("plan"));
-        return "paymentForm";
+        return "payment-paymentForm";
     }
 
     @PostMapping(path = "/finishPayment")
@@ -56,7 +56,7 @@ public class UserController {
                                 @RequestParam MultiValueMap body) {
         if (bindingResult.hasErrors()) {
             model.addAttribute("paymentModel", paymentModel);
-            return "paymentForm";
+            return "payment-paymentForm";
         }
 
         UserModel userModel = (UserModel) session.getAttribute("loggedInUser");
@@ -67,7 +67,7 @@ public class UserController {
         model.addAttribute("paymentModel", paymentModel);
         model.addAttribute("updatedUser", userModel);
 
-        return "finishPayment";
+        return "payment-finishPayment";
     }
 
     @GetMapping(path = "/user")
