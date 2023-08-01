@@ -1,43 +1,39 @@
 package com.example.ggwp.models.user;
 
 public class SubscriptionModel {
-    public SubscriptionModel() {
+    private SubscriptionPlans freePlan;
+    private SubscriptionPlans basicPlan;
+    private SubscriptionPlans vipPlan;
+
+    public SubscriptionPlans getFreePlan() {
+        return freePlan;
     }
 
-    private Double basicPrice;
-
-    public SubscriptionModel(Double freePrice, Double basicPrice, Double premiumPrice) {
-        this.basicPrice = basicPrice;
-        this.premiumPrice = premiumPrice;
-        this.freePrice = freePrice;
+    public void setFreePlan(SubscriptionPlans freePlan) {
+        this.freePlan = freePlan;
     }
 
-    public Double getBasicPrice() {
-        return basicPrice;
+    public SubscriptionPlans getBasicPlan() {
+        return basicPlan;
     }
 
-    public void setBasicPrice(Double basicPrice) {
-        this.basicPrice = basicPrice;
+    public void setBasicPlan(SubscriptionPlans basicPlan) {
+        this.basicPlan = basicPlan;
     }
 
-    public Double getPremiumPrice() {
-        return premiumPrice;
+    public SubscriptionPlans getVipPlan() {
+        return vipPlan;
     }
 
-    public void setPremiumPrice(Double premiumPrice) {
-        this.premiumPrice = premiumPrice;
+    public void setVipPlan(SubscriptionPlans vipPlan) {
+        this.vipPlan = vipPlan;
     }
 
-    public Double getFreePrice() {
-        return freePrice;
+    public SubscriptionModel(SubscriptionPlans freePlan, SubscriptionPlans basicPlan, SubscriptionPlans vipPlan) {
+        this.freePlan = freePlan;
+        this.basicPlan = basicPlan;
+        this.vipPlan = vipPlan;
     }
-
-    public void setFreePrice(Double freePrice) {
-        this.freePrice = freePrice;
-    }
-
-    private Double premiumPrice;
-    private Double freePrice;
 }
 
 

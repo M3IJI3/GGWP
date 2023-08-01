@@ -1,14 +1,58 @@
 package com.example.ggwp.models.user;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.CreditCardNumber;
+import org.hibernate.validator.constraints.Range;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import java.util.Date;
+
 public class PaymentModel {
     private Integer userID;
 
     private String userName;
 
-    private Integer cardNumber;
-    private Integer cvv;
+    @CreditCardNumber()
+    private String cardNumber;
+
+    @Size(min = 3, max = 3, message = "CVV must has 3 digits")
+    private String cvv;
     private Integer mm;
     private Integer yy;
+
+    public Date getExpirationDate() {
+        return expirationDate;
+    }
+
+    public void setExpirationDate(Date expirationDate) {
+        this.expirationDate = expirationDate;
+    }
+
+    @DateTimeFormat(pattern="YYYY-MM")
+    private Date expirationDate;
+
+    public String getPaypalEmail() {
+        return paypalEmail;
+    }
+
+    public void setPaypalEmail(String paypalEmail) {
+        this.paypalEmail = paypalEmail;
+    }
+
+    private String paypalEmail;
+
+    public String getPaypalPassword() {
+        return paypalPassword;
+    }
+
+    public void setPaypalPassword(String paypalPassword) {
+        this.paypalPassword = paypalPassword;
+    }
+
+    private String paypalPassword;
 
     public Integer getUserID() {
         return userID;
@@ -26,19 +70,19 @@ public class PaymentModel {
         this.userName = custormerName;
     }
 
-    public Integer getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
-    public void setCardNumber(Integer cardNumber) {
+    public void setCardNumber(String cardNumber) {
         this.cardNumber = cardNumber;
     }
 
-    public Integer getCvv() {
+    public String getCvv() {
         return cvv;
     }
 
-    public void setCvv(Integer cvv) {
+    public void setCvv(String cvv) {
         this.cvv = cvv;
     }
 
@@ -62,7 +106,7 @@ public class PaymentModel {
     public PaymentModel() {
     }
 
-    public PaymentModel(int customerID, String custormerName, int cardNumber, Integer cvv, int mm, int yy) {
+    public PaymentModel(int customerID, String custormerName, String cardNumber, String cvv, int mm, int yy) {
         this.userID = customerID;
         this.userName = custormerName;
         this.cardNumber = cardNumber;
