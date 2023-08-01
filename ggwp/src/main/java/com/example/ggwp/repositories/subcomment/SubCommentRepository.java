@@ -31,4 +31,14 @@ public class SubCommentRepository implements SubCommentDAOInterface<SubCommentMo
         }
         return subCommentModels;
     }
+
+    @Override
+    public void addOneSubComment(long commentID, long userID, SubCommentModel model) {
+        SubCommentEntity entity = mapper.map(model, SubCommentEntity.class);
+
+        entity.setComment_id(commentID);
+        entity.setUser_id(userID);
+
+        crudRepository.save(entity);
+    }
 }

@@ -113,7 +113,7 @@
     width: 75px;
     height: 60px;
     position: relative;
-    left: 435px;
+    left: 380px;
     border-radius: 30px;
     background: #87c1fa;
     border: none;
@@ -195,10 +195,6 @@
     height: auto;
     padding: 4px 14px;
     border-radius: 20px;
-    /*background: rgba(211,211,211,0.8);*/
-    /*background: linear-gradient(45deg, #ee7752, #e73c7e);*/
-    /*background: linear-gradient(45deg, #ff6b6b, #6b6bff);*/
-    /*background-color: #87c1fa;*/
     background-color: lightsteelblue;
     font-size: 15px;
     color: white;
@@ -229,22 +225,6 @@
 .users-post .user-avatar-field .profile-pic:hover{
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.37);
 }
-
-/*.users-post .user-avatar-field .username a::after{*/
-/*    content: '';*/
-/*    position: absolute;*/
-/*    left: 0;*/
-/*    bottom: 0;*/
-/*    width: 0;*/
-/*    height: 3px;*/
-/*    border-radius: 5px;*/
-/*    background-color: #0d6efd;*/
-/*    transition: width 0.3s ease; !* 设置过渡效果 *!*/
-/*}*/
-
-/*.users-post .user-avatar-field .username a:hover::after{*/
-/*    width: calc(100% - 27px);*/
-/*}*/
 
 .users-post .user-avatar-field .username a:hover{
     background: linear-gradient(45deg, #ff6b6b, #6b6bff);
