@@ -46,7 +46,9 @@
                         <img class="profile-pic" th:src="${postModel.getImageUrl()}" alt="">
                         <div class="username">
                             <a href="#" th:text="'@' + ${postModel.getUsername()}">@hello</a><span th:text="${postModel.getRole()}">/wp</span>
-                            <img id="vip-logo" src="/img/vip.png" alt="">
+                            <span th:if="${postModel.getVip() == 'vip'}">
+                                <img id="vip-logo" src="/img/vip.png" alt="">
+                            </span>
                         </div>
                     </div>
                     <div class="post-content">
