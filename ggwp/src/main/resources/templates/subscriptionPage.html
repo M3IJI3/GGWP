@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="layouts/defaultLayout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>subscription Page</title>
+    <link rel="stylesheet" href="layouts/style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+</head>
+<body>
+<div class="wrapper" layout:fragment="content">
+    <form action="#" method="post" th:action="@{payment}" th:object="${subscriptionModel}">
+        <input type="radio" name="plan" id="tab-1" th:value = "${subscriptionModel.freePlan.name}">
+        <input type="radio" name="plan" id="tab-2" checked th:value = "${subscriptionModel.basicPlan.name}">
+        <input type="radio" name="plan" id="tab-3" th:value = "${subscriptionModel.vipPlan.name}">
+    <header>
+        <label for="tab-1" class="tab-1">Free</label>
+        <label for="tab-2" class="tab-2">Basic</label>
+        <label for="tab-3" class="tab-3">Premium</label>
+        <div class="slider"></div>
+    </header>
+    <div class="card-area">
+        <div class="cards">
+            <div class="row row-1">
+                <div class="price-details">
+                    <span th:text="${subscriptionModel.freePlan.price}" class="price" />
+                    <p>For beginner use</p>
+            </div>
+            <ul class="features">
+                <li><i class="fas fa-check"></i><span>Access to Basic Tutorials</span></li>
+                    <li><i class="fas fa-check"></i><span>Ad-Supported Content</span></li>
+                    <li><i class="fas fa-check"></i><span>Community Forum Participation</span></li>
+                    <li><i class="fas fa-check"></i><span>Limited Access to New Content</span></li>
+                    <li><i class="fas fa-check"></i><span>Incentives for Upgrading</span></li>
+
+                </ul>
+            </div>
+            <div class="row">
+                <div class="price-details">
+                    <span th:text="${subscriptionModel.basicPlan.price}" class="price" />
+                    <p>For professional use</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i><span>Access to Core Tutorials</span></li>
+                    <li><i class="fas fa-check"></i><span>Limited Advertisements</span></li>
+                    <li><i class="fas fa-check"></i><span>Community Forum Access</span></li>
+                    <li><i class="fas fa-check"></i><span>Weekly Tips and Tricks</span></li>
+                    <li><i class="fas fa-check"></i><span>Access to Basic Guides</span></li>
+                    <li><i class="fas fa-check"></i><span>Priority email support </span></li>
+                </ul>
+            </div>
+            <div class="row">
+                <div class="price-details">
+                    <span th:text="${subscriptionModel.vipPlan.price}" class="price" />
+                    <p>For team collaboration</p>
+                </div>
+                <ul class="features">
+                    <li><i class="fas fa-check"></i><span>Full Access to All Tutorials</span></li>
+                    <li><i class="fas fa-check"></i><span>Ad-Free Experience</span></li>
+                    <li><i class="fas fa-check"></i><span>Exclusive Webinars and Livestreams</span></li>
+                    <li><i class="fas fa-check"></i><span>Early Access to New Content</span></li>
+                    <li><i class="fas fa-check"></i><span>Priority Customer Support</span></li>
+                    <li><i class="fas fa-check"></i><span>In-Game Item Giveaways</span></li>
+                    <li><i class="fas fa-check"></i><span>Exclusive Private Community</span></li>
+                    <li><i class="fas fa-check"></i><span>Advanced game strategies, meta analysis in specific game mechanics</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <button>Choose plan</button>
+    </form>
+</div>
+</body>
+</html>

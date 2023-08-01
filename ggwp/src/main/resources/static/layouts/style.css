@@ -1,0 +1,317 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    outline: none; border:none;
+    text-transform: capitalize;
+    transition: all .2s linear;
+}
+.header{
+    display: none;
+}
+
+.container{
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:25px;
+    min-height: 100vh;
+    background: linear-gradient(145deg, #D5A3FF 0%, #77A5F8 100%);
+}
+
+
+
+.container form{
+    padding:20px;
+    width:1000px;
+    background: lightgrey;
+    box-shadow: 0 5px 10px rgba(0,0,0,.1);
+    border-radius: 10px;
+}
+
+.container form .row{
+    display: flex;
+    flex-wrap: wrap;
+    gap:25px;
+    border-radius: 10px;
+}
+
+.container form .row .col{
+    flex:1 1 250px;
+    float: left;
+    width: 50%;
+    padding: 0 20px;
+    background: white;
+
+    border-radius: 10px;
+
+}
+
+.container form .row .col .title{
+    font-size: 20px;
+    color:#333;
+    text-align: center;
+    padding-bottom: 5px;
+    text-transform: uppercase;
+}
+
+.container form .row .col .inputBox{
+    margin:15px 0;
+}
+
+.container form .row .col .inputBox span{
+    margin-bottom: 10px;
+    display: block;
+}
+
+.container form .row .col .inputBox input{
+    width: 100%;
+    border:1px solid #ccc;
+    padding:10px 15px;
+    font-size: 15px;
+    text-transform: none;
+}
+
+.container form .row .col .inputBox input:focus{
+    border:1px solid #000;
+}
+
+.container form .row .col .flex{
+    display: flex;
+    gap:15px;
+}
+
+.container form .row .col .flex .inputBox{
+    margin-top: 5px;
+}
+
+
+.container form .row .col .inputBox img{
+    text-align: center;
+    height: 34px;
+    margin-top: 5px;
+    filter: drop-shadow(0 0 1px #000);
+}
+
+.container form .submit-btn{
+    width: 100%;
+    padding:12px;
+    font-size: 17px;
+    background: linear-gradient(145deg, #D5A3FF 0%, #77A5F8 100%);;
+    color:#fff;
+    margin-top: 5px;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.container form .submit-btn:hover{
+    background:#cccccc;
+}
+.popup{
+   width: 400px;
+    background: #fff;
+    border-radius: 6px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #333;
+    visibility: hidden;
+    transition: transform 0.4s, top 0.4s ;
+}
+.open-popup{
+    visibility: visible;
+    top:50%;
+    transform: translate(-50%,-50%) scale(1);
+}
+.popup img{
+    width: 100px;
+    margin-top: -50px;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+.popup h2{
+    font-size: 38px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+}
+.popup button{
+    width: 100%;
+    margin-top: 50px;
+    padding: 10px 0;
+    background-color: #00BCFF;
+    color: #fff;
+    border: 0;
+    outline: none;
+    font-size: 18px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.2);
+}
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: linear-gradient(#D5A3FF 0%, #77A5F8 100%);
+}
+.wrapper{
+    width: 400px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    box-shadow: 10px 10px 15px rgba(0,0,0,0.05);
+}
+.wrapper header{
+    height: 55px;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    position: relative;
+}
+header label{
+    height: 100%;
+    z-index: 2;
+    width: 30%;
+    display: flex;
+    cursor: pointer;
+    font-size: 18px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    transition: color 0.3s ease;
+}
+#tab-1:checked ~ header .tab-1,
+#tab-2:checked ~ header .tab-2,
+#tab-3:checked ~ header .tab-3{
+    color: #fff;
+}
+header label:nth-child(2){
+    width: 40%;
+}
+header .slider{
+    position: absolute;
+    height: 85%;
+    border-radius: inherit;
+    background: linear-gradient(145deg, #D5A3FF 0%, #77A5F8 100%);
+    transition: all 0.3s ease;
+}
+#tab-1:checked ~ header .slider{
+    left: 0%;
+    width: 90px;
+    transform: translateX(5%);
+}
+#tab-2:checked ~ header .slider{
+    left: 50%;
+    width: 120px;
+    transform: translateX(-50%);
+}
+#tab-3:checked ~ header .slider{
+    left: 100%;
+    width: 95px;
+    transform: translateX(-105%);
+}
+.wrapper input[type="radio"]{
+    display: none;
+}
+.card-area{
+    overflow: hidden;
+}
+.card-area .cards{
+    display: flex;
+    width: 300%;
+}
+.cards .row{
+    width: 33.4%;
+}
+.cards .row-1{
+    transition: all 0.3s ease;
+}
+#tab-1:checked ~ .card-area .cards .row-1{
+    margin-left: 0%;
+}
+#tab-2:checked ~ .card-area .cards .row-1{
+    margin-left: -33.4%;
+}
+#tab-3:checked ~ .card-area .cards .row-1{
+    margin-left: -66.8%;
+}
+.row .price-details{
+    margin: 20px 0;
+    text-align: center;
+    padding-bottom: 25px;
+    border-bottom: 1px solid #e6e6e6;
+}
+.price-details .price{
+    font-size: 65px;
+    font-weight: 600;
+    position: relative;
+    font-family: 'Noto Sans', sans-serif;
+}
+.price-details .price::before,
+.price-details .price::after{
+    position: absolute;
+    font-weight: 400;
+    font-family: "Poppins", sans-serif;
+}
+.price-details .price::before{
+    content: "$";
+    left: -13px;
+    top: 17px;
+    font-size: 20px;
+}
+.price-details .price::after{
+    content: "/mon";
+    right: -33px;
+    bottom: 17px;
+    font-size: 13px;
+}
+.price-details p{
+    font-size: 18px;
+    margin-top: 5px;
+}
+.row .features li{
+    display: flex;
+    font-size: 15px;
+    list-style: none;
+    margin-bottom: 10px;
+    align-items: center;
+}
+.features li i{
+    background: linear-gradient(#D5A3FF 0%, #77A5F8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.features li span{
+    margin-left: 10px;
+}
+.wrapper button{
+    width: 100%;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    height: 50px;
+    font-size: 18px;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    background: linear-gradient(145deg, #D5A3FF 0%, #77A5F8 100%);
+    transition: transform 0.3s ease;
+}
+.wrapper button:hover{
+    transform: scale(0.98);
+}
