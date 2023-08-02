@@ -6,6 +6,8 @@ import com.example.ggwp.repositories.comment.CommentDataServiceRepository;
 import com.example.ggwp.repositories.game.GamesDataAccessInterface;
 import com.example.ggwp.repositories.game.GamesDataServiceForRepository;
 
+import com.example.ggwp.repositories.tutorAvailability.TutorAvailabilityDataAccessForRepository;
+import com.example.ggwp.repositories.tutorAvailability.TutorAvailabilityDataAccessInterface;
 import com.example.ggwp.repositories.tutoring.TutoringDataAccessForRepository;
 import com.example.ggwp.repositories.tutoring.TutoringDataAccessInterface;
 import com.example.ggwp.repositories.user.UsersDataAccessInterface;
@@ -58,6 +60,12 @@ public class SpringConfig {
     public TutoringDataAccessInterface getTutoringDataService() {
         return new TutoringDataAccessForRepository(dataSource);
     }
+
+    @Bean(name = "tutorAvailabilityDAO")
+    public TutorAvailabilityDataAccessInterface getTutorAvailabilityService() {
+        return new TutorAvailabilityDataAccessForRepository(dataSource);
+    }
+
 
     @Bean
     public ClassLoaderTemplateResolver secondaryTemplateResolver() {
