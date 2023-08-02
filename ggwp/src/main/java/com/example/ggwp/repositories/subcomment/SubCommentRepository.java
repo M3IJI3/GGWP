@@ -41,8 +41,6 @@ public class SubCommentRepository implements SubCommentDAOInterface<SubCommentMo
         commentModel.setSubCommentCount(commentModel.getSubCommentCount() + 1);
         CommentEntity commentEntity = mapper.map(commentModel, CommentEntity.class);
 
-
-
         crudRepository.save(entity);
         crudRepository1.save(commentEntity);
 

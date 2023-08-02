@@ -43,4 +43,9 @@ public class UsersBusinessService implements UsersBusinessServiceInterface{
     public UserModel updateOne(long idToUpdate, UserModel updateUser) {
         return usersDAO.updateOne(idToUpdate, updateUser);
     }
+
+    @Override
+    public UserModel getByUsername(String username) {
+        return usersDAO.getByUsername(username);
+    }
 }
