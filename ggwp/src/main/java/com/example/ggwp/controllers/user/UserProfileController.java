@@ -1,23 +1,20 @@
 package com.example.ggwp.controllers.user;
 
+import com.example.ggwp.models.comment.PostModel;
 import com.example.ggwp.models.user.UserModel;
 import com.example.ggwp.services.user.UsersBusinessServiceInterface;
 import jakarta.annotation.Resource;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.ClassPathResource;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Repository;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.List;
 import java.util.UUID;
 
 @Controller
@@ -26,7 +23,7 @@ public class UserProfileController {
     private String uploadPath = System.getProperty("user.dir") + "/ggwp/src/main/resources/static/img/user_avatar";
 //    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/ggwp/src/main/resources/static/img";
 
-            @Resource
+    @Resource
     UsersBusinessServiceInterface usersBusinessService;
 
     @GetMapping(path = "/profile/{username}")
@@ -36,6 +33,8 @@ public class UserProfileController {
         UserModel userModel = usersBusinessService.getByUsername(username);
 
         model.addAttribute("personalProfile", userModel);
+
+        System.out.println(userModel.getImageUrl());
 
         if(userModel.getRole().equals("/gg"))
         {
@@ -48,20 +47,10 @@ public class UserProfileController {
     }
 
     @PostMapping("/uploadImage")
-    public ResponseEntity<String> uploadImage(@RequestParam("imageFile") MultipartFile imageFile)
+    public String uploadImage(Model model, @RequestParam("imageFile") MultipartFile imageFile, HttpSession session)
     {
-        if (imageFile.isEmpty()) {
-            return new ResponseEntity<>("The image is empty.", HttpStatus.BAD_REQUEST);
-        }
-
         try {
-//            StringBuilder fileNames = new StringBuilder();
-//            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, imageFile.getOriginalFilename());
-//            fileNames.append(imageFile.getOriginalFilename());
-//            Files.write(fileNameAndPath, imageFile.getBytes());
-            // 获取上传文件的原始文件名
             String originalFilename = imageFile.getOriginalFilename();
-            // 生成UUID作为文件名
             String uuid = UUID.randomUUID().toString();
             // 获取上传文件的后缀名
             String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
@@ -73,11 +62,20 @@ public class UserProfileController {
             imageFile.transferTo(destFile);
 
             String fileName = uuid + fileExtension;
+            String path = "/img/user_avatar/" + fileName;
 
-            return new ResponseEntity<>("文件上传成功", HttpStatus.OK);
+            UserModel userModel = (UserModel) session.getAttribute("loggedInUser");
+            userModel.setImageUrl(path);
+            usersBusinessService.updateOne(userModel.getUserId(), userModel);
+
+            model.addAttribute("personalProfile", userModel);
+
+            System.out.println(userModel.getImageUrl());
+
+            return "redirect:/profile/major0814";
         } catch (IOException e) {
             e.printStackTrace();
-            return new ResponseEntity<>("Upload failed", HttpStatus.INTERNAL_SERVER_ERROR);
+            return "home";
         }
     }
 }
