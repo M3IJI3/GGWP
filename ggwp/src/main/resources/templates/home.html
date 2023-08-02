@@ -21,7 +21,7 @@
                 </div>
             </div>
             <div class="slider-nav">
-                <!-- 导航指示器将在此处生成 -->
+
             </div>
         </div>
 
@@ -47,7 +47,6 @@
                     <div class="user-avatar-field">
                         <img class="profile-pic" th:src="${postModel.getImageUrl()}" alt="">
                         <div class="username">
-<!--                            <a th:href="@{/profile}" th:action="@{/profile/{username}}" th:text="'@' + ${postModel.getUsername()}">@hello</a><span th:text="${postModel.getRole()}">/wp</span>-->
                             <a th:href="@{/profile/{username}(username=${postModel.getUsername()})}" th:text="'@' + ${postModel.getUsername()}">@hello</a><span th:text="${postModel.getRole()}">/wp</span>
                             <span th:if="${postModel.getVip() == 'vip'}">
                                 <img id="vip-logo" src="/img/vip.png" alt="">

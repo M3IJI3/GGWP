@@ -15,13 +15,18 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.UUID;
 
 @Controller
 public class UserProfileController {
 
-    private String uploadPath = "./user_avatar";
-    @Resource
+    private String uploadPath = System.getProperty("user.dir") + "/ggwp/src/main/resources/static/img/user_avatar";
+//    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/ggwp/src/main/resources/static/img";
+
+            @Resource
     UsersBusinessServiceInterface usersBusinessService;
 
     @GetMapping(path = "/profile/{username}")
@@ -45,12 +50,15 @@ public class UserProfileController {
     @PostMapping("/uploadImage")
     public ResponseEntity<String> uploadImage(@RequestParam("imageFile") MultipartFile imageFile)
     {
-        System.out.println(imageFile);
         if (imageFile.isEmpty()) {
             return new ResponseEntity<>("The image is empty.", HttpStatus.BAD_REQUEST);
         }
 
         try {
+//            StringBuilder fileNames = new StringBuilder();
+//            Path fileNameAndPath = Paths.get(UPLOAD_DIRECTORY, imageFile.getOriginalFilename());
+//            fileNames.append(imageFile.getOriginalFilename());
+//            Files.write(fileNameAndPath, imageFile.getBytes());
             // 获取上传文件的原始文件名
             String originalFilename = imageFile.getOriginalFilename();
             // 生成UUID作为文件名
@@ -64,10 +72,12 @@ public class UserProfileController {
             // 将上传的文件保存到目标路径
             imageFile.transferTo(destFile);
 
+            String fileName = uuid + fileExtension;
+
             return new ResponseEntity<>("文件上传成功", HttpStatus.OK);
         } catch (IOException e) {
             e.printStackTrace();
-            return new ResponseEntity<>("文件上传失败", HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity<>("Upload failed", HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 }
