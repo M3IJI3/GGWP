@@ -19,12 +19,12 @@
           <div class="row-1">
             <img src="/img/background.jpg" class="cover-pic">
           </div>
-          <div class="row-2" th:object="${session.loggedInUser}">
+          <div class="row-2">
             <div class="col-1" th:object="${personalProfile}">
 
             <!-- change user profile here-->
               <form th:action="@{/uploadImage}" method="post" enctype="multipart/form-data">
-                <img th:src="${session.loggedInUser.getImageUrl()}" id="userAvatar" onclick="openFileInput()" class="user-profile-pic">
+                <img th:src="${personalProfile.getImageUrl()}" id="userAvatar" onclick="openFileInput()" class="user-profile-pic">
                 <input th:name="imageFile" type="file" id="fileInput" style="display: none" accept="image/*" onchange="handleFileSelect(event)">
                 <button class="green_dot" type="submit"><i class='bx bx-face'></i></button>
               </form>

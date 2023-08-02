@@ -1,12 +1,9 @@
 package com.example.ggwp.controllers.user;
 
-import com.example.ggwp.models.comment.PostModel;
 import com.example.ggwp.models.user.UserModel;
 import com.example.ggwp.services.user.UsersBusinessServiceInterface;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -20,7 +17,7 @@ import java.util.UUID;
 @Controller
 public class UserProfileController {
 
-    private String uploadPath = System.getProperty("user.dir") + "/ggwp/src/main/resources/static/img/user_avatar";
+    private final String uploadPath = System.getProperty("user.dir") + "/ggwp/src/main/resources/static/img/user_avatar";
 //    private String uploadPath = "https://github.com/M3IJI3/GGWP/tree/main/user_avatar";
 
     @Resource

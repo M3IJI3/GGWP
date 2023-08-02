@@ -77,7 +77,7 @@
                         <form method="post" th:action="@{/addNewSubComment}" th:object="${subComment}">
                         <div class="comment-input">
 
-                                <img th:src="${postModel.getImageUrl()}" alt="">
+                                <img th:src="${session.loggedInUser.getImageUrl()}" alt="">
 
                                 <input name="user_id" type="hidden" th:value="${session.loggedInUser.getUserId()}">
                                 <input name="comment_id" type="hidden" th:value="${postModel.getComment_id()}">

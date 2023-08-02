@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/GGWP-Project.iml" filepath="$PROJECT_DIR$/.idea/GGWP-Project.iml" />
-      <module fileurl="file://$PROJECT_DIR$/ggwp/ggwp.iml" filepath="$PROJECT_DIR$/ggwp/ggwp.iml" />
     </modules>
   </component>
 </project>
