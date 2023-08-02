@@ -21,6 +21,7 @@ import java.util.UUID;
 public class UserProfileController {
 
     private String uploadPath = System.getProperty("user.dir") + "/ggwp/src/main/resources/static/img/user_avatar";
+//    private String uploadPath = "https://github.com/M3IJI3/GGWP/tree/main/user_avatar";
 
     @Resource
     UsersBusinessServiceInterface usersBusinessService;
@@ -33,7 +34,6 @@ public class UserProfileController {
 
         model.addAttribute("personalProfile", userModel);
 
-        System.out.println(userModel.getImageUrl());
 
         if(userModel.getRole().equals("/gg"))
         {
@@ -67,11 +67,9 @@ public class UserProfileController {
             String fileName = uuid + fileExtension;
             String path = "/img/user_avatar/" + fileName;
 
-
             userModel.setImageUrl(path);
             usersBusinessService.updateOne(userModel.getUserId(), userModel);
 
-            session.setAttribute("newPersonalProfile", userModel);
 
             return "redirect:/profile/";
         } catch (IOException e) {
@@ -83,10 +81,13 @@ public class UserProfileController {
     @GetMapping("/profile/")
     public String updateProfile(Model model, HttpSession session)
     {
-        UserModel userModel = (UserModel) session.getAttribute("newPersonalProfile");
+        UserModel userModel = (UserModel) session.getAttribute("loggedInUser");
 
-        model.addAttribute("personalProfile", userModel);
+        UserModel updatedModel = usersBusinessService.getByUsername(userModel.getUserName());
 
+        session.setAttribute("loggedInUser", updatedModel);
+
+        System.out.println(updatedModel.getImageUrl());
 
         return "redirect:/profile/" + userModel.getUserName();
     }

@@ -22,17 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class UserController {
     @Resource
     UsersBusinessServiceInterface userBusinessService;
-//    @GetMapping(path = "/")
-//    public String InitialPage(Model model)
-//    {
-//        return "welcome";
-//    }
 
-//    @GetMapping(path = "/register")
-//    public String RegisterPage(Model model)
-//    {
-//        return "register";
-//    }
 
     @GetMapping(path = "/subscription")
     public String displaySubscription(Model model) {
