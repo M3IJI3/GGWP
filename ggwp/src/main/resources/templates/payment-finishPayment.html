@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:layout="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="layouts/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="popup" id="popup" layout:fragment="content">
+    <form action="#" method="get" th:action="@{home}" th:object="${paymentModel}">
+    <img src="img/userPayment/bluetick.png">
+    <h2>Thank You, <span th:text="${updatedUser.userName}"/> !</h2>
+    <p>Your subscription <span th:text="${updatedUser.subscription}"/> has been activated. Enjoy!</p>
+    <button type="submit" onclick="closePopup()">OK</button>
+    </form>
+</div>
+<script>
+    let popup = document.getElementById("popup");
+    window.onload = function (){
+        openPopup();
+    }
+    function openPopup(){
+        popup.classList.add("open-popup");
+    }
+    function closePopup(){
+        popup.classList.remove("open-popup");
+    }
+</script>
+</body>
+</html>

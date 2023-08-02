@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="layouts/defaultLayout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="layouts/style.css" rel="stylesheet"/>
+</head>
+<body>
+<div class="Paymentcontainer" layout:fragment="content">
+    <form action="#" method="post" th:action="@{finishPayment}" th:object="${paymentModel}">
+        <input type="hidden" name="plan" th:value="${plan}"/>
+        <div class="row">
+            <div class="col">
+                <h3 class="title">Pay by Credit/Debit Card</h3>
+                <img src="img/userPayment/creditdebit.png" alt="">
+                <div>
+                    <input type="checkbox" id="credit">
+                    <label for="credit"> Credit Card</label>
+                    <input type="checkbox" id="debit">
+                    <label for="debit"> Debit Card</label><br>
+                </div>
+                <div class="inputBox">
+                    <span>Full name: </span>
+                    <input type="text" placeholder="">
+                </div>
+                <div class="inputBox">
+                    <span>Email: </span>
+                    <input type="email" placeholder="example@gmail.com">
+                </div>
+                <div class="inputBox">
+                    <span>Phone number: </span>
+                    <input type="number" placeholder="xxx-xxx-xxx">
+                </div>
+                <div class="inputBox">
+                    <span>Card number: </span>
+                    <input th:field="*{cardNumber}" type="number" placeholder="xx xxxx xxx">
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('cardNumber')}" th:errors="*{cardNumber}">
+                        Card number Error</p>
+                </div>
+                <div class="inputBox">
+                    <span>Expiration date: </span>
+                    <input th:field="*{expirationDate}" type="month" placeholder="YY-mm">
+                </div>
+                <div class="inputBox">
+                    <span>CVV: </span>
+                    <input th:field="*{cvv}" type="number" placeholder="xxx"/>
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('cvv')}" th:errors="*{cvv}">CVV Error</p>
+                </div>
+                <input type="submit" value="Check out" class="submit-btn">
+            </div>
+            <div class="col">
+                <h3 class="title">Pay with Paypal</h3>
+
+                <img src="img/userPayment/paypal.png" alt="">
+                <p>As a member, your eligible purchase are covered by <a style="color: dodgerblue"> PayPal
+                    Purchase Protection</a>.<a style="font-style: italic;"> By logging into your PayPal account, you
+                    have
+                    agreed to make this payment.</a></p>
+
+                <div class="inputBox">
+                    <span>Email:  </span>
+                    <input th:field="*{paypalEmail}" type="email" placeholder="example@gmail.com">
+                </div>
+                <div class="inputBox">
+                    <span>Password:  </span>
+                    <input th:field="*{paypalPassword}" type="password" placeholder="password">
+                </div>
+                <input type="submit" value="Sign In" class="submit-btn">
+
+            </div>
+
+        </div>
+    </form>
+</div>
+</body>
+</html>

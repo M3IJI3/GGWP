@@ -21,7 +21,8 @@ import java.util.*;
 
 @Controller
 @RequestMapping(path = "/")
-@SessionAttributes("newComment")
+@SessionAttributes({"newComment", "subComment"})
+
 public class UserLoginRegistrationController {
     @Resource
     UserLoginRegistrationServiceInterface loginRegService;
@@ -64,6 +65,7 @@ public class UserLoginRegistrationController {
             List<SubCommentModel> subCommentModels =
                     subCommentService.findSubCommentsByParentCommentId(commentModels.get(0).getCommentID());
 
+//            session.setAttribute("", subCommentModels.get(0).getComment_id());
 
             for(int i = 0 ; i < commentModels.size() ; i++)
             {
@@ -78,7 +80,8 @@ public class UserLoginRegistrationController {
                         subCommentService.findSubCommentsByParentCommentId(commentModels.get(i).getCommentID());
 
                 List<PostSubModel> postSubModelList = new ArrayList<>();
-                for(int j = 0; j <subCommentModelList.size(); j++){
+
+                for(int j = 0; j < subCommentModelList.size(); j++){
 
                     postSubModelList.add(new PostSubModel(subCommentModelList.get(j).getSub_comment_id(),
                                                     subCommentModelList.get(j).getContent(),
@@ -86,9 +89,12 @@ public class UserLoginRegistrationController {
                                                     subCommentModelList.get(j).getUser_id(),
                                                     commentUsersInfo.get(j).getImageUrl(),
                                                     commentUsersInfo.get(j).getUserName()));
+
+
                 }
 
-                postModels.addFirst(new PostModel(commentModels.get(i).getGameField(),
+                postModels.addFirst(new PostModel(commentModels.get(i).getCommentID(),
+                                commentModels.get(i).getGameField(),
                                 commentUsersInfo.get(i).getImageUrl(),
                                 commentUsersInfo.get(i).getUserName(),
                                 commentUsersInfo.get(i).getRole(),
@@ -104,6 +110,8 @@ public class UserLoginRegistrationController {
             model.addAttribute("newComment", new CommentModel());
             session.setAttribute("postModels", postModels);
 
+            model.addAttribute("subComment", new SubCommentModel());
+
 
             return "home";
         }
@@ -113,8 +121,6 @@ public class UserLoginRegistrationController {
             return "welcome";
         }
     }
-
-
 
 
     @RequestMapping(path = "home")

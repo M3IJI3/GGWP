@@ -12,4 +12,6 @@ public interface UsersBusinessServiceInterface {
      long addOne(UserModel newUser);
      boolean deleteOne(long id);
      UserModel updateOne(long idToUpdate, UserModel updateUser);
+
+     UserModel getByUsername(String username);
 }

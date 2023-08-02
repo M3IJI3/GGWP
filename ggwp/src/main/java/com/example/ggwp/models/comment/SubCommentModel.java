@@ -1,6 +1,5 @@
 package com.example.ggwp.models.comment;
 
-import com.example.ggwp.models.user.UserModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -13,4 +12,11 @@ public class SubCommentModel {
     String content;
     long comment_id;
     long user_id;
+
+    public SubCommentModel(String content, long user_id)
+    {
+        this.content = content;
+        this.user_id = user_id;
+    }
+
 }
