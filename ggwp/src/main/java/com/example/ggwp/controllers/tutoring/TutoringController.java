@@ -47,12 +47,10 @@ public class TutoringController {
         for (TutoringModel tutor : tutors) {
             UserModel user = usersBusinessService.getById(tutor.getId());
             GameModel game = gamesBusinessService.getById(tutor.getGameId());
-            tutor.setAvailabilities(tutorAvailabilityBusinessService.getAvailabilitiesByTutorId(user.getUserId()));
+            tutor.setAvailabilities(tutorAvailabilityBusinessService.getAllAvailabilities());
             tutor.setTutorName(user.getUserName());
             tutor.setGameName(game.getTitle());
 
-            System.out.println("**********************************************************");
-            System.out.println(tutor.getAvailabilities().get(0).getTutorId());
         }
 
         model.addAttribute("tutors", tutors);
