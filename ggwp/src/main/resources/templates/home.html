@@ -79,9 +79,10 @@
 
                                 <img th:src="${postModel.getImageUrl()}" alt="">
 
-<!--                                <input th:field="${subComment.setUser_id(session.loggedInUser.getUserId())}" type="hidden">-->
+                                <input name="user_id" type="hidden" th:value="${session.loggedInUser.getUserId()}">
+                                <input name="comment_id" type="hidden" th:value="${postModel.getComment_id()}">
 
-                                <input id="commentInput" type="text" placeholder="say something..." required/>
+                                <input th:field="*{content}" id="commentInput" type="text" placeholder="say something..." required/>
 
                                 <div id="cmt-char-count" class="charCount">0 / 150</div>
 

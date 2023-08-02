@@ -19,6 +19,9 @@ public class SubCommentRepository implements SubCommentDAOInterface<SubCommentMo
     @Resource
     CrudRepository<SubCommentEntity, Long> crudRepository;
 
+    @Resource
+    CrudRepository<CommentEntity, Long> crudRepository1;
+
     ModelMapper mapper = new ModelMapper();
     @Override
     public List<SubCommentModel> getAllSubComments() {
@@ -33,9 +36,15 @@ public class SubCommentRepository implements SubCommentDAOInterface<SubCommentMo
     }
 
     @Override
-    public void addOneSubComment(SubCommentModel model) {
+    public void addOneSubComment(SubCommentModel model, CommentModel commentModel) {
         SubCommentEntity entity = mapper.map(model, SubCommentEntity.class);
+        commentModel.setSubCommentCount(commentModel.getSubCommentCount() + 1);
+        CommentEntity commentEntity = mapper.map(commentModel, CommentEntity.class);
+
+
 
         crudRepository.save(entity);
+        crudRepository1.save(commentEntity);
+
     }
 }

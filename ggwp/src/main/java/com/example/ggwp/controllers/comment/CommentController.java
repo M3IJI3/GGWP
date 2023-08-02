@@ -29,6 +29,7 @@ public class CommentController {
 
     @Resource
     SubCommentServiceInterface subCommentService;
+
     @PostMapping("/addNewComment")
     public String addNew(CommentModel commentModel, Model model, HttpSession session) {
 
@@ -75,7 +76,9 @@ public class CommentController {
                         commentUsersInfo.get(j).getUserName()));
             }
 
-            postModels.addFirst(new PostModel(commentModels.get(i).getGameField(),
+            postModels.addFirst(new PostModel(
+                    commentModels.get(i).getCommentID(),
+                    commentModels.get(i).getGameField(),
                     commentUsersInfo.get(i).getImageUrl(),
                     commentUsersInfo.get(i).getUserName(),
                     commentUsersInfo.get(i).getRole(),
@@ -97,11 +100,64 @@ public class CommentController {
     }
 
     @PostMapping("/addNewSubComment")
-    public String addNewSubComment(Model model, SubCommentModel subCommentModel)
+    public String addNewSubComment(Model model, SubCommentModel subCommentModel, HttpSession session)
     {
+        CommentModel commentModel = commentServiceInterface.getByID(subCommentModel.getComment_id());
 
-        subCommentServiceInterface.addOneSubComment(subCommentModel);
+        subCommentServiceInterface.addOneSubComment(subCommentModel,commentModel);
 
-        return "redirect:/addNewComment";
+        List<CommentModel> commentModels = commentServiceInterface.getComments();
+        session.setAttribute("commentModels", commentModels);
+
+        List<UserModel> commentUsersInfo = new ArrayList<>();
+
+        List<SubCommentModel> subCommentModels =
+                subCommentService.findSubCommentsByParentCommentId(commentModels.get(0).getCommentID());
+
+
+        for(int i = 0 ; i < commentModels.size() ; i++)
+        {
+            commentUsersInfo.add(commentServiceInterface.getUserByCommentUserId(commentModels.get(i).getCommentID()));
+        }
+
+
+        LinkedList<PostModel> postModels = new LinkedList<>();
+        for(int i = 0 ; i < commentModels.size() ; i++)
+        {
+            List<SubCommentModel> subCommentModelList =
+                    subCommentService.findSubCommentsByParentCommentId(commentModels.get(i).getCommentID());
+
+            List<PostSubModel> postSubModelList = new ArrayList<>();
+            for(int j = 0; j <subCommentModelList.size(); j++){
+
+                postSubModelList.add(new PostSubModel(subCommentModelList.get(j).getSub_comment_id(),
+                        subCommentModelList.get(j).getContent(),
+                        subCommentModelList.get(j).getComment_id(),
+                        subCommentModelList.get(j).getUser_id(),
+                        commentUsersInfo.get(j).getImageUrl(),
+                        commentUsersInfo.get(j).getUserName()));
+            }
+
+            postModels.addFirst(new PostModel(
+                    commentModels.get(i).getCommentID(),
+                    commentModels.get(i).getGameField(),
+                    commentUsersInfo.get(i).getImageUrl(),
+                    commentUsersInfo.get(i).getUserName(),
+                    commentUsersInfo.get(i).getRole(),
+                    commentUsersInfo.get(i).getSubscription(),
+                    commentModels.get(i).getContent(),
+                    commentModels.get(i).getCommentDate(),
+                    commentModels.get(i).getLikesCount(),
+                    commentModels.get(i).getSubCommentCount(),
+                    postSubModelList));
+        }
+
+
+        model.addAttribute("newComment", new CommentModel());
+        session.setAttribute("postModels", postModels);
+
+        model.addAttribute("subComment", new SubCommentModel());
+
+        return "redirect:home";
     }
 }

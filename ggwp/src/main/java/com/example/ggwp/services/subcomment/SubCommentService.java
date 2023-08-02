@@ -1,6 +1,7 @@
 package com.example.ggwp.services.subcomment;
 
 
+import com.example.ggwp.models.comment.CommentModel;
 import com.example.ggwp.models.comment.SubCommentModel;
 import com.example.ggwp.repositories.subcomment.SubCommentDAOInterface;
 import jakarta.annotation.Resource;
@@ -43,7 +44,7 @@ public class SubCommentService implements SubCommentServiceInterface{
     }
 
     @Override
-    public void addOneSubComment(SubCommentModel model) {
-        subCommentRepository.addOneSubComment(model);
+    public void addOneSubComment(SubCommentModel model, CommentModel commentModel) {
+        subCommentRepository.addOneSubComment(model, commentModel);
     }
 }
