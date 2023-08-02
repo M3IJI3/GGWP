@@ -21,7 +21,6 @@ import java.util.UUID;
 public class UserProfileController {
 
     private String uploadPath = System.getProperty("user.dir") + "/ggwp/src/main/resources/static/img/user_avatar";
-//    public static String UPLOAD_DIRECTORY = System.getProperty("user.dir") + "/ggwp/src/main/resources/static/img";
 
     @Resource
     UsersBusinessServiceInterface usersBusinessService;
@@ -49,33 +48,46 @@ public class UserProfileController {
     @PostMapping("/uploadImage")
     public String uploadImage(Model model, @RequestParam("imageFile") MultipartFile imageFile, HttpSession session)
     {
+        UserModel userModel = (UserModel) session.getAttribute("loggedInUser");
+
+        if (imageFile.isEmpty()) {
+            return "redirect:/profile/" + userModel.getUserName();
+        }
+
         try {
             String originalFilename = imageFile.getOriginalFilename();
             String uuid = UUID.randomUUID().toString();
-            // 获取上传文件的后缀名
+
             String fileExtension = originalFilename.substring(originalFilename.lastIndexOf("."));
-            // 设置保存文件的目标路径
+
             File destFile = new File(uploadPath + File.separator + uuid + fileExtension);
 
-//            File destFile = new ClassPathResource("static/user_avatar").getFile();
-            // 将上传的文件保存到目标路径
             imageFile.transferTo(destFile);
 
             String fileName = uuid + fileExtension;
             String path = "/img/user_avatar/" + fileName;
 
-            UserModel userModel = (UserModel) session.getAttribute("loggedInUser");
+
             userModel.setImageUrl(path);
             usersBusinessService.updateOne(userModel.getUserId(), userModel);
 
-            model.addAttribute("personalProfile", userModel);
+            session.setAttribute("newPersonalProfile", userModel);
 
-            System.out.println(userModel.getImageUrl());
-
-            return "redirect:/profile/major0814";
+            return "redirect:/profile/";
         } catch (IOException e) {
             e.printStackTrace();
             return "home";
         }
+    }
+
+    @GetMapping("/profile/")
+    public String updateProfile(Model model, HttpSession session)
+    {
+        UserModel userModel = (UserModel) session.getAttribute("newPersonalProfile");
+
+        model.addAttribute("personalProfile", userModel);
+
+
+        return "redirect:/profile/" + userModel.getUserName();
     }
 }
