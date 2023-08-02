@@ -38,6 +38,9 @@ public class TutoringController {
 
         List<TutorAvailabilityModel> availabilities = new ArrayList<>();
         availabilities.add(new TutorAvailabilityModel(0, 38, "Wednesday", LocalTime.now(), LocalTime.now()));
+        availabilities.add(new TutorAvailabilityModel(2, 38, "Friday", LocalTime.now(), LocalTime.now()));
+        availabilities.add(new TutorAvailabilityModel(3, 36, "Saturday", LocalTime.now(), LocalTime.now()));
+        availabilities.add(new TutorAvailabilityModel(3, 36, "Sunday", LocalTime.now(), LocalTime.now()));
 
 
         for (TutoringModel tutor : tutors) {
