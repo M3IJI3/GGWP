@@ -3,26 +3,49 @@ package com.example.ggwp.models.tutoring;
 import java.util.List;
 
 public class TutoringModel {
-    long id;
-    long gameId;
-    double price;
-    long tutorAvailabilityId;
-    String rank;
-    String contactInfo;
+    private long id;
+
+    private String tutorName;
+    private long gameId;
+    private String gameName;
+    private double price;
+    private long tutorAvailabilityId;
+    private String rank;
+    private String contactInfo;
+    private String description;
+    private List<TutorAvailabilityModel> availabilities;
 
     public TutoringModel() {
 
     }
 
-    public TutoringModel(long id, long gameId, double price, long tutorAvailabilityId, String rank, String contactInfo, String description, List<TutorAvailabilityModel> availabilities) {
+    public TutoringModel(long id, String tutorName, long gameId, String gameName, double price, long tutorAvailabilityId, String rank, String contactInfo, String description, List<TutorAvailabilityModel> availabilities) {
         this.id = id;
+        this.tutorName = tutorName;
         this.gameId = gameId;
+        this.gameName = gameName;
         this.price = price;
         this.tutorAvailabilityId = tutorAvailabilityId;
         this.rank = rank;
         this.contactInfo = contactInfo;
         this.description = description;
         this.availabilities = availabilities;
+    }
+
+    public String getTutorName() {
+        return tutorName;
+    }
+
+    public void setTutorName(String tutorName) {
+        this.tutorName = tutorName;
+    }
+
+    public String getGameName() {
+        return gameName;
+    }
+
+    public void setGameName(String gameName) {
+        this.gameName = gameName;
     }
 
     public long getId() {
@@ -89,7 +112,5 @@ public class TutoringModel {
         this.availabilities = availabilities;
     }
 
-    String description;
 
-    List<TutorAvailabilityModel> availabilities;
 }
