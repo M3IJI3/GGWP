@@ -79,19 +79,18 @@ public class UserLoginRegistrationController {
                 List<SubCommentModel> subCommentModelList =
                         subCommentService.findSubCommentsByParentCommentId(commentModels.get(i).getCommentID());
 
-                List<PostSubModel> postSubModelList = new ArrayList<>();
+                LinkedList<PostSubModel> postSubModelList = new LinkedList<>();
+
 
                 for(int j = 0; j < subCommentModelList.size(); j++){
-
-                    postSubModelList.add(new PostSubModel(subCommentModelList.get(j).getSub_comment_id(),
-                                                    subCommentModelList.get(j).getContent(),
-                                                    subCommentModelList.get(j).getComment_id(),
-                                                    subCommentModelList.get(j).getUser_id(),
-                                                    commentUsersInfo.get(j).getImageUrl(),
-                                                    commentUsersInfo.get(j).getUserName()));
-
-
+                    postSubModelList.addFirst(new PostSubModel(subCommentModelList.get(j).getSub_comment_id(),
+                                                subCommentModelList.get(j).getContent(),
+                                                subCommentModelList.get(j).getComment_id(),
+                                                subCommentModelList.get(j).getUser_id(),
+                                                fullInfoModel.getImageUrl(),
+                                                fullInfoModel.getUserName()));
                 }
+
 
                 postModels.addFirst(new PostModel(commentModels.get(i).getCommentID(),
                                 commentModels.get(i).getGameField(),
@@ -104,11 +103,6 @@ public class UserLoginRegistrationController {
                                 commentModels.get(i).getLikesCount(),
                                 commentModels.get(i).getSubCommentCount(),
                                 postSubModelList));
-            }
-
-            for(PostModel postModel : postModels)
-            {
-                System.out.println(postModel.getPostSubModelList());
             }
 
 
