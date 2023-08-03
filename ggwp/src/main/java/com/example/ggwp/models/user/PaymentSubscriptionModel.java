@@ -5,6 +5,16 @@ public class PaymentSubscriptionModel {
     private PaymentSubscriptionPlans basicPlan;
     private PaymentSubscriptionPlans vipPlan;
 
+    public PaymentSubscriptionPlans getSelectedPlan() {
+        return selectedPlan;
+    }
+
+    public void setSelectedPlan(PaymentSubscriptionPlans selectedPlan) {
+        this.selectedPlan = selectedPlan;
+    }
+
+    private PaymentSubscriptionPlans selectedPlan;
+
     public PaymentSubscriptionPlans getFreePlan() {
         return freePlan;
     }
@@ -33,6 +43,7 @@ public class PaymentSubscriptionModel {
         this.freePlan = freePlan;
         this.basicPlan = basicPlan;
         this.vipPlan = vipPlan;
+        this.selectedPlan = this.basicPlan;
     }
 }
 

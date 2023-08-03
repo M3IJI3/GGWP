@@ -1,13 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
-/**{
+{
     font-family: 'Poppins', sans-serif;
     margin:0; padding:0;
     box-sizing: border-box;
     outline: none; border:none;
     text-transform: capitalize;
     transition: all .2s linear;
-}*/
+}
 .header{
     display: none;
 }
@@ -314,4 +314,29 @@ header .slider{
 }
 .wrapper button:hover{
     transform: scale(0.98);
+    background:#cccccc;
+
+}
+.wrapper button a{
+    text-decoration:none;
+}
+
+.invoice {
+    margin: 40px auto;
+    text-align: left;
+    width: 80%;
+}
+ .invoice td {
+    padding: 5px 0;
+}
+ .invoice .invoice-items {
+    width: 100%;
+}
+ .invoice .invoice-items td {
+    border-top: #eee 1px solid;
+}
+.invoice .invoice-items .total td {
+    border-top: 2px solid #333;
+    border-bottom: 2px solid #333;
+    font-weight: 700;
 }
