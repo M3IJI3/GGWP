@@ -4,7 +4,7 @@ editorSubmitBtn.addEventListener('click', () => {
     const textEditorContent = tinymce.get("mytextarea").getContent();
 
     // Send the content to the server using the fetch API
-    fetch('http://localhost:8082/forum/forum/createPost', {
+    fetch('http://localhost:8082/forum/createPost', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
