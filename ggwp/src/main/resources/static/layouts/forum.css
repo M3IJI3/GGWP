@@ -66,9 +66,10 @@
     width: 300px;
     font-size: 25px;
     padding-bottom: 5px;
-    margin-top: 15px;
     border-bottom: 3px solid rgba(241,241,241,0.9);
     color: #6c757d;
+    position: absolute;
+    top: 85px;
     /*border: 1px solid red ;*/
 }
 

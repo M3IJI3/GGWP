@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Repository
 public class GamesDataServiceForRepository implements GamesDataAccessInterface<GameModel> {
 

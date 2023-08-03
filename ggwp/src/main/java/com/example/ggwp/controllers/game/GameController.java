@@ -6,6 +6,7 @@ import com.example.ggwp.services.forum.ForumService;
 import com.example.ggwp.services.forum.ForumServiceInterface;
 import com.example.ggwp.services.game.GamesBusinessServiceInterface;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -58,6 +59,7 @@ public class GameController {
     {
         ForumModel forumModel = forumServiceInterface.getByForumTitle(title);
         model.addAttribute("forumModel", forumModel);
+        System.out.println(forumModel);
         return "forum";
     }
 }

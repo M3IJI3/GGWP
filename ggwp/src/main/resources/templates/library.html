@@ -10,7 +10,9 @@
   <body>
     <div class="home_content content container" layout:fragment="content" >
       <div th:each="game : ${games}" class="game-card">
-        <img th:href="@{/library/{title}(title=${game.getTitle()})}" class="game-cover" th:src="${game.getGameCoverImgUrl()}" alt=""/>
+        <a th:href="@{/library/{title}(title=${game.getTitle()})}">
+        <img class="game-cover" th:src="${game.getGameCoverImgUrl()}" alt=""/>
+        </a>
       </div>
     </div>
   </body>

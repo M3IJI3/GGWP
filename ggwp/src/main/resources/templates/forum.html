@@ -10,14 +10,12 @@
     <div class="home_content content" layout:fragment="content">
         <div class="forum-banner" th:object="${forumModel}">
             <div class="forum-left-banner">
-                <img th:src="${forumModel.getImage_url()}" alt="">
+                <img th:src="${forumModel.getImageURL()}" alt="">
             </div>
             <div class="forum-right-banner">
                 <div class="forum-right-top-banner">
-                    <div class="title" th:text="${forumModel.getForum_title()}">
-                        Game Name
-                        <div id="game-type" th:text="${forumModel.getType()}">game type</div>
-                    </div>
+                    <div class="title" th:text="${forumModel.getForumTitle()}"></div>
+                    <div id="game-type" th:text="${forumModel.getType()}">game type</div>
                     <button type="button">Join</button>
                     <div class="forum-data-span">
                         <div class="span-right span">
@@ -30,7 +28,12 @@
                         </div>
                     </div>
                     <div id="game-intro">
-                        <p th:text="${forumModel.getDescription()}"><i class='bx bx-book' >&nbsp;</i></p>
+                        <p>
+                            <i class='bx bx-book'></i>
+                            <span th:text="${forumModel.getDescription()}">
+
+                            </span>
+                        </p>
                     </div>
                 </div>
             </div>
