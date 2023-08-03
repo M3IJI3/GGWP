@@ -27,4 +27,6 @@ public class ForumArticleEntity {
     public String userID;
     @Column(name = "FORUM_ID")
     public long forumID;
+    @Column(name = "CONTENT_AS_HTML")
+    public String contentAsHtml;
 }

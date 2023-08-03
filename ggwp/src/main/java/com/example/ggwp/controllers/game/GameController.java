@@ -70,8 +70,6 @@ public class GameController {
                 articleServiceInterface.getAllArticlesByForumId(forumModel.getForumId());
         model.addAttribute("forumArticles", forumArticleModelList);
 
-        System.out.println("*************************");
-        System.out.println(forumModel);
 
         return "forum";
     }

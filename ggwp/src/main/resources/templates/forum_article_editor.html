@@ -16,12 +16,16 @@
 </head>
 <body>
 <!--<div class="content" layout:fragment="content">-->
-    <form class="text-editor home_content content"  layout:fragment="content"  action="#">
+    <form class="text-editor home_content content"  layout:fragment="content"  action="#" >
         <textarea name="htmlContent" id="mytextarea" placeholder="write something here...">
 
         </textarea>
 
         <button type="button" class="editor-submit-btn">Create</button>
+        <script th:inline="javascript">
+            var currentGameTitle = /*[[ ${title} ]]*/ '';
+
+        </script>
     </form>
 
 

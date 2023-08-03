@@ -16,8 +16,12 @@ public class ArticleService implements ArticleServiceInterface{
 
     @Override
     public List<ForumArticleModel> getAllArticlesByForumId(long id) {
-        System.out.println("HEREEE");
         return articleDAOInterface.getAllArticlesByForumId(id);
 
+    }
+
+    @Override
+    public long addOne(ForumArticleModel newArticle) {
+        return articleDAOInterface.addOne(newArticle);
     }
 }
