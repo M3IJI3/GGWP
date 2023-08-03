@@ -46,7 +46,7 @@
 
             <div class="profile_content">
                 <div class="profile" >
-                    <a href="/user" style="text-decoration: none;color: inherit">
+                    <a th:href="@{/profile/{username}(username=${session.loggedInUser.userName})}" style="text-decoration: none;color: inherit">
                         <div class="profile_details">
                             <img th:src="*{imageUrl}" alt="">
                             <div class="name_job">
