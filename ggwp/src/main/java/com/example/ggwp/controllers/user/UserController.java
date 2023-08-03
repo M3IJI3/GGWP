@@ -21,14 +21,7 @@ public class UserController {
 
     @Resource
     PaymentServiceInterface paymentService;
-
-//    @GetMapping(path = "/")
-//    public String InitialPage(Model model)
-//    {
-//        return "welcome";
-//    }
-
-
+    
     @GetMapping(path = "/subscription")
     public String displaySubscription(Model model) {
         PaymentSubscriptionModel subModel = new PaymentSubscriptionModel(PaymentSubscriptionPlans.FREE, PaymentSubscriptionPlans.BASIC, PaymentSubscriptionPlans.VIP);
