@@ -11,13 +11,13 @@
 <body>
 <div class="wrapper" layout:fragment="content">
     <form action="#" method="post" th:action="@{payment}" th:object="${subscriptionModel}">
-        <input type="radio" name="plan" id="tab-1" th:value = "${subscriptionModel.freePlan.name}">
-        <input type="radio" name="plan" id="tab-2" checked th:value = "${subscriptionModel.basicPlan.name}">
-        <input type="radio" name="plan" id="tab-3" th:value = "${subscriptionModel.vipPlan.name}">
+        <input type="radio" name="plan" id="tab-1" th:value = "${subscriptionModel.freePlan}" th:field="*{selectedPlan}">
+        <input type="radio" name="plan" id="tab-2" checked th:value = "${subscriptionModel.basicPlan}" th:field="*{selectedPlan}">
+        <input type="radio" name="plan" id="tab-3" th:value = "${subscriptionModel.vipPlan}" th:field="*{selectedPlan}">
     <header>
         <label for="tab-1" class="tab-1">Free</label>
         <label for="tab-2" class="tab-2">Basic</label>
-        <label for="tab-3" class="tab-3">Premium</label>
+        <label for="tab-3" class="tab-3">VIP</label>
         <div class="slider"></div>
     </header>
     <div class="card-area">
@@ -68,7 +68,21 @@
             </div>
         </div>
     </div>
-    <button>Choose plan</button>
+        <label >
+            <img src="img/userPayment/creditdebit.png" alt="">
+            <br>
+            <input style="display: inline; transform: scale(1.5)" type="radio" id="credit" name="method" value="cc" checked />
+
+        Credit Card/ Debit</label>
+        <br>
+        <label >
+            <img src="img/userPayment/paypal.png" alt="">
+            <br>
+            <input style="display: inline; transform: scale(1.5)" type="radio" id="paypal" name="method" value="paypal"/>
+        Paypal</label>
+        <br>
+        <button type="submit"> Checkout </button>
+
     </form>
 </div>
 </body>

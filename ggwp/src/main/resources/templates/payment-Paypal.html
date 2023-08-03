@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="layouts/defaultLayout"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="layouts/style.css" rel="stylesheet"/>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+<div class="Paymentcontainer" layout:fragment="content">
+    <form action="#" method="post" th:action="@{finishPaypalPayment}" th:object="${paymentModel}">
+        <input type="hidden" th:field="*{selectedPlan}"/>
+        <div class="row">
+            <div class="col">
+                <h3 class="title">Pay with Paypal</h3>
+
+                <img src="img/userPayment/paypal.png" alt="">
+                <p>As a member, your eligible purchase are covered by <a style="color: dodgerblue"> PayPal
+                    Purchase Protection</a>.<a style="font-style: italic;"> By logging into your PayPal account, you
+                    have
+                    agreed to make this payment.</a></p>
+
+                <div class="inputBox">
+                    <span>Email:  </span>
+                    <input id="email" th:field="*{email}" type="email" placeholder="example@gmail.com">
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}" style="color: red">
+                        Enter your Paypal email</p>
+                </div>
+
+                <div class="inputBox">
+                    <span>Password:  </span>
+                    <input id="password" th:field="*{password}" type="password" placeholder="password">
+                    <p class="alert alert-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}" style="color: red">
+                        Enter your Password</p>
+                </div>
+                <!--                <input type="submit" value="Sign In" class="submit-btn">-->
+                <div class="inputBox">
+                    <span>Full name: </span>
+                    <input type="text" placeholder="">
+                </div>
+                <div class="inputBox">
+                    <span>Billing address: </span>
+                    <input type="text" placeholder="unit - Street name">
+                </div>
+                <div class="inputBox">
+                    <span>Phone number: </span>
+                    <input type="number" placeholder="xxx-xxx-xxx">
+                </div>
+                <button id="submit-btn" type="submit" class="submit-btn">
+                    <i class="fa"></i> Checkout
+                </button>
+            </div>
+            <div class="col">
+                <h3 class="title">Thanks for Subscription</h3>
+                <td class="content-block">
+
+                </td>
+                </tr>
+                <tr>
+                    <td class="content-block">
+                        <table class="invoice">
+                            <tbody>
+                            <tr>
+                                <td>Your plan is <span th:text="*{selectedPlan.getName()}"/></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <table class="invoice-items" cellpadding="0" cellspacing="0">
+                                        <tbody>
+                                        <tr>
+                                            <td>Price:</td>
+                                            <td class="alignright">$ <span th:text="*{selectedPlan.price}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>PST (7%):</td>
+                                            <td class="alignright">$ <span th:text="*{selectedPlan.pst}"/></td>
+                                        </tr>
+                                        <tr>
+                                            <td>GST (5%):</td>
+                                            <td class="alignright">$ <span th:text="*{selectedPlan.gst}"/></td>
+                                        </tr>
+
+                                        <tr class="total">
+                                            <td class="alignright" width="80%">Total</td>
+                                            <td class="alignright">$ <span th:text="*{selectedPlan.total}"/></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+            </div>
+
+        </div>
+
+
+</form>
+</div>
+
+</body>
+</html>

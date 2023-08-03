@@ -15,7 +15,6 @@ public class PaymentModel {
 
     private String userName;
 
-    @CreditCardNumber()
     private String cardNumber;
 
     @Size(min = 3, max = 3, message = "CVV must has 3 digits")
@@ -34,25 +33,6 @@ public class PaymentModel {
     @DateTimeFormat(pattern="YYYY-MM")
     private Date expirationDate;
 
-    public String getPaypalEmail() {
-        return paypalEmail;
-    }
-
-    public void setPaypalEmail(String paypalEmail) {
-        this.paypalEmail = paypalEmail;
-    }
-
-    private String paypalEmail;
-
-    public String getPaypalPassword() {
-        return paypalPassword;
-    }
-
-    public void setPaypalPassword(String paypalPassword) {
-        this.paypalPassword = paypalPassword;
-    }
-
-    private String paypalPassword;
 
     public Integer getUserID() {
         return userID;
@@ -102,6 +82,25 @@ public class PaymentModel {
         this.yy = yy;
     }
 
+    public String getMethod() {
+        return method;
+    }
+
+    public void setMethod(String method) {
+        this.method = method;
+    }
+
+    private String method;
+
+    public PaymentSubscriptionPlans getSelectedPlan() {
+        return selectedPlan;
+    }
+
+    public void setSelectedPlan(PaymentSubscriptionPlans selectedPlan) {
+        this.selectedPlan = selectedPlan;
+    }
+
+    private PaymentSubscriptionPlans selectedPlan;
 
     public PaymentModel() {
     }
