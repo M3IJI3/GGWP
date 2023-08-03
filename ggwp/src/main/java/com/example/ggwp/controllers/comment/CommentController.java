@@ -43,7 +43,6 @@ public class CommentController {
         commentServiceInterface.postOne(newComment, userModel);
 
 
-
         List<CommentModel> commentModels = commentServiceInterface.getComments();
         session.setAttribute("commentModels", commentModels);
 
@@ -65,15 +64,17 @@ public class CommentController {
             List<SubCommentModel> subCommentModelList =
                     subCommentService.findSubCommentsByParentCommentId(commentModels.get(i).getCommentID());
 
-            List<PostSubModel> postSubModelList = new ArrayList<>();
+            LinkedList<PostSubModel> postSubModelList = new LinkedList<>();
             for(int j = 0; j <subCommentModelList.size(); j++){
 
-                postSubModelList.add(new PostSubModel(subCommentModelList.get(j).getSub_comment_id(),
+
+
+                postSubModelList.addFirst(new PostSubModel(subCommentModelList.get(j).getSub_comment_id(),
                         subCommentModelList.get(j).getContent(),
                         subCommentModelList.get(j).getComment_id(),
                         subCommentModelList.get(j).getUser_id(),
-                        commentUsersInfo.get(j).getImageUrl(),
-                        commentUsersInfo.get(j).getUserName()));
+                        userModel.getImageUrl(),
+                        userModel.getUserName()));
             }
 
             postModels.addFirst(new PostModel(
@@ -106,6 +107,8 @@ public class CommentController {
 
         subCommentServiceInterface.addOneSubComment(subCommentModel,commentModel);
 
+        UserModel userModel = (UserModel) session.getAttribute("loggedInUser");
+
         List<CommentModel> commentModels = commentServiceInterface.getComments();
         session.setAttribute("commentModels", commentModels);
 
@@ -127,15 +130,15 @@ public class CommentController {
             List<SubCommentModel> subCommentModelList =
                     subCommentService.findSubCommentsByParentCommentId(commentModels.get(i).getCommentID());
 
-            List<PostSubModel> postSubModelList = new ArrayList<>();
+            LinkedList<PostSubModel> postSubModelList = new LinkedList<>();
             for(int j = 0; j <subCommentModelList.size(); j++){
 
-                postSubModelList.add(new PostSubModel(subCommentModelList.get(j).getSub_comment_id(),
+                postSubModelList.addFirst(new PostSubModel(subCommentModelList.get(j).getSub_comment_id(),
                         subCommentModelList.get(j).getContent(),
                         subCommentModelList.get(j).getComment_id(),
                         subCommentModelList.get(j).getUser_id(),
-                        commentUsersInfo.get(j).getImageUrl(),
-                        commentUsersInfo.get(j).getUserName()));
+                        userModel.getImageUrl(),
+                        userModel.getUserName()));
             }
 
             postModels.addFirst(new PostModel(

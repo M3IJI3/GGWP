@@ -15,6 +15,7 @@ public class ForumService implements ForumServiceInterface{
 
     @Override
     public ForumModel getByForumTitle(String name) {
+
         return forumDataAccessRepository.getByForumTitle(name);
     }
 }
