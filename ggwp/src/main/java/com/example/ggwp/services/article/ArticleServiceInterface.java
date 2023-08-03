@@ -6,4 +6,8 @@ import java.util.List;
 
 public interface ArticleServiceInterface {
     List<ForumArticleModel> getAllArticlesByForumId(long id);
+
+    long addOne(ForumArticleModel newArticle);
+
+    ForumArticleModel getById(long id);
 }

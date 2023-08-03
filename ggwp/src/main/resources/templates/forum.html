@@ -43,7 +43,9 @@
                     <li th:each="forumArticle : ${forumArticles}">
                         <div class="article-left-panel">
                             <div class="article-title" >
-                                <a th:href="@{/forum/post}" th:text="${forumArticle.getArticleTitle()}"></a>
+
+                                <a th:href="@{/forum/{title}/{id}(title=${forumModel.getForumTitle()}, id=${forumArticle.getArticleID()})}" href="#" th:text="${forumArticle.getArticleTitle()}"></a>
+
                             </div>
                             <div class="summary">
                                 <div class="summary-left">
@@ -64,7 +66,7 @@
                 </ul>
             </div>
 
-            <button id="write-post" type="button"><a th:href="@{forum_article_editor}">
+            <button id="write-post" type="button"><a th:href="@{/forum/{title}/article_editor(title=${forumModel.forumTitle})}">
                 Write Your Story...</a>
             </button>
 

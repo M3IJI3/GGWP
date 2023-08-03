@@ -70,6 +70,7 @@ public class GameController {
                 articleServiceInterface.getAllArticlesByForumId(forumModel.getForumId());
         model.addAttribute("forumArticles", forumArticleModelList);
 
+
         return "forum";
     }
 }

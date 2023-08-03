@@ -14,4 +14,5 @@ public class ForumArticleModel {
     public String imageURL;
     public String userID;
     public long forumID;
+    public String contentAsHtml;
 }
