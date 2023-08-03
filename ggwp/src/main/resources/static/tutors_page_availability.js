@@ -35,19 +35,12 @@ for (let i = 0; i < tutorIds.length; i++) {
         }
     });
 
-    console.log(tutorId);
-    console.log(icons);
-
-    console.log(tutorAvailabilities)
-
     const tutorAvailability = tutorAvailabilities[tutorId];
 
     if (tutorAvailability) {
         icons.forEach((icon, index) => {
             const dayOfWeek = icon.getAttribute("data-day-of-week");
 
-            console.log(dayOfWeek)
-            console.log(tutorAvailabilities)
 
             if (tutorAvailability.includes(dayOfWeek)) {
                 icon.style.color = "#ff004f";
