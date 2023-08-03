@@ -24,4 +24,11 @@ public class ArticleService implements ArticleServiceInterface{
     public long addOne(ForumArticleModel newArticle) {
         return articleDAOInterface.addOne(newArticle);
     }
+
+    @Override
+    public ForumArticleModel getById(long id) {
+        return articleDAOInterface.getArticleById(id);
+    }
+
+
 }

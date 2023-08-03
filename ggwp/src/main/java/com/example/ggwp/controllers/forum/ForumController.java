@@ -88,4 +88,13 @@ public class ForumController {
         return ResponseEntity.ok().body("{\"redirectUrl\": \"" + redirectUrl + "\"}");
 
     }
+
+    @GetMapping("/{title}/{id}")
+    public String showArticlePage(Model model, @PathVariable(name = "id") long id) {
+        ForumArticleModel articleModel = articleServiceInterface.getById(id);
+
+        model.addAttribute("articleModel", articleModel);
+
+        return "post_page";
+    }
 }

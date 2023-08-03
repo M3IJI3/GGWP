@@ -3,6 +3,7 @@ package com.example.ggwp.repositories.article;
 import com.example.ggwp.models.forum.ForumArticleEntity;
 import com.example.ggwp.models.forum.ForumArticleModel;
 import com.example.ggwp.models.game.GameEntity;
+import com.example.ggwp.models.game.GameModel;
 import com.example.ggwp.repositories.forum.ForumEntityRepositoryInterface;
 import jakarta.annotation.Resource;
 import org.modelmapper.ModelMapper;
@@ -37,6 +38,12 @@ public class ArticleDataAccessRepository implements ArticleDAOInterface<ForumArt
     public long addOne(ForumArticleModel newArticle) {
         articleEntityRepositoryInterface.save(mapper.map(newArticle, ForumArticleEntity.class));
         return 1;
+    }
+
+    @Override
+    public ForumArticleModel getArticleById(long id) {
+        ForumArticleEntity articleEntity = articleEntityRepositoryInterface.findById(id).orElse(null);
+        return mapper.map(articleEntity, ForumArticleModel.class); // Map to model
     }
 
 
