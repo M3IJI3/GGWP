@@ -54,12 +54,12 @@ public class GameController {
         gameBusinessService.deleteOne(id);
     }
 
-    @GetMapping("/{title}")
-    public String showForumPage(Model model, @PathVariable(name = "title") String title)
-    {
-        ForumModel forumModel = forumServiceInterface.getByForumTitle(title);
-        model.addAttribute("forumModel", forumModel);
-        System.out.println(forumModel);
-        return "forum";
-    }
+//    @GetMapping("/{title}")
+//    public String showForumPage(Model model, @PathVariable(name = "title") String title)
+//    {
+//        ForumModel forumModel = forumServiceInterface.getByForumTitle(title);
+//        model.addAttribute("forumModel", forumModel);
+//        System.out.println(forumModel);
+//        return "forum";
+//    }
 }

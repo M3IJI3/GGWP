@@ -73,7 +73,7 @@
                 </ul>
             </div>
 
-            <button id="write-post" type="button"><a th:href="@{forum_article_editor}">
+            <button id="write-post" type="button"><a th:href="@{/forum/{title}/article_editor(title=${forumModel.forumTitle})}">
                 Write Your Story...</a>
             </button>
 
