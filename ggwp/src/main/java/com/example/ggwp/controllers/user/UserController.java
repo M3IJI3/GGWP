@@ -103,23 +103,6 @@ public class UserController {
     @GetMapping(path = "/tutor")
     public String TutorPage(Model model) {return "/tutor_profile" ;}
 
-//    @RequestMapping("/library")
-//    public String LibraryPage(){
-//        return "library";
-//    }
-
-//    @GetMapping(path = "/home")
-//    public String HomePage(Model model) { return "/home"; }
-//    @RequestMapping("/home")
-//    public String HomePage(){
-//        return "home";
-//    }
-
-//    @RequestMapping("/tutors")
-//    public String TutorsPage() { return "/tutors_page"; }
-
-//    @GetMapping(path = "/forum")
-//    public String ForumPage(){ return "forum"; }
 
     @GetMapping(path = "/forum_article_editor")
     public String ForumArticlePage(){ return "forum_article_editor"; }

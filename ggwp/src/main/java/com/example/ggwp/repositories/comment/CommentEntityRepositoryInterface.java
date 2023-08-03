@@ -11,4 +11,5 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 
 public interface CommentEntityRepositoryInterface extends CrudRepository<CommentEntity, Long> {
+    List<CommentEntity> findAllByContentContainingOrGameFieldContainingIgnoreCase(String content, String field);
 }

@@ -19,7 +19,7 @@
                     <button id="join-text" class="forum-button forum-join" type="button">Join</button>
                     <div class="forum-data-span">
                         <div class="span-right span">
-                            <div class="amount">40,789</div>
+                            <div class="amount" th:text="${forumArticles.size()}">40,789</div>
                             <div class="subtitle">Posts</div>
                         </div>
                         <div class="span-left span">
@@ -43,7 +43,7 @@
                     <li th:each="forumArticle : ${forumArticles}">
                         <div class="article-left-panel">
                             <div class="article-title" >
-                                <a href="#" th:text="${forumArticle.getArticleTitle()}"></a>
+                                <a th:href="@{/forum/post}" th:text="${forumArticle.getArticleTitle()}"></a>
                             </div>
                             <div class="summary">
                                 <div class="summary-left">
