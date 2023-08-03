@@ -50,7 +50,14 @@
   margin-left: 30px;
   width: 32%;
   position: relative;
+  animation: all 0.5s ease;
 }
+
+.row-2 .col-1 form img:hover{
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 .add_bio{
   padding-top: 5px;
   padding-left: 43px;
@@ -69,16 +76,30 @@
 }
 .green_dot{
   position: absolute;
-  width: 25px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
   left: 105px;
   top: 33px;
   border-radius: 50%;
   background-color: #23d5ab;
   border: 2px solid #FFFFFF;
+  font-size: 20px;
+  color: white;
+  transition: all 0.5s ease;
 }
+
+.green_dot:hover{
+  scale: 1.2;
+  box-shadow: 0 2px 4px #23d5ab;
+}
+
+.green_dot:focus{
+  scale: 1;
+}
+
 .user{
   font-size: 25px;
+  padding-left: 10px;
 }
 .col-2{
   display: flex;

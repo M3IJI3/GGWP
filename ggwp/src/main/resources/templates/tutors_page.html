@@ -11,7 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;400;600;700&display=swap"
       rel="stylesheet"
     />
-    <script
+      <script
       src="https://kit.fontawesome.com/770c90d0eb.js"
       crossorigin="anonymous"
     ></script>
@@ -19,7 +19,53 @@
   </head>
   <body>
     <div class="tutor-page-container home_content content" layout:fragment="content">
-      <div class="tutor-card">
+        <!-- The modal overlay -->
+        <div
+                class="tutor-details-modal-overlay"
+                id="tutor-details-modalOverlay"
+        ></div>
+
+        <!-- The actual modal content -->
+        <div th:each="tutor : ${tutors}"  class="tutor-details-modal" th:id="'tutor-details-modal-' + ${tutor.getId()}">
+      <span class="tutor-details-modal-close" id="tutor-details-modalCloseBtn"
+      >&times;</span
+      >
+
+            <div class="tutor-details-modal-body">
+                <h1>Tutor Details</h1>
+                <div class="tutor-details-header">
+                    <div class="tutor-details-avatar">
+                        <img
+                                src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
+                                alt=""
+                        />
+                    </div>
+                    <div class="tutor-details-header-info">
+                        <h2 th:text="${tutor.getTutorName()}"></h2>
+                        <h4 th:text="${tutor.getGameName()}"></h4>
+                        <h4 th:text="'Price: $' + ${tutor.getPrice()}"></h4>
+                        <h4 th:text="'Rank: ' + ${tutor.getRank()}"></h4>
+                    </div>
+
+                    <div th:id="'tutor-details-availability-' + ${tutor.getId()}" class="tutor-details-availability">
+                    </div>
+                </div>
+                <div class="tutor-details-body">
+                    <h4>Description</h4>
+                    <div class="tutor-details-description">
+
+                        <p th:text="${tutor.getDescription()}">
+
+                        </p>
+                    </div>
+                </div>
+                <form class="tutor-details-form-btn" action="#" method="get" th:action="@{/profile/{tutorName}(tutorName=${tutor.tutorName})}">
+                    <button type="submit" class="tutor-details-contact-button">Contact Me</button>
+                </form>
+            </div>
+
+        </div>
+      <div th:each="tutor : ${tutors}" class="tutor-card">
         <!-- <div class="image-container"> -->
         <img
           class="tutor-image"
@@ -29,13 +75,23 @@
 
         <!-- </div> -->
         <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
+          <p th:text="'/ ' + ${tutor.getGameName()}" class="community-text"></p>
           <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
+          <h2 th:text="${tutor.getTutorName()}"></h2>
+          <div  class="tutor-description">
+<!--            <p th:text="${tutor.getAvailabilities().get(0).getDayOfWeek()}"></p>-->
+            <p th:data-tutor-id="${tutor.getId()}" class="availability-icons">
+              <i data-day-of-week="Sunday" class="far fa-s availability-icon"></i>
+              <i data-day-of-week="Monday" class="far fa-m availability-icon"></i>
+              <i data-day-of-week="Tuesday" class="far fa-t availability-icon"></i>
+              <i data-day-of-week="Wednesday" class="far fa-w availability-icon"></i>
+              <i data-day-of-week="Thursday" class="far fa-r availability-icon"></i>
+              <i data-day-of-week="Friday" class="far fa-f availability-icon"></i>
+              <i data-day-of-week="Saturday" class="far fa-s availability-icon"></i>
+            </p>
+
+            <p th:text="'Price: ' + ${tutor.getPrice()}"></p>
+            <p th:text="'Rank: ' + ${tutor.getRank()}"></p>
           </div>
           <div class="avatar">
             <img
@@ -44,301 +100,15 @@
             />
           </div>
           <div class="action-container">
-            <button class="contact-button">Contact me</button>
+            <button id="tutor-details-openModalBtn" class="contact-button" th:data-target-modal="${tutor.getId()}">See details</button>
           </div>
         </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-          class="tutor-image"
-          src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-          alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-              src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-              alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-          class="tutor-image"
-          src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-          alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-              src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-              alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-          class="tutor-image"
-          src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-          alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-              src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-              alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-                class="tutor-image"
-                src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-                alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-                    src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-                    alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-                class="tutor-image"
-                src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-                alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-                    src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-                    alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-                class="tutor-image"
-                src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-                alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-                    src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-                    alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-                class="tutor-image"
-                src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-                alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-                    src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-                    alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-                class="tutor-image"
-                src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-                alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-                    src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-                    alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-                class="tutor-image"
-                src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-                alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-                    src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-                    alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
-      </div>
-      <div class="tutor-card">
-        <!-- <div class="image-container"> -->
-        <img
-                class="tutor-image"
-                src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
-                alt=""
-        />
-
-        <!-- </div> -->
-        <div class="tutor-card-content">
-          <p class="community-text">/leagueoflegends</p>
-          <i class="fa-regular fa-heart heart-icon"></i>
-          <h2>kami</h2>
-          <div class="tutor-description">
-            <p>8:00AM ~ 3:00PM (Mon ~ Fri)</p>
-            <p>Price: $15/each game</p>
-            <p>Rank Tier: Challenger</p>
-          </div>
-          <div class="avatar">
-            <img
-                    src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
-                    alt="Avatar"
-            />
-          </div>
-          <div class="action-container">
-            <button class="contact-button">Contact me</button>
-          </div>
-        </div>
+        <script th:inline="javascript">
+          var availabilities = /*[[${tutor.getAvailabilities()}]]*/ 'default_value';
+        </script>
       </div>
     </div>
     <script src="/tutor-page.js"></script>
+
   </body>
 </html>

@@ -1,11 +1,12 @@
 <!doctype html>
 <html lang="en" layout:decorate="layouts/defaultLayout"
-      xmlns:layout="http://www.w3.org/1999/xhtml">
-  <head>
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+  <head >
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>GGWP - Hideonbush Profile</title>
+    <title>GGWP</title>
    
   </head>
   <body>
@@ -19,19 +20,19 @@
 
           </div>
           <div class="row-2">
-            <div class="col-1">
-              <img src="https://pbs.twimg.com/media/EzgbTeFWEAQemmR.jpg" class="user-profile-pic">
+            <div class="col-1" th:object="${personalProfile}">
+              <img th:src="${personalProfile.getImageUrl()}" class="user-profile-pic">
               <div class="green_dot"></div>
-              <div class="user">Hideonbush</div>
+              <div class="user" th:text="${personalProfile.getUserName()}"></div>
             </div>
             <div class="col-2">
-              <div class="col-2-1">Steam: <span><a href="#">Hideonbush</a></span></div>
-              <div class="col-2-1">Xbox: <span><a href="#">Hideonbush</a></span></div>
-              <div class="col-2-1">Playstation: <span><a href="#">Hideonbush</a></span></div>
-              <div class="col-2-1">Discord: <span><a href="#">Hideonbush</a></span></div>
+              <div class="col-2-1">Steam: <span th:text="${personalProfile.getUserName()}">Hideonbush</span></div>
+              <div class="col-2-1">Xbox: <span th:text="${personalProfile.getUserName()}">Hideonbush</span></div>
+              <div class="col-2-1">Playstation: <span th:text="${personalProfile.getUserName()}">Hideonbush</span></div>
+              <div class="col-2-1">Discord: <span th:text="${personalProfile.getUserName()}">Hideonbush</span></div>
             </div>
             <div class="col-3">
-              <img src="/img//heart.png" class="heart">
+              <img src="/img/heart.png" class="heart">
             </div>
           </div>
           <div class="tab_box">

@@ -28,11 +28,6 @@ public class UserController {
 //        return "welcome";
 //    }
 
-//    @GetMapping(path = "/register")
-//    public String RegisterPage(Model model)
-//    {
-//        return "register";
-//    }
 
     @GetMapping(path = "/subscription")
     public String displaySubscription(Model model) {
@@ -127,11 +122,11 @@ public class UserController {
 //        return "home";
 //    }
 
-    @RequestMapping("/tutors")
-    public String TutorsPage() { return "/tutors_page"; }
+//    @RequestMapping("/tutors")
+//    public String TutorsPage() { return "/tutors_page"; }
 
-    @GetMapping(path = "/forum")
-    public String ForumPage(){ return "forum"; }
+//    @GetMapping(path = "/forum")
+//    public String ForumPage(){ return "forum"; }
 
     @GetMapping(path = "/forum_article_editor")
     public String ForumArticlePage(){ return "forum_article_editor"; }

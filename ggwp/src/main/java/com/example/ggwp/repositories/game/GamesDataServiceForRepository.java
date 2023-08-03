@@ -11,7 +11,6 @@ import javax.sql.DataSource;
 import java.util.ArrayList;
 import java.util.List;
 
-
 @Repository
 public class GamesDataServiceForRepository implements GamesDataAccessInterface<GameModel> {
 
@@ -22,6 +21,7 @@ public class GamesDataServiceForRepository implements GamesDataAccessInterface<G
     JdbcTemplate jdbcTemplate;
 
     public GamesDataServiceForRepository(DataSource dataSource) {
+
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 

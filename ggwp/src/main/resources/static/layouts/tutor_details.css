@@ -1,0 +1,103 @@
+body {
+  font-family: "Inter", sans-serif;
+}
+
+.tutor-details-modal-body h1 {
+  font-weight: 200;
+}
+
+.tutor-details-avatar {
+  width: 100px; /* Set the width and height as needed */
+  height: 100px;
+  border-radius: 50%; /* Make the avatar circular */
+  overflow: hidden; /* Hide any content that overflows the circular shape */
+  border: 4px solid #fff;
+}
+
+.tutor-details-avatar img {
+  width: 100%; /* Make the image cover the entire circular area */
+  height: 100%;
+  object-fit: cover; /* Maintain the aspect ratio of the image */
+}
+
+.tutor-details-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  gap: 40px;
+  width: 100%;
+  /* margin: 50px; */
+}
+
+.tutor-details-header-info {
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.tutor-details-header p {
+  font-weight: 200;
+  font-size: 18px;
+}
+
+.tutor-details-header-info h2 {
+  /* margin-right: auto; */
+  font-weight: 400;
+}
+
+.tutor-details-header-info h4 {
+  font-weight: 300;
+  font-size: 20px;
+}
+
+.tutor-details-modal-body {
+  /*margin: 50px;*/
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  align-self: center;
+}
+
+.tutor-details-body {
+
+  font-weight: 300;
+  text-wrap: initial;
+}
+
+.tutor-details-body h4 {
+  font-weight: 300;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.tutor-details-availability {
+  border: 1px solid #ff004f;
+  border-radius: 10px;
+  padding: 10px;
+  color: #ff004f;
+}
+
+.tutor-details-contact-button {
+  padding: 12px 24px;
+  background-color: #ff004f;
+  color: #fff;
+  border-radius: 50px;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  margin-top: 10px;
+  border: none;
+  align-self: center;
+  width: 25%;
+}
+
+.tutor-details-form-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.tutor-details-modal-close {
+  padding: 5px;
+  font-size: 24px;
+}

@@ -1,8 +1,12 @@
 package com.example.ggwp.controllers.game;
 
+import com.example.ggwp.models.forum.ForumModel;
 import com.example.ggwp.models.game.GameModel;
+import com.example.ggwp.services.forum.ForumService;
+import com.example.ggwp.services.forum.ForumServiceInterface;
 import com.example.ggwp.services.game.GamesBusinessServiceInterface;
 import jakarta.annotation.Resource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -14,6 +18,9 @@ import java.util.List;
 public class GameController {
     @Resource
     GamesBusinessServiceInterface gameBusinessService;
+
+    @Resource
+    ForumServiceInterface forumServiceInterface;
 
     @GetMapping("/")
     public String showAllGames(Model model){
@@ -28,8 +35,6 @@ public class GameController {
         return gameBusinessService.searchGames(searchTerm);
     }
 
-
-    //The routes from below all get the model from postman body request
 
     // Create a new game
     @PostMapping("/create")
@@ -47,5 +52,14 @@ public class GameController {
     @DeleteMapping("/delete/{id}")
     public void deleteGame(@PathVariable Long id) {
         gameBusinessService.deleteOne(id);
+    }
+
+    @GetMapping("/{title}")
+    public String showForumPage(Model model, @PathVariable(name = "title") String title)
+    {
+        ForumModel forumModel = forumServiceInterface.getByForumTitle(title);
+        model.addAttribute("forumModel", forumModel);
+        System.out.println(forumModel);
+        return "forum";
     }
 }

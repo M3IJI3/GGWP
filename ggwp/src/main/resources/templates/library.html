@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" layout:decorate="layouts/defaultLayout"
-      xmlns:layout="http://www.w3.org/1999/xhtml">
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,35 +10,10 @@
   <body>
     <div class="home_content content container" layout:fragment="content" >
       <div th:each="game : ${games}" class="game-card">
-        <img  class="game-cover" th:src="${game.getGameCoverImgUrl()}" alt=""/>
+        <a th:href="@{/library/{title}(title=${game.getTitle()})}">
+        <img class="game-cover" th:src="${game.getGameCoverImgUrl()}" alt=""/>
+        </a>
       </div>
-<!--      <div class="game-card">-->
-<!--        <img class="game-cover" src="/img/game-covers/fnaf_security_breach-cover.png" alt="" />-->
-<!--      </div>-->
-<!--      <div class="game-card">-->
-<!--        <img class="game-cover" src="/img/game-covers/valorant-cover.jpg" alt="" />-->
-<!--      </div>-->
-<!--      <div class="game-card">-->
-<!--        <img class="game-cover" src="/img/game-covers/csgo-cover.jpeg" alt="" />-->
-<!--      </div>-->
-<!--      <div class="game-card">-->
-<!--        <img class="game-cover" src="/img/game-covers/leagueoflegends-cover.jpeg" alt="" />-->
-<!--      </div>-->
-<!--      <div class="game-card">-->
-<!--        <img class="game-cover" src="/img/game-covers/thelastofus-cover.jpg" alt="" />-->
-<!--      </div>-->
-<!--      <div class="game-card">-->
-<!--        <img class="game-cover" src="/img/game-covers/cyberpunk-cover.jpeg" alt="" />-->
-<!--      </div>-->
-<!--      <div class="game-card">-->
-<!--        <img class="game-cover" src="/img/game-covers/deadbydaylight-cover.jpg" alt="" />-->
-<!--      </div>-->
-<!--      <div class="game-card">-->
-<!--        <img class="game-cover" src="/img/game-covers/dota2-cover.jpeg" alt="" />-->
-<!--      </div>-->
-<!--      <div class="game-card">-->
-<!--        <img class="game-cover" src="/img/game-covers/fortnite-cover.jpeg" alt="" />-->
-<!--      </div>-->
     </div>
   </body>
 </html>

@@ -12,4 +12,6 @@ public interface CommentDAOInterface<T> {
     List<T> searchComments(String searchTerm);
     long postOne(T comment, UserModel userModel);
     UserModel getByCommentId(long commentId);
+
+
 }
