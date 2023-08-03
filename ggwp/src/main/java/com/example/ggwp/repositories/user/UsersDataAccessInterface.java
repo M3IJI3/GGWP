@@ -9,4 +9,6 @@ public interface UsersDataAccessInterface<T> {
      long addOne(T newUser);
      boolean deleteOne(long id);
      T updateOne(long idToUpdate, T updateUser);
+
+     T getByUsername(String username);
 }

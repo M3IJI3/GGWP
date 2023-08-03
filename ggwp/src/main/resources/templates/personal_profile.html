@@ -1,6 +1,7 @@
 <!doctype html>
 <html lang="en" layout:decorate="layouts/defaultLayout"
-      xmlns:layout="http://www.w3.org/1999/xhtml">
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,17 +20,24 @@
             <img src="/img/background.jpg" class="cover-pic">
           </div>
           <div class="row-2">
-            <div class="col-1">
-              <img src="https://pbs.twimg.com/media/EzgbTeFWEAQemmR.jpg" class="user-profile-pic">
-              <div class="green_dot"></div>
-              <div class="user">Hideonbush</div>
-              <div class="add_bio"><a href="#">add bio</a></div>
+            <div class="col-1" th:object="${personalProfile}">
+
+            <!-- change user profile here-->
+              <form th:action="@{/uploadImage}" method="post" enctype="multipart/form-data">
+                <img th:src="${personalProfile.getImageUrl()}" id="userAvatar" onclick="openFileInput()" class="user-profile-pic">
+                <input th:name="imageFile" type="file" id="fileInput" style="display: none" accept="image/*" onchange="handleFileSelect(event)">
+                <button class="green_dot" type="submit"><i class='bx bx-face'></i></button>
+              </form>
+
+
+              <div class="user" th:text="${personalProfile.getUserName()}">username</div>
+<!--              <div class="add_bio"><a href="#">add bio</a></div>-->
             </div>
             <div class="col-2">
-              <div class="col-2-1">Steam: <span><a href="#">Hideonbush</a></span></div>
-              <div class="col-2-1">Xbox: <span><a href="#">Hideonbush</a></span></div>
-              <div class="col-2-1">Playstation: <span><a href="#">Hideonbush</a></span></div>
-              <div class="col-2-1">Discord: <span><a href="#">Hideonbush</a></span></div>
+              <div class="col-2-1" >Steam: <span th:text="${personalProfile.getUserName()}">Hideonbush</span></div>
+              <div class="col-2-1">Xbox: <span th:text="${personalProfile.getUserName()}">Hideonbush</span></div>
+              <div class="col-2-1">Playstation: <span th:text="${personalProfile.getUserName()}">Hideonbush</span></div>
+              <div class="col-2-1">Discord: <span th:text="${personalProfile.getUserName()}">Hideonbush</span></div>
             </div>
           </div>
           <div class="tab_box">

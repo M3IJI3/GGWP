@@ -12,4 +12,6 @@ public interface UsersRepositoryInterface extends CrudRepository<UserEntity, Lon
     // already implies that we will use save, findall, findbyid, deletebyid etc. but not search
     List<UserEntity> findByUserNameContainingIgnoreCase(String searchTerm);
 
+    UserEntity findByUserName(String username);
+
 }

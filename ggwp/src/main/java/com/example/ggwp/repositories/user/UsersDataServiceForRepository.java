@@ -12,7 +12,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 @Repository
-public class UsersDataServiceForRepository implements UsersDataAccessInterface<UserModel>{
+public class UsersDataServiceForRepository implements UsersDataAccessInterface<UserModel> {
 
     @Autowired
     UsersRepositoryInterface usersRepository;
@@ -127,5 +127,11 @@ public class UsersDataServiceForRepository implements UsersDataAccessInterface<U
         UserModel updatedUser = modelMapper.map(updatedEntity, UserModel.class);
 
         return updatedUser;
+    }
+
+    @Override
+    public UserModel getByUsername(String username) {
+        UserModel model = modelMapper.map(usersRepository.findByUserName(username), UserModel.class);
+        return model;
     }
 }
