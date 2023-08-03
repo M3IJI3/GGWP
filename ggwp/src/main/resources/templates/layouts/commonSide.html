@@ -15,28 +15,28 @@
 <!--                    </a>-->
 <!--                </li>-->
                 <li>
-                    <a th:href="@{/side/home}">
+                    <a th:href="@{/home}">
                         <i class='bx bx-home'></i>
                         <span class="links_name">Home</span>
 <!--                        <span class="tooltip">Home</span>-->
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{library}">
+                    <a th:href="@{/library/}">
                         <i class='bx bx-game' ></i>
                         <span class="links_name">Game</span>
 <!--                       <span class="tooltip">Home</span>-->
                     </a>
                 </li>
                 <li>
-                    <a th:href="@{tutors}">
+                    <a th:href="@{/tutors/}">
                         <i class='bx bx-headphone'></i>
                         <span class="links_name">Tutor</span>
 <!--                        <span class="tooltip">Home</span>-->
                     </a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a th:href="@{/subscription}">
                         <i class='bx bx-dollar-circle' style="color: #e73c7e"></i>
                         <span class="links_name" style="color: #e73c7e">Join Us</span>
 <!--                        <span class="tooltip">Home</span>-->
@@ -46,7 +46,7 @@
 
             <div class="profile_content">
                 <div class="profile" >
-                    <a href="/user" style="text-decoration: none;color: inherit">
+                    <a th:href="@{/profile/{username}(username=${session.loggedInUser.userName})}" style="text-decoration: none;color: inherit">
                         <div class="profile_details">
                             <img th:src="*{imageUrl}" alt="">
                             <div class="name_job">
