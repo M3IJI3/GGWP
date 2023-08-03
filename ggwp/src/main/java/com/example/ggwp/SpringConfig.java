@@ -3,7 +3,7 @@ package com.example.ggwp;
 import com.example.ggwp.repositories.comment.CommentDAOInterface;
 import com.example.ggwp.repositories.comment.CommentDataServiceRepository;
 
-import com.example.ggwp.repositories.forum.ForumDAO;
+import com.example.ggwp.repositories.forum.ForumDataAccessRepository;
 import com.example.ggwp.repositories.forum.ForumDAOInterface;
 import com.example.ggwp.repositories.game.GamesDataAccessInterface;
 import com.example.ggwp.repositories.game.GamesDataServiceForRepository;
@@ -21,8 +21,6 @@ import com.example.ggwp.services.user.UsersBusinessServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.context.annotation.RequestScope;
-import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
@@ -72,9 +70,8 @@ public class SpringConfig {
     @Bean(name = "forumDAO")
     public ForumDAOInterface getForumService()
     {
-        return new ForumDAO(dataSource);
+        return new ForumDataAccessRepository(dataSource);
     }
-
 
     @Bean
     public ClassLoaderTemplateResolver secondaryTemplateResolver() {

@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ForumModel {
-    long forum_id;
-    String forum_title;
+    long forumId;
+    String forumTitle;
     String type;
     String description;
-    String image_url;
+    String imageURL;
 }
