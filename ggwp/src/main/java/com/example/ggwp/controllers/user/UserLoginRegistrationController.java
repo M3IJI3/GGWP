@@ -106,6 +106,11 @@ public class UserLoginRegistrationController {
                                 postSubModelList));
             }
 
+            for(PostModel postModel : postModels)
+            {
+                System.out.println(postModel.getPostSubModelList());
+            }
+
 
             model.addAttribute("newComment", new CommentModel());
             session.setAttribute("postModels", postModels);

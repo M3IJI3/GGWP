@@ -1,7 +1,9 @@
 package com.example.ggwp.controllers.game;
 
+import com.example.ggwp.models.forum.ForumArticleModel;
 import com.example.ggwp.models.forum.ForumModel;
 import com.example.ggwp.models.game.GameModel;
+import com.example.ggwp.services.article.ArticleServiceInterface;
 import com.example.ggwp.services.forum.ForumService;
 import com.example.ggwp.services.forum.ForumServiceInterface;
 import com.example.ggwp.services.game.GamesBusinessServiceInterface;
@@ -21,6 +23,9 @@ public class GameController {
 
     @Resource
     ForumServiceInterface forumServiceInterface;
+
+    @Resource
+    ArticleServiceInterface articleServiceInterface;
 
     @GetMapping("/")
     public String showAllGames(Model model){
@@ -59,7 +64,12 @@ public class GameController {
     {
         ForumModel forumModel = forumServiceInterface.getByForumTitle(title);
         model.addAttribute("forumModel", forumModel);
-        System.out.println(forumModel);
+
+
+        List<ForumArticleModel> forumArticleModelList =
+                articleServiceInterface.getAllArticlesByForumId(forumModel.getForumId());
+        model.addAttribute("forumArticles", forumArticleModelList);
+
         return "forum";
     }
 }

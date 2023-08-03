@@ -34,7 +34,7 @@
             <div id="emoji-picker" class="emoji-container hidden"></div>
 
 
-                <input th:field="${newComment.content}" id="emoji-input" type="text" placeholder="What's in your mind?" required>
+                <input th:field="${newComment.content}" id="emoji-input" type="text" placeholder="Tap /game/ content to post" required>
                 <button type="submit">GG!</button>
 
         </div>
@@ -99,6 +99,8 @@
                                 <p th:text="${postSubModel.getContent()}">the sub comment will go here.</p>
                             </li>
                         </ul>
+
+
                     </div>
 
                     <!-- divider -->

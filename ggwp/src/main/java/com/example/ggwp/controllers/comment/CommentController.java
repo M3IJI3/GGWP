@@ -43,7 +43,6 @@ public class CommentController {
         commentServiceInterface.postOne(newComment, userModel);
 
 
-
         List<CommentModel> commentModels = commentServiceInterface.getComments();
         session.setAttribute("commentModels", commentModels);
 

@@ -40,36 +40,27 @@
 
             <div class="forum-game-articles">
                 <ul>
-                    <li>
+                    <li th:each="forumArticle : ${forumArticles}">
                         <div class="article-left-panel">
-                            <img src="https://wallpaperaccess.com/full/8026108.jpg" alt="">
-                            <div class="article-title">
-                                <a href="#">League new mode coming out!</a>
+                            <div class="article-title" >
+                                <a href="#" th:text="${forumArticle.getArticleTitle()}"></a>
                             </div>
                             <div class="summary">
                                 <div class="summary-left">
                                     <i class='bx bx-book'></i>
                                 </div>
-                                <div class="summary-right">
-                                    The launch of Arena coincides with the release of the franchise’s latest skin line,
-                                    where champions from Soul Fighter will occasionally make cameo appearances during matches.
-                                    These appearances can prove advantageous or disadvantageous for the players,
-                                    adding an extra layer of anticipation and strategy to the matches.
+                                <div class="summary-right" th:text="${forumArticle.getArticleContent()}">
+
                                 </div>
                             </div>
 
                         </div>
                         <div class="article-right-panel">
-                            <img src="https://www.zleague.gg/theportal/wp-content/uploads/2023/06/rav-riot-s-new-game-mode-is-exactly-what-league-of-legends-needed-1140x570.jpg" alt="">
+                            <img th:src="${forumArticle.getImageURL()}" alt="">
                         </div>
                         <div class="divider"></div>
                     </li>
-                    <li>
-                        <div class="article-left-panel"></div>
-                        <div class="article-right-panel">
-                            <img src="https://img.utdstc.com/screen/e25/838/e25838128eea795131ca034ab84198324673918402d8e43390c4e1d4a38c0b48:600" alt="">
-                        </div>
-                    </li>
+
                 </ul>
             </div>
 

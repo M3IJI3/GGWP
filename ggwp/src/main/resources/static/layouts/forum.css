@@ -179,6 +179,7 @@
 .article-title a{
     text-decoration: none;
     color: #333;
+    margin-left: 25px;
     transition: all 0.5s ease;
 }
 
