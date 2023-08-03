@@ -14,4 +14,6 @@ public interface UsersRepositoryInterface extends CrudRepository<UserEntity, Lon
 
     UserEntity findByUserName(String username);
 
+
+
 }

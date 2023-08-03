@@ -23,6 +23,15 @@ public class PostModel {
     long subCommentsCount;
     List<PostSubModel> postSubModelList;
 
+
+    public PostModel(String game, String imageUrl, String username, String content, LocalDate date){
+        this.game = game;
+        this.imageUrl = imageUrl;
+        this.username = username;
+        this.content = content;
+        this.date = date;
+    }
+
 //    public PostModel(String imageUrl, String username)
 //    {
 //        this.imageUrl = imageUrl;

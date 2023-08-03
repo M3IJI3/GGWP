@@ -8,7 +8,7 @@ import java.util.List;
 public interface CommentServiceInterface {
     CommentModel getByID(long id);
     List<CommentModel> getComments();
-    List<CommentModel> searchComments(String searchTerm);
+    List<CommentModel> searchComments(String content);
     long postOne(CommentModel comment, UserModel userModel);
 
 //    UserModel getUserByCommentUserId(long userid);

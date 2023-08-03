@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" layout:decorate="layouts/defaultLayout"
+      xmlns:layout="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>GG.WP - Search</title>
+</head>
+<body>
+  <div class="home_content content" layout:fragment="content">
+    <div class="left-wrapper-container">
+      <div class="container-profile" >
+        <div class="search-tab">
+
+          <div class="tab_box">
+            <button class="tab_btn active">Comment</button>
+            <button class="tab_btn">User</button>
+            <button class="tab_btn">Forum</button>
+            <button class="tab_btn">Articles</button>
+            <div class="line2"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container-content">
+        <div class="content-box">
+          <div class="comment-tab-content tab_content active">
+            <ul>
+              <li class="search-comment-results" th:each="searchPostModelResult : ${searchPostModelResults}">
+                  <div class="post_date" th:text="${searchPostModelResult.getDate()}" ></div>
+                  <div class="gameTitle" th:text="${searchPostModelResult.getGame()}"></div>
+                  <div class="user_comment_imgBox">
+                    <img th:src="${searchPostModelResult.getImageUrl()}" class="user_comment_img">
+                    <div class="user_comment_acc" th:text="'@'+${searchPostModelResult.getUsername()}" style="margin-left: 15px"></div>
+                  </div>
+                  <div class="user_comment_comment_search" th:text="${searchPostModelResult.getContent()}"></div>
+              </li>
+            </ul>
+          </div>
+          <div class="tab_content user-tab-content">
+            <ul>
+                <li th:each="userSearchResult : ${userSearchResults}">
+                  <img th:src="${userSearchResult.getImageUrl()}" alt="">
+                  <a target="_blank" th:text="'@'+${userSearchResult.getUserName()}" th:href="@{/profile/{username}(username=${userSearchResult.getUserName()})}"></a>
+                </li>
+            </ul>
+          </div>
+          <div class="tab_content" style="padding: 15px">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit assumenda similique praesentium neque, porro officiis quisquam id. Est quisquam quasi maxime exercitationem velit enim nisi, odio eveniet blanditiis necessitatibus quaerat.
+            </p>
+          </div>
+          <div class="tab_content" style="padding: 15px">
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sit assumenda similique praesentium neque, porro officiis quisquam id. Est quisquam quasi maxime exercitationem velit enim nisi, odio eveniet blanditiis necessitatibus quaerat.
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>
