@@ -8,15 +8,15 @@
 </head>
 <body>
     <div class="home_content content" layout:fragment="content">
-        <div class="forum-banner">
+        <div class="forum-banner" th:object="${forumModel}">
             <div class="forum-left-banner">
-                <img src="https://notagamer.net/wp-content/uploads/2023/01/Saint-League-of-Legends.jpeg" alt="">
+                <img th:src="${forumModel.getImage_url()}" alt="">
             </div>
             <div class="forum-right-banner">
                 <div class="forum-right-top-banner">
-                    <div class="title">
-                        League of Legends
-                        <div id="game-type">PVP, MOBA</div>
+                    <div class="title" th:text="${forumModel.getForum_title()}">
+                        Game Name
+                        <div id="game-type" th:text="${forumModel.getType()}">game type</div>
                     </div>
                     <button type="button">Join</button>
                     <div class="forum-data-span">
@@ -30,13 +30,7 @@
                         </div>
                     </div>
                     <div id="game-intro">
-                        <p><i class='bx bx-book' >&nbsp;</i>League of Legends (LoL), commonly referred to as League,
-                            is a 2009 multiplayer online battle arena video game developed and published by
-                            Riot Games. Inspired by Defense of Ancients, a custom map for Warcraft III,
-                            Riot's founders sought to develop a stand-alone game in the same genre.
-                            Since its release in October 2009, League has been free-to-play and is monetized
-                            through purchasable character customization. The game is available for Microsoft Windows
-                            and macOS.</p>
+                        <p th:text="${forumModel.getDescription()}"><i class='bx bx-book' >&nbsp;</i></p>
                     </div>
                 </div>
             </div>

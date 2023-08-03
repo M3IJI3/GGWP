@@ -3,6 +3,8 @@ package com.example.ggwp;
 import com.example.ggwp.repositories.comment.CommentDAOInterface;
 import com.example.ggwp.repositories.comment.CommentDataServiceRepository;
 
+import com.example.ggwp.repositories.forum.ForumDAO;
+import com.example.ggwp.repositories.forum.ForumDAOInterface;
 import com.example.ggwp.repositories.game.GamesDataAccessInterface;
 import com.example.ggwp.repositories.game.GamesDataServiceForRepository;
 
@@ -53,6 +55,7 @@ public class SpringConfig {
     }
     @Bean(name = "gamesDAO")
     public GamesDataAccessInterface getGameDataService() {
+
         return new GamesDataServiceForRepository(dataSource);
     }
 
@@ -64,6 +67,12 @@ public class SpringConfig {
     @Bean(name = "tutorAvailabilityDAO")
     public TutorAvailabilityDataAccessInterface getTutorAvailabilityService() {
         return new TutorAvailabilityDataAccessForRepository(dataSource);
+    }
+
+    @Bean(name = "forumDAO")
+    public ForumDAOInterface getForumService()
+    {
+        return new ForumDAO(dataSource);
     }
 
 

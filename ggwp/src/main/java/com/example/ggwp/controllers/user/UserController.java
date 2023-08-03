@@ -81,8 +81,8 @@ public class UserController {
 //    @RequestMapping("/tutors")
 //    public String TutorsPage() { return "/tutors_page"; }
 
-    @GetMapping(path = "/forum")
-    public String ForumPage(){ return "forum"; }
+//    @GetMapping(path = "/forum")
+//    public String ForumPage(){ return "forum"; }
 
     @GetMapping(path = "/forum_article_editor")
     public String ForumArticlePage(){ return "forum_article_editor"; }

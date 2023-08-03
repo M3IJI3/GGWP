@@ -22,6 +22,7 @@ public class GamesDataServiceForRepository implements GamesDataAccessInterface<G
     JdbcTemplate jdbcTemplate;
 
     public GamesDataServiceForRepository(DataSource dataSource) {
+
         this.jdbcTemplate = new JdbcTemplate(dataSource);
     }
 
