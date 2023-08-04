@@ -15,6 +15,10 @@ public class TutoringModel {
     private String description;
     private List<TutorAvailabilityModel> availabilities;
 
+    private String avatarImgUrl;
+
+    private String leftSideGameImgUrl;
+
     public TutoringModel() {
 
     }
@@ -112,5 +116,19 @@ public class TutoringModel {
         this.availabilities = availabilities;
     }
 
+    public String getAvatarImgUrl() {
+        return avatarImgUrl;
+    }
 
+    public void setAvatarImgUrl(String avatarImgUrl) {
+        this.avatarImgUrl = avatarImgUrl;
+    }
+
+    public String getLeftSideGameImgUrl() {
+        return leftSideGameImgUrl;
+    }
+
+    public void setLeftSideGameImgUrl(String leftSideGameImgUrl) {
+        this.leftSideGameImgUrl = leftSideGameImgUrl;
+    }
 }
