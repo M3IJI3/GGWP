@@ -46,15 +46,15 @@
 
             <div class="profile_content">
                 <div class="profile" >
-                    <a th:href="@{/profile/{username}(username=${session.loggedInUser.userName})}" style="text-decoration: none;color: inherit">
-                        <div class="profile_details">
+                    <a >
+                        <a target="_blank" style="text-decoration: none;color: inherit" th:href="@{/profile/{username}(username=${session.loggedInUser.userName})}" class="profile_details">
                             <img th:src="*{imageUrl}" alt="">
                             <div class="name_job">
                                 <div class="name" th:text="*{userName}">Name</div>
                                 <div class="job" th:text="*{role}">type</div>
                             </div>
-                        </div>
-                        <i class='bx bx-log-out' id="log_out"></i>
+                        </a>
+                        <a  style="text-decoration: none;color: inherit" th:href="@{/login}"><i class='bx bx-log-out' id="log_out"></i></a>
                     </a>
                 </div>
             </div>
