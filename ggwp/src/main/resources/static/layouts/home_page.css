@@ -244,12 +244,14 @@
     color: #babbbc;
 }
 
-#vip-logo {
+#vip-logo,  #diamond-logo {
     width: 25px;
     height: 25px;
     margin-left: 10px;
     position: absolute;
 }
+
+
 
 .users-post .post-content{
     margin-left: 70px;

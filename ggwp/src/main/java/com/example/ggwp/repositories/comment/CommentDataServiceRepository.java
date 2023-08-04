@@ -55,7 +55,7 @@ public class CommentDataServiceRepository implements CommentDAOInterface<Comment
     @Override
     public List<CommentModel> searchComments(String searchTerm) {
         List<CommentEntity> commentEntities =
-                commentEntityRepositoryInterface.findAllByContentContainingOrGameFieldContainingIgnoreCase(searchTerm, searchTerm);
+                commentEntityRepositoryInterface.findAllByContentContainingIgnoreCaseOrGameFieldContainingIgnoreCase(searchTerm, searchTerm);
 
         List<CommentModel> commentModelList = new ArrayList<>();
 
