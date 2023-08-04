@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Pattern;
 
 @Controller
 public class SearchController {
@@ -26,6 +27,8 @@ public class SearchController {
     @GetMapping("/search")
     public String showSearchResults(Model model,  @RequestParam(name = "keyword") String keyword)
     {
+        model.addAttribute("keyword", keyword);
+
         // find comments
         List<CommentModel> commentSearchResults = commentServiceInterface.searchComments(keyword);
 
@@ -47,6 +50,13 @@ public class SearchController {
                     commentSearchResults.get(i).getContent(),
                     commentSearchResults.get(i).getCommentDate()
             ));
+
+            String highlightKeywordInContent = commentSearchResults.get(i).getContent().replaceAll(keyword, "<span style='color:#0d6efd;font-weight:bold'>$0</span>");
+            String highlightKeywordInGameField = commentSearchResults.get(i).getGameField().replaceAll(keyword, "<span style='color:#0d6efd;font-weight:bold'>$0</span>");
+
+
+            searchPostModelResults.get(i).setContent(highlightKeywordInContent);
+            searchPostModelResults.get(i).setGame(highlightKeywordInGameField);
         }
 
         model.addAttribute("searchPostModelResults", searchPostModelResults);
@@ -54,8 +64,14 @@ public class SearchController {
 
         // find users
         List<UserModel> userSearchResults = usersBusinessService.searchUsers(keyword);
-        model.addAttribute("userSearchResults", userSearchResults);
 
+        for(int i = 0 ; i < userSearchResults.size() ; i++)
+        {
+            String highlightKeywordInUsername = userSearchResults.get(i).getUserName().replaceAll(keyword, "<span style='color:#0d6efd;font-weight:bold'>$0</span>");
+            userSearchResults.get(i).setUserName(highlightKeywordInUsername);
+        }
+
+        model.addAttribute("userSearchResults", userSearchResults);
         return "search";
     }
 }

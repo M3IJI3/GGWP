@@ -131,4 +131,10 @@ public class UserModel {
                 ", paymentType='" + paymentType + '\'' +
                 '}';
     }
+
+    public String removeString(String text)
+    {
+        String updated = text.replaceAll("<span style='color:#0d6efd;font-weight:bold'>", "");
+        return updated.replaceAll("</span>", "");
+    }
 }
