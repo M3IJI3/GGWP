@@ -36,7 +36,7 @@
                 <div class="tutor-details-header">
                     <div class="tutor-details-avatar">
                         <img
-                                src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
+                                th:src="${tutor.getAvatarImgUrl()}"
                                 alt=""
                         />
                     </div>
@@ -69,13 +69,15 @@
         <!-- <div class="image-container"> -->
         <img
           class="tutor-image"
-          src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Caitlyn_0.jpg"
+          th:src="${tutor.getLeftSideGameImgUrl()}"
           alt=""
         />
 
+
+
         <!-- </div> -->
         <div class="tutor-card-content">
-          <p th:text="'/ ' + ${tutor.getGameName()}" class="community-text"></p>
+          <p th:text="'/' + ${tutor.getGameName()}" class="community-text"></p>
           <i class="fa-regular fa-heart heart-icon"></i>
           <h2 th:text="${tutor.getTutorName()}"></h2>
           <div  class="tutor-description">
@@ -95,7 +97,7 @@
           </div>
           <div class="avatar">
             <img
-              src="https://gamefinity-assets.sgp1.digitaloceanspaces.com/wp-content/uploads/2023/06/08174146/Soundtrack-Bocchi-the-Rock.jpg"
+                    th:src="${tutor.getAvatarImgUrl()}"
               alt="Avatar"
             />
           </div>

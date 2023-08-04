@@ -49,7 +49,11 @@ public class TutoringController {
             GameModel game = gamesBusinessService.getById(tutor.getGameId());
             tutor.setAvailabilities(tutorAvailabilityBusinessService.getAllAvailabilities());
             tutor.setTutorName(user.getUserName());
-            tutor.setGameName(game.getTitle());
+            tutor.setGameName(game.getTitle().toLowerCase());
+            tutor.setAvatarImgUrl(user.getImageUrl());
+            tutor.setLeftSideGameImgUrl("/img/tutor-card-imgs/" + game.getTitle().toLowerCase().replaceAll("\\s", "") + "-tutor-img.jpeg");
+
+            System.out.println(tutor.getLeftSideGameImgUrl());
 
         }
 
