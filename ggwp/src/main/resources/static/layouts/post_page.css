@@ -59,6 +59,7 @@
   /*width: 10%;*/
   align-self: flex-start;
   border-radius: 10px;
+  padding: 10px;
 }
 
 .post-page-container .sponsor-avatar {
@@ -127,4 +128,22 @@
   max-width: 100%; /* The image will not exceed its container's width */
   height: auto;
   border-radius: 10px;
+}
+
+.post-page-post-author {
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 20px;
+}
+
+.post-page-author-box {
+  display: flex;
+  align-items: center;
+  margin: 10px;
+
+}
+
+.post-author h4 {
+  margin: 5px;
 }

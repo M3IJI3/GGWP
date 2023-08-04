@@ -6,8 +6,10 @@ import com.example.ggwp.dtos.forum.ForumPostDTO;
 import com.example.ggwp.models.user.UserModel;
 import com.example.ggwp.services.article.ArticleServiceInterface;
 import com.example.ggwp.services.forum.ForumServiceInterface;
+import com.example.ggwp.services.user.UsersBusinessServiceInterface;
 import jakarta.annotation.Resource;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.context.annotation.Primary;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -28,6 +30,9 @@ public class ForumController {
 
     @Resource
     ArticleServiceInterface articleServiceInterface;
+
+    @Resource
+    UsersBusinessServiceInterface userBusinessService;
 
 
 //    @GetMapping("/{title}")
@@ -92,8 +97,10 @@ public class ForumController {
     @GetMapping("/{title}/{id}")
     public String showArticlePage(Model model, @PathVariable(name = "id") long id) {
         ForumArticleModel articleModel = articleServiceInterface.getById(id);
+        UserModel userModel = userBusinessService.getById(Long.parseLong(articleModel.userID));
 
         model.addAttribute("articleModel", articleModel);
+        model.addAttribute("userModel", userModel);
 
         return "post_page";
     }
