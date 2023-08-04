@@ -98,6 +98,24 @@
             })
         })
     </script>
+    <script>
+        const tabs3 = document.querySelectorAll('.tab_btn');
+        const all_content3 = document.querySelectorAll('.tab_content');
+
+        tabs3.forEach((tab, index) => {
+            tab.addEventListener('click', (e) => {
+                tabs3.forEach(tab => tab.classList.remove('active'));
+                tab.classList.add('active');
+
+                var line3 = document.querySelector('.line3');
+                line3.style.width = e.target.offsetWidth + "px";
+                line3.style.left = e.target.offsetLeft + "px";
+
+                all_content3.forEach(content => content.classList.remove('active'))
+                all_content3[index].classList.add('active');
+            })
+        })
+    </script>
     <!DOCTYPE html>
     <html>
     <head>
