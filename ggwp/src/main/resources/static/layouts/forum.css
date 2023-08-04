@@ -165,15 +165,6 @@
     border-bottom: 3px solid rgba(241,241,241,0.7);
 }
 
-/*.forum-game-articles ul li .divider{*/
-/*    position: absolute;*/
-/*    width: calc(100% - 80px);*/
-/*    height: 3px;*/
-/*    top: 200px;*/
-/*    left: 80px;*/
-/*    background: rgba(241,241,241,0.7);*/
-/*    border-radius: 20px;*/
-/*}*/
 
 .forum-game-articles ul li .article-left-panel{
     width: 70%;

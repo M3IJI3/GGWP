@@ -4,7 +4,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
-  <title>GG.WP - Search</title>
+  <title th:text="'Search:' + ${keyword}"></title>
 </head>
 <body>
   <div class="home_content content" layout:fragment="content">
@@ -22,26 +22,30 @@
         </div>
       </div>
 
-      <div class="container-content">
+      <div class="container-content" >
         <div class="content-box">
           <div class="comment-tab-content tab_content active">
             <ul>
               <li class="search-comment-results" th:each="searchPostModelResult : ${searchPostModelResults}">
                   <div class="post_date" th:text="${searchPostModelResult.getDate()}" ></div>
-                  <div class="gameTitle" th:text="${searchPostModelResult.getGame()}"></div>
+                  <div class="gameTitle" th:utext="${searchPostModelResult.getGame()}"></div>
                   <div class="user_comment_imgBox">
                     <img th:src="${searchPostModelResult.getImageUrl()}" class="user_comment_img">
                     <div class="user_comment_acc" th:text="'@'+${searchPostModelResult.getUsername()}" style="margin-left: 15px"></div>
                   </div>
-                  <div class="user_comment_comment_search" th:text="${searchPostModelResult.getContent()}"></div>
+                  <div class="user_comment_comment_search" th:utext="${searchPostModelResult.getContent()}"></div>
+<!--                  <div class="user_comment_comment_search"-->
+<!--                       th:utext="${#strings.replace(searchPostModelResult.getContent(), keyword, '<span style=\'color:yellow\'>' + keyword + '</span>')}"></div>-->
+
               </li>
             </ul>
           </div>
           <div class="tab_content user-tab-content">
             <ul>
                 <li th:each="userSearchResult : ${userSearchResults}">
-                  <img th:src="${userSearchResult.getImageUrl()}" alt="">
-                  <a target="_blank" th:text="'@'+${userSearchResult.getUserName()}" th:href="@{/profile/{username}(username=${userSearchResult.getUserName()})}"></a>
+                  <img th:src="${userSearchResult.getImageUrl()}" th:alt="${userSearchResult.getUserName()}" >
+                  <a th:utext="'@'+${userSearchResult.getUserName()}" th:href="@{/profile/{username}(username=${userSearchResult.removeString(userSearchResult.getUserName())})}"></a>
+<!--                  <a th:utext="'@'+${userSearchResult.getUserName()}" th:href="@{/profile/{username}(username= )></a>-->
                 </li>
             </ul>
           </div>

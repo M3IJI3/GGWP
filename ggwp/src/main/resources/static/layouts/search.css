@@ -297,10 +297,5 @@ ul{
     height: fit-content;
     margin-top: 27px;
     text-decoration: none;
-    color: #9ec5fe;
-    animation: all 0.5s ease;
-}
-
-.user-tab-content ul li a:hover{
-    color: #0d6efd;
+    color: black;
 }
