@@ -129,11 +129,11 @@
     position: relative;
 }
 
-.line2{
+.line3{
     position: absolute;
     top: 30px;
-    left: 53px;
-    width: 36px;
+    left: 32px;
+    width: 68px;
     height: 5px;
     background-color: #0f4c81;
     border-radius: 15px;
