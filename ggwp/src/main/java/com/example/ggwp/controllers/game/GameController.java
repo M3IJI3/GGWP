@@ -68,6 +68,14 @@ public class GameController {
 
         List<ForumArticleModel> forumArticleModelList =
                 articleServiceInterface.getAllArticlesByForumId(forumModel.getForumId());
+
+        for(int i = 0 ; i < forumArticleModelList.size() ; i++)
+        {
+            String description = forumArticleModelList.get(i).getArticleContent();
+//            String extractedText = text.substring(0, Math.min(70, text.length()));
+            forumArticleModelList.get(i).setArticleContent(description.substring(0, Math.min(250, description.length())) + "...");
+        }
+
         model.addAttribute("forumArticles", forumArticleModelList);
 
 
