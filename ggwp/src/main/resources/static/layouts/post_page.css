@@ -4,21 +4,6 @@
   margin: 0;
 }
 
-/*body {*/
-/*  background-image: url("bj2.png");*/
-/*  background-repeat: repeat;*/
-/*  background-position: center;*/
-/*  font-family: "Inter", sans-serif;*/
-/*}*/
-
-/*.post-container {*/
-/*  display: flex;*/
-/*  justify-content: space-between;*/
-/*  width: 100%;*/
-/*  padding: 50px;*/
-/*  white-space: normal;*/
-/*}*/
-
 .post-page-container {
   display: grid;
   grid-template-columns: 10% 55% 20%;
@@ -50,6 +35,9 @@
 
 .action i:hover {
   transform: scale(1.2);
+}
+
+.action-box{
 }
 
 .action-box > div:not(:first-child) {
