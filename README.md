@@ -5,4 +5,4 @@ This web app is built by SpringBoot + Thymeleaf + Native Html, CSS, Javascript.
 
 
 ## How to use?
-`git clone`
+`git clone https://github.com/M3IJI3/GGWP.git` to local and open the project in IDE which supports Springboot project.
