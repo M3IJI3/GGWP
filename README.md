@@ -1,12 +1,43 @@
-# GGWP - A Web App Project
+# :seedling: GGWP - A Web App Project <sub>v: 0.0.1</sub>
 
-## Description:
-This web app is built by SpringBoot + Thymeleaf + Native Html, CSS, Javascript.
+## About GGWP
+GGWP is a gamers oriented community. It contains multiple trend game forums, games can find tutorial and tutors here.
 
+## Architecture of System
+* Technology Stack components
+* Frontend: HTML, CSS, JavaScript, Thyme leaf, Figma, Bootstrap
+* Backend:  Java, Spring Boot
+* Database:  MySQL, API
+* Deployment: Amazon Web Service
+* Versioning Control System: GitHub
 
 ## How to use?
-Please copy repo link
-``` 
+1. Please copy repo link to local and open the project in any IDE which supports Springboot project.
+```ruby
 git clone https://github.com/M3IJI3/GGWP.git
-``` 
-to local and open the project in IDE which supports Springboot project.
+```
+
+2. start your local `Apache` and `Mysql` service on `XAMPP`, check port number of each
+   
+   ![image](https://github.com/M3IJI3/GGWP/assets/34743976/971a590b-de9a-47a9-b60a-c66e5ad09ccd)
+  
+3. open you local `phpmyadmin` and import <span color="green">**`ggwp.sql`**</span> to your database
+
+   ![image](https://github.com/M3IJI3/GGWP/assets/34743976/31f2d6ab-70e1-4c05-9d0b-f8bea5282c53)
+
+4. modify your `application.properties`, change xxxx` to your port number found in **step2**
+ ```ruby
+ spring.datasource.url=jdbc:mysql://localhost:xxxx/ggwp
+ ```
+5. modify other parameters in `application.properties`, check and make sure if they are correct, someone may not have a password for your database, keep `yourpassword` empty if so
+```ruby
+spring.datasource.username = yourusername
+```
+
+```ruby
+spring.datasource.password = yourpassword
+```
+
+
+
+
