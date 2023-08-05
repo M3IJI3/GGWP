@@ -1,5 +1,7 @@
 # :mushroom: GGWP - A Web App Project :mushroom:
-> <sub>v: 0.0.1</sub>
+> v: 0.0.1
+
+
 :small_orange_diamond:[Jie Mei](https://github.com/M3IJI3) :small_orange_diamond: [Lucas da Silva Rocha](https://github.com/RochaLS) 
 :small_orange_diamond: [Ryan Yang](https://github.com/Ryan19900529) :small_orange_diamond: [Ngoc Nguyen](https://github.com/nndu)
 
