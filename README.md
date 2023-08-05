@@ -1,9 +1,11 @@
-# :seedling: GGWP - A Web App Project <sub>v: 0.0.1</sub>
+# :mushroom: GGWP - A Web App Project <sub>v: 0.0.1</sub> :mushroom:
+:small_orange_diamond:[Jie Mei](https://github.com/M3IJI3) :small_orange_diamond: [Lucas da Silva Rocha](https://github.com/RochaLS) 
+:small_orange_diamond: [Ryan Yang](https://github.com/Ryan19900529) :small_orange_diamond: [Ngoc Nguyen](https://github.com/nndu)
 
-## About GGWP
+## :notebook_with_decorative_cover: About GGWP
 GGWP is a gamers oriented community. It contains multiple trend game forums, games can find tutorial and tutors here.
 
-## Architecture of System
+## :bulb: What are used?
 * Technology Stack components
 * Frontend: HTML, CSS, JavaScript, Thyme leaf, Figma, Bootstrap
 * Backend:  Java, Spring Boot
@@ -11,7 +13,7 @@ GGWP is a gamers oriented community. It contains multiple trend game forums, gam
 * Deployment: Amazon Web Service
 * Versioning Control System: GitHub
 
-## How to use?
+## :mag_right: How to use?
 1. Please copy repo link to local and open the project in any IDE which supports Springboot project.
 ```ruby
 git clone https://github.com/M3IJI3/GGWP.git
