@@ -1,9 +1,9 @@
 package com.example.ggwp.models.user;
 
 public enum PaymentSubscriptionPlans {
-    FREE("free", 0.0, 0.0, 0.0, 0.0),
-    BASIC("basic", 9.99, 0.69, 0.49, 11.09),
-    VIP("vip", 19.99, 1.39, 0.99, 22.37);
+    FREE("non-vip", 0.0, 0.0, 0.0, 0.0),
+    BASIC("vip", 9.99, 0.69, 0.49, 11.09),
+    VIP("diamond", 19.99, 1.39, 0.99, 22.37);
 
     final String name;
 
